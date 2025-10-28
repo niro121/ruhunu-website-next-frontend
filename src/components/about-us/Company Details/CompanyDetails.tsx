@@ -53,7 +53,7 @@ const CompanyDetailsSection: React.FC = () => {
                 Additional Core Values
             </h2>
 
-            <p className="mb-10 pl-6">
+            <div className="mb-10 pl-6">
                 <ul className="list-disc">
                     <li>
                         Integrity
@@ -68,7 +68,7 @@ const CompanyDetailsSection: React.FC = () => {
                         Communication
                     </li>
                 </ul>
-            </p>
+            </div>
 
         </div>
       {/*Board of Directors*/}
