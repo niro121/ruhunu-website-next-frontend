@@ -3,7 +3,6 @@ import HeroSider from "@/components/home/hero-sider";
 import NewsAndArticleNews from "@/components/home/news-and-article-new-section";
 import OurServices from "@/components/home/services-section";
 import OurTestimonials from "@/components/home/testimonials-section";
-import Image from "next/image";
 
 export default function Home() {
     return (
