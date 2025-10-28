@@ -4,14 +4,49 @@ import "./globals.css";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// -------------------- FONTS ------------------------
+const opensansbold =  ({
+  src: [
+    {
+      path: "./fonts/opensans-bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-opensans-bold",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const opensansmedium = ({
+  src: [
+    {
+      path: "./fonts/opensans-medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-opensans-medium",
+});
+
+const opensansregular = ({
+  src: [
+    {
+      path: "./fonts/opensans-regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-opensans-regular",
+});
+
+const opensansextrabold = ({
+  src: [
+    {
+      path: "./fonts/opensans-extrabold.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-opensans-extrabold",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${opensansbold.variable} ${opensansmedium.variable} ${opensansregular.variable} ${opensansextrabold.variable}`}
       >
         <Navbar/>
         {children}
