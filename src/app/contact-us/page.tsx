@@ -1,9 +1,9 @@
 import React from "react";
-
-import ContactInfo from "../components/contactinfo";
-import HotlinesInfo from "../components/hotlineinfo";
-import ContactForm from "../components/contactform";
-import Banner1 from "../components/common/banner1";
+import Banner from "@/components/global/banner";
+import ContactInfo from "@/components/contact-us/contactinfo";
+import HotlinesInfo from "@/components/contact-us/hotlineinfo";
+import Banner1 from "@/components/common/banner1";
+import ContactForm from "@/components/contact-us/contactform";
 
 export default function page() {
   return (
