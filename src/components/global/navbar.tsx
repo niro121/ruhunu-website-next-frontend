@@ -76,7 +76,7 @@ export default function Navbar() {
       ],
     },
     { title: "News & Events", href: "/news" },
-    { title: "Contact", href: "/contact" },
+    { title: "Contact", href: "/contact-us" },
   ];
 
   // Dropdown grouping function (Parasails style)
