@@ -7,8 +7,8 @@ export default function NewStoryPage() {
         <main className="overflow-hidden">
             <Banner
                 title="News & Event"
-                backgroundImage="images/NewsAndEvent/News_DesktopBG.png"
-                mobileBackgroundImage="images/NewsAndEvent/News_MobileBG.jpg"
+                backgroundImage="/images/NewsAndEvent/News_DesktopBG.png"
+                mobileBackgroundImage="/images/NewsAndEvent/News_MobileBG.jpg"
                 breadcrumbs={[{ label: "Home", href: "/" }, { label: "Doctors" }]}
             />
             <Text/>
