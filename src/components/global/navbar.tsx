@@ -75,7 +75,7 @@ export default function Navbar() {
         },
       ],
     },
-    { title: "News & Events", href: "/news" },
+    { title: "News & Events", href: "/news-&-event" },
     { title: "Contact", href: "/contact-us" },
   ];
 
