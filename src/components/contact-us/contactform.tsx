@@ -30,7 +30,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center xl:mt-32 mt-16 ml-6 mr-6">
+    <div className="flex justify-center items-center xl:py-16 mt-16 ml-6 mr-6">
       <div className="bg-[#f4f9fd] shadow-md rounded-md xl:w-[900px] xl:h-[930px] w-auto h-[930px] xl:p-20 p-5">
         <h2 className="text-center xl:text-[40px] text-[28px] font-extrabold text-[#0b2139] mb-14">
           Contact Us Form
@@ -108,7 +108,7 @@ const ContactForm: React.FC = () => {
           <div className="flex justify-center xl:mt-12 mt-12">
             <button
               type="submit"
-              className="bg-[#18CE67] hover:bg-[#16b85d] text-white xl:text-[16px] text-[12px] xl:w-[200px] xl:h-[60px] w-[130px] h-[40px] px-6 py-2 rounded-[5px] font-bold transition-colors duration-200"
+              className="bg-[#18CE67] hover:bg-[#16b85d] text-white xl:text-[16px] text-[11.5px] xl:w-[200px] xl:h-[60px] w-[130px] h-[40px] px-6 py-2 rounded-[5px] font-bold transition-colors duration-200"
             >
               Send Message
             </button>
