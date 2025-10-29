@@ -10,8 +10,8 @@ export default function page() {
     <div>
       <Banner
         title="Contact Us"
-        backgroundImage="/images/contactusbanner.png"
-        mobileBackgroundImage="/images/contactusbanner.jpg"
+        backgroundImage="/images/contactus/contactusbanner.png"
+        mobileBackgroundImage="/images/contactus/contactusbanner.jpg"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact Us" }]}
       />
 

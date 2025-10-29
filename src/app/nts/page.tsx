@@ -13,8 +13,8 @@ export default function page() {
     <div>
       <Banner
         title="Nursing Training School (NTS)"
-        backgroundImage="/images/ntswebbg.png"
-        mobileBackgroundImage="/images/ntsmobilebg.jpg"
+        backgroundImage="/images/nts/ntswebbg.png"
+        mobileBackgroundImage="/images/nts/ntsmobilebg.jpg"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Nursing Training School" }]}
       />
 

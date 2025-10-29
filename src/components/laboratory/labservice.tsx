@@ -10,13 +10,13 @@ export default function LabService() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const services = [
-    { id: 1, src: "/images/microbiology.jpg", title: "Microbiology" },
-    { id: 2, src: "/images/biochemistry.jpg", title: "Biochemistry" },
-    { id: 3, src: "/images/immuinulogy.jpg", title: "Immuinulogy" },
-    { id: 4, src: "/images/pathology.jpg", title: "Pathology" },
-    { id: 5, src: "/images/heamatology.jpg", title: "Heamatology" },
-    { id: 6, src: "/images/himataloghy.jpg", title: "Himataloghy" },
-    { id: 7, src: "/images/serology.jpg", title: "Serology" },
+    { id: 1, src: "/images/laboratory/microbiology.jpg", title: "Microbiology" },
+    { id: 2, src: "/images/laboratory/biochemistry.jpg", title: "Biochemistry" },
+    { id: 3, src: "/images/laboratory/immuinulogy.jpg", title: "Immuinulogy" },
+    { id: 4, src: "/images/laboratory/pathology.jpg", title: "Pathology" },
+    { id: 5, src: "/images/laboratory/heamatology.jpg", title: "Heamatology" },
+    { id: 6, src: "/images/laboratory/himataloghy.jpg", title: "Himataloghy" },
+    { id: 7, src: "/images/laboratory/serology.jpg", title: "Serology" },
   ];
 
   const totalSlides = services.length;

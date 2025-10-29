@@ -7,7 +7,7 @@ interface OverView1Props {
 }
 
 export default function Overview1({
-  imageSrc = "/images/lab-web.jpg",
+  imageSrc = "/images/laboratory/lab-web.jpg",
 }: OverView1Props) {
   return (
     <section className="xl:px-32 px-4 xl:py-16 py-12 xl:-mb-16">

@@ -20,12 +20,12 @@ export default function Accreditation() {
   }, []);
 
   const accreditations = [
-    { id: 1, src: "/images/1.jpg", title: "External Quality Assurance" },
-    { id: 2, src: "/images/2.jpg", title: "EQA BY MRI – Microbiology" },
-    { id: 3, src: "/images/3.jpg", title: "ISO Certified Laboratory" },
-    { id: 4, src: "/images/1.jpg", title: "External Quality Assurance" },
-    { id: 5, src: "/images/2.jpg", title: "EQA BY MRI – Microbiology" },
-    { id: 6, src: "/images/3.jpg", title: "ISO Certified Laboratory" },
+    { id: 1, src: "/images/laboratory/1.jpg", title: "External Quality Assurance" },
+    { id: 2, src: "/images/laboratory/2.jpg", title: "EQA BY MRI – Microbiology" },
+    { id: 3, src: "/images/laboratory/3.jpg", title: "ISO Certified Laboratory" },
+    { id: 4, src: "/images/laboratory/1.jpg", title: "External Quality Assurance" },
+    { id: 5, src: "/images/laboratory/2.jpg", title: "EQA BY MRI – Microbiology" },
+    { id: 6, src: "/images/laboratory/3.jpg", title: "ISO Certified Laboratory" },
   ];
 
   if (!isClient) return null;
