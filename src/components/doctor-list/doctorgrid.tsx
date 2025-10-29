@@ -18,37 +18,37 @@ const DoctorGrid: React.FC = () => {
       id: 1,
       name: "DR.(MRS) HARSHANI DHARMAWARDENA",
       specialty: "Pediatric Nephrologist",
-      image: "/images/doctor5.png",
+      image: "/images/doctorlist/doctor5.png",
     },
     {
       id: 2,
       name: "DR.(MRS) LALITHA SENARATH",
       specialty: "Eye Surgeon",
-      image: "/images/doctor2.jpg",
+      image: "/images/doctorlist/doctor2.jpg",
     },
     {
       id: 3,
       name: "DR. DIMANTHA DE SILVA",
       specialty: "Genito Urinary Surgeon",
-      image: "/images/doctor3.jpg",
+      image: "/images/doctorlist/doctor3.jpg",
     },
     {
       id: 4,
       name: "DR.(MRS) IRESHA HETTIARACHCHI",
       specialty: "Nephrologist",
-      image: "/images/doctor4.jpg",
+      image: "/images/doctorlist/doctor4.jpg",
     },
     {
       id: 5,
       name: "DR. NARAYANA",
       specialty: "Ayurvedic",
-      image: "/images/doctor5.png",
+      image: "/images/doctorlist/doctor5.png",
     },
     {
       id: 6,
       name: "DR. H H L K FERNANDO",
       specialty: "Andrologist",
-      image: "/images/doctor6.jpg",
+      image: "/images/doctorlist/doctor6.jpg",
     },
   ];
 

@@ -36,8 +36,8 @@ export default function page() {
     <div>
       <Banner
         title="Doctors"
-        backgroundImage="/images/bg.png"
-        mobileBackgroundImage="/images/mobilebanner.jpg"
+        backgroundImage="/images/doctorlist/bg.png"
+        mobileBackgroundImage="/images/doctorlist/mobilebanner.jpg"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Doctors" }]}
       />
 
