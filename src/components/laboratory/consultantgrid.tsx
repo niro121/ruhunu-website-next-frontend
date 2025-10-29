@@ -18,19 +18,19 @@ const ConsultantGrid: React.FC = () => {
       id: 1,
       name: "PROF. GAYA BANDARA",
       specialty: "Microbiologist",
-      image: "/images/consultant1.jpg",
+      image: "/images/laboratory/consultant1.jpg",
     },
     {
       id: 2,
       name: "PROF. CHANDANA WICKRAMARATHNA",
       specialty: "Hematologist",
-      image: "/images/consultant2.jpg",
+      image: "/images/laboratory/consultant2.jpg",
     },
     {
       id: 3,
       name: "DR.(MRS) HARSHANI THABREW",
       specialty: "Consultant Mycologist",
-      image: "/images/consultant3.jpg",
+      image: "/images/laboratory/consultant3.jpg",
     },
   ];
 
