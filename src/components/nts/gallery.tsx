@@ -8,9 +8,9 @@ import "swiper/css/pagination";
 
 export default function Gallery() {
   const images = [
-    { id: 1, src: "/images/gallery1.png", alt: "Gallery image 1" },
-    { id: 2, src: "/images/gallery2.png", alt: "Gallery image 2" },
-    { id: 3, src: "/images/gallery3.png", alt: "Gallery image 3" },
+    { id: 1, src: "/images/nts/gallery1.png", alt: "Gallery image 1" },
+    { id: 2, src: "/images/nts/gallery2.png", alt: "Gallery image 2" },
+    { id: 3, src: "/images/nts/gallery3.png", alt: "Gallery image 3" },
   ];
 
   return (
