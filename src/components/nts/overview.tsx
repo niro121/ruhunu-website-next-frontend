@@ -7,7 +7,7 @@ interface OverViewProps {
 }
 
 export default function Overview({
-  imageSrc = "/images/ntsoverview.jpg", // replace with your actual path
+  imageSrc = "/images/nts/ntsoverview.jpg", // replace with your actual path
 }: OverViewProps) {
   return (
     <section className="xl:px-32 px-4 xl:py-16 py-16 bg-white">

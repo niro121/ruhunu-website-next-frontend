@@ -8,7 +8,7 @@ export default function NursingBanner() {
       {/* Background Image */}
       <div className="relative w-full h-[400px] xl:h-[300px]">
         <Image
-          src="/images/ntsbanner.png"
+          src="/images/nts/ntsbanner.png"
           alt="Nursing Banner"
           fill
           priority
