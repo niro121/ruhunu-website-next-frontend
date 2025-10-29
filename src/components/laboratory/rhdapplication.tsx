@@ -44,7 +44,7 @@ export default function RhdApplication() {
             <div className="flex justify-start xl:justify-start items-center gap-4 flex-wrap">
               <a href="#" aria-label="App Store">
                 <Image
-                  src="/images/7.png"
+                  src="/images/laboratory/7.png"
                   alt="App Store"
                   width={140}
                   height={45}
@@ -53,7 +53,7 @@ export default function RhdApplication() {
               </a>
               <a href="#" aria-label="Google Play">
                 <Image
-                  src="/images/8.png"
+                  src="/images/laboratory/8.png"
                   alt="Google Play"
                   width={140}
                   height={45}
@@ -68,7 +68,7 @@ export default function RhdApplication() {
         <div className="col-span-12 xl:col-span-6 flex justify-center xl:justify-center">
           <div className="relative w-auto xl:w-[350px] xl:h-[345px]">
             <Image
-              src="/images/9.png"
+              src="/images/laboratory/9.png"
               alt="RHD App Mobile Preview"
               width={400}
               height={800}

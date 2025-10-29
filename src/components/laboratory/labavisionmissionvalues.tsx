@@ -7,7 +7,7 @@ interface LabVisionMissionValuesProps {
 }
 
 export default function LabVisionMissionValues({
-  imageSrc = "/images/labweb.jpg",
+  imageSrc = "/images/laboratory/labweb.jpg",
 }: LabVisionMissionValuesProps) {
   return (
     <section className="xl:px-32 px-4 xl:py-12 py-8">
