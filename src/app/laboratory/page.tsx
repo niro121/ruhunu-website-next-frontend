@@ -17,8 +17,8 @@ export default function page() {
     <div>
       <Banner
         title="Laboratories"
-        backgroundImage="/images/labweb.png"
-        mobileBackgroundImage="/images/labmobile.jpg"
+        backgroundImage="/images/laboratory/labweb.png"
+        mobileBackgroundImage="/images/laboratory/labmobile.jpg"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Laboratories" }]}
       />
 
