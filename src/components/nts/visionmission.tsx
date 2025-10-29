@@ -7,7 +7,7 @@ interface VisionMissionProps {
 }
 
 export default function VisionMission({
-  imageSrc = "/images/ntsimage.jpg", // replace with your actual image path
+  imageSrc = "/images/nts/ntsimage.jpg", // replace with your actual image path
 }: VisionMissionProps) {
   return (
     <section className="xl:px-32 px-4 xl:py-2 py-6">
