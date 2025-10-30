@@ -20,7 +20,7 @@ export default function HotlinesInfo() {
   ];
 
   return (
-    <section className="xl:px-32 px-4 xl:py-12 py-10">
+    <section className="xl:px-32 lg:px-30 md:px-16 sm:px-4 xl:py-12 py-10">
       {/* Heading */}
       <h1 className="xl:text-[40px] text-[28px] font-extrabold text-[#18CE67] mb-10">
         Hotlines

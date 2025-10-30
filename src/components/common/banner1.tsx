@@ -17,7 +17,7 @@ export default function Banner1({
 }: Banner1Props) {
   return (
     <section
-      className={`flex flex-col bg-[#f4f9fd] xl:py-20 xl:px-32 px-4 py-10 xl:mt-16 mt-16 ${className}`}
+      className={`flex flex-col bg-[#f4f9fd] xl:py-20 xl:px-32 lg:px-30 md:px-16 sm:px-4 py-10 xl:mt-16 mt-16 ${className}`}
     >
       <div className="grid grid-cols-12 gap-10 items-center">
         {/* Left Content */}
