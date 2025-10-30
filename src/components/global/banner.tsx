@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation";
 
 interface BreadcrumbItem {
   label: string;
-  href?: string; // if present → link, else just text
+  href?: string;
 }
 
 interface BannerProps {
   title: string;
-  backgroundImage?: string; // Desktop background
-  mobileBackgroundImage?: string; // Mobile background
+  backgroundImage?: string; 
+  mobileBackgroundImage?: string;
   breadcrumbs?: BreadcrumbItem[];
 }
 
@@ -50,7 +50,7 @@ const Banner: React.FC<BannerProps> = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full xl:px-32 px-6 flex flex-col justify-center h-full">
+      <div className="relative z-10 w-full xl:px-32 lg:px-30 md:px-16 sm:px-6 flex flex-col justify-center h-full">
         <h1 className="font-extrabold text-[#122739] text-[28px] xl:text-[48px] leading-tight">
           {title}
         </h1>

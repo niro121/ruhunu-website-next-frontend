@@ -10,7 +10,7 @@ const scoialIcon = [
 
 const mainMenu = [
     { name: "Home", url: "/" },
-    { name: "About Us", url: "/" },
+    { name: "About Us", url: "/about-us" },
     { name: "Services & Facilities", url: "/" },
     { name: "International Patients", url: "/" },
     { name: "Home", url: "/"},

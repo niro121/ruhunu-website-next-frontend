@@ -77,7 +77,7 @@ export default function OurTestimonials () {
                         </div>
                         <div className="p-[16px] flex justify-end self-end mt-auto">
                             <Image
-                                src="/colean.png"
+                                src="/images/home/colean.png"
                                 alt=""
                                 width={36}
                                 height={27}

@@ -5,7 +5,7 @@ export default function AboutUs () {
         <div className="px-[10px] md:px-[20px] lg:px-[50px] py-[70px] bg-white grid grid-cols-1 md:grid-cols-2 gap-[30px]">
             <div className="relative w-full h-[570px]">
                 <Image
-                    src="/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg"
+                    src="/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg"
                     alt="about us image"
                     fill
                     className="object-cover"
