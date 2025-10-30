@@ -30,8 +30,8 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center xl:py-16 mt-16 ml-6 mr-6">
-      <div className="bg-[#f4f9fd] shadow-md rounded-md xl:w-[900px] xl:h-[930px] w-auto h-[930px] xl:p-20 p-5">
+    <div className="flex justify-center items-center xl:py-16 py-10 mt-10 ml-6 mr-6">
+      <div className="bg-[#f4f9fd] shadow-md rounded-md xl:w-[900px] xl:h-[930px] w-auto h-[830px] xl:p-20 p-5">
         <h2 className="text-center xl:text-[40px] text-[28px] font-extrabold text-[#0b2139] mb-14">
           Contact Us Form
         </h2>
