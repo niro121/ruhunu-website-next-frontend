@@ -4,22 +4,22 @@ import { useState } from "react";
 import Image from "next/image";
 
 const serviceData = [
-    { link: "/", image: "/8.png", heading: "Ruhunu Surgical Center" },
-    { link: "/", image: "/9.png", heading: "Ruhunu Wellness Center" },
-    { link: "/", image: "/10.png", heading: "Ruhunu Maternity Center" },
-    { link: "/", image: "/11.png", heading: "Ruhunu Radiology Department" },
-    { link: "/", image: "/12.png", heading: "Ruhunu Outpatient Department (OPD) and ETU Center" },
-    { link: "/", image: "/13.png", heading: "Ruhunu Dental Clinic" },
-    { link: "/", image: "/8.png", heading: "Ruhunu Eye Care Unit" },
-    { link: "/", image: "/9.png", heading: "Ruhunu Physiotherapy Department" },
-    { link: "/", image: "/10.png", heading: "Ruhunu Pharmacy" },
-    { link: "/", image: "/11.png", heading: "Ruhunu Laboratory" },
-    { link: "/", image: "/12.png", heading: "Ruhunu Counseling Center" },
-    { link: "/", image: "/13.png", heading: "Ruhunu Nutrition Unit" },
-    { link: "/", image: "/8.png", heading: "Ruhunu Child Care Center" },
-    { link: "/", image: "/9.png", heading: "Ruhunu Orthopedic Unit" },
-    { link: "/", image: "/10.png", heading: "Ruhunu ENT Clinic" },
-    { link: "/", image: "/11.png", heading: "Ruhunu Cardiology Center" },
+    { link: "/", image: "/images/home/8.png", heading: "Ruhunu Surgical Center" },
+    { link: "/", image: "/images/home/9.png", heading: "Ruhunu Wellness Center" },
+    { link: "/", image: "/images/home/10.png", heading: "Ruhunu Maternity Center" },
+    { link: "/", image: "/images/home/11.png", heading: "Ruhunu Radiology Department" },
+    { link: "/", image: "/images/home/12.png", heading: "Ruhunu Outpatient Department (OPD) and ETU Center" },
+    { link: "/", image: "/images/home/13.png", heading: "Ruhunu Dental Clinic" },
+    { link: "/", image: "/images/home/8.png", heading: "Ruhunu Eye Care Unit" },
+    { link: "/", image: "/images/home/9.png", heading: "Ruhunu Physiotherapy Department" },
+    { link: "/", image: "/images/home/10.png", heading: "Ruhunu Pharmacy" },
+    { link: "/", image: "/images/home/11.png", heading: "Ruhunu Laboratory" },
+    { link: "/", image: "/images/home/12.png", heading: "Ruhunu Counseling Center" },
+    { link: "/", image: "/images/home/13.png", heading: "Ruhunu Nutrition Unit" },
+    { link: "/", image: "/images/home/8.png", heading: "Ruhunu Child Care Center" },
+    { link: "/", image: "/images/home/9.png", heading: "Ruhunu Orthopedic Unit" },
+    { link: "/", image: "/images/home/10.png", heading: "Ruhunu ENT Clinic" },
+    { link: "/", image: "/images/home/11.png", heading: "Ruhunu Cardiology Center" },
 ];
 
 export default function OurServices() {
@@ -49,7 +49,7 @@ export default function OurServices() {
                                     src={data.image}
                                     width={35}
                                     height={35}
-                                    alt={data.heading}
+                                    alt="icon"
                                 />
                             </div>
 
