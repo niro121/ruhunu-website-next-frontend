@@ -17,7 +17,7 @@ const HospitalCard: React.FC<HospitalCardProps> = ({
   link,
 }) => {
   return (
-    <div className="bg-[#f4f9fd] rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+    <div className="bg-[#f4f9fd] overflow-hidden shadow hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
       {/* Image */}
       <div className="w-full h-56 relative flex-shrink-0">
         <Image src={image} alt={`${title} ${location}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw"/>
