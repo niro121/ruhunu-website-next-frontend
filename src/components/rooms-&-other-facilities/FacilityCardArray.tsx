@@ -72,7 +72,7 @@ const FacilityCardArray: React.FC = () => {
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const [activeGroup, setActiveGroup] = useState(0);
-  const [groupSize, setGroupSize] = useState(3); // default to 3 for large screens
+  const [groupSize, setGroupSize] = useState(3);
 
   // Detect screen size and adjust group size
   useEffect(() => {
@@ -132,7 +132,7 @@ const FacilityCardArray: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-6 px-6 mb-20 md:px-32">
+    <div className="w-full flex flex-col items-center gap-6 px-6 mb-20 md:px-32 no-scrollbar overflow-hidden">
       <h2 className="text-[#122739] text-[40px] text-center font-extrabold my-10">
         <span className="text-[#18CE67]">Other </span>Facilities
       </h2>
@@ -155,7 +155,7 @@ const FacilityCardArray: React.FC = () => {
           {facilities.map((facility, index) => (
             <div
               key={index}
-              className="flex-shrink-0 scroll-snap-align-start w-full lg:w-1/3"
+              className="flex-shrink-0 scroll-snap-align-start w-full lg:w-1/3 no-scrollbar"
             >
               <FacilityCard
                 image={facility.image}
@@ -173,7 +173,7 @@ const FacilityCardArray: React.FC = () => {
           <button
             key={i}
             onClick={() => handleIndicatorClick(i)}
-            className={`w-3 h-3 rounded-full border-1 transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full border transition-all duration-300 ${
               i === activeGroup
                 ? "bg-[#18CE67] border-[#18CE67]"
                 : "bg-white border-[#18CE67]"
@@ -186,4 +186,5 @@ const FacilityCardArray: React.FC = () => {
 };
 
 export default FacilityCardArray;
+
 
