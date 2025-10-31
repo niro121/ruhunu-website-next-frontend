@@ -8,7 +8,6 @@ import OurTestimonials from "@/components/home/testimonials-section";
 export default function Home() {
     return (
         <div>
-            <WelcomePopup />
             <HeroSider/>
             <AboutUs/>
             <OurServices/>
