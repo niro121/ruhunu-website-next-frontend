@@ -68,7 +68,7 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
                       {job.closingDate}
                     </td>
                     <td className="py-2 sm:py-3 px-2 sm:px-4">
-                      <Button1 text="Apply" url={jobLink} />
+                      <Button1 text="Apply" url={`${jobLink}?apply=true`} />
                     </td>
                   </tr>
                 );
@@ -78,9 +78,7 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
         </div>
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex items-center justify-center gap-1 sm:gap-2 mb-8 text-sm sm:text-base">
-        {/* Previous */}
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
@@ -104,7 +102,6 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
           </button>
         ))}
 
-        {/* Next */}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
