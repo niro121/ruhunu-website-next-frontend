@@ -61,7 +61,7 @@ export default function LabTestList() {
 
         {/* Dropdown Body */}
         {isOpen && (
-          <div className="xl:py-6 py-4 bg-white">
+          <div className="xl:py-6 py-4">
             {/* Category List */}
             <div className="space-y-1 xl:mb-6 xl:mt-6 mt-4">
               {testCategories.map((cat, index) => (
@@ -80,15 +80,15 @@ export default function LabTestList() {
               {testData.map((test) => (
                 <div
                   key={test.id}
-                  className="grid grid-cols-3 border-b border-gray-200 text-gray-700 text-left"
+                  className="grid grid-cols-[100px_300px_1fr] border-b border-gray-200 text-gray-700"
                 >
-                  <div className="p-3 border-r border-gray-300 xl:text-[16px] text-[12px] font-normal">
+                  <div className="p-3 border-r border-gray-300 xl:text-[16px] text-[12px] font-normal text-left">
                     {test.id}
                   </div>
-                  <div className="p-3 border-r border-gray-300 xl:text-[16px] text-[12px] font-normal">
+                  <div className="p-3 border-r border-gray-300 xl:text-[16px] text-[12px] font-normal text-left">
                     {test.code}
                   </div>
-                  <div className="p-3 xl:text-[16px] text-[11px] font-normal">
+                  <div className="p-3 xl:text-[16px] text-[11px] font-normal text-left">
                     {test.name}
                   </div>
                 </div>
