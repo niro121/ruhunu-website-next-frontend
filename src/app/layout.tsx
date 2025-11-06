@@ -65,6 +65,7 @@ export default function RootLayout({
       <body
         className={`${opensansbold.variable} ${opensansmedium.variable} ${opensansregular.variable} ${opensansextrabold.variable}`}
       >
+        <WelcomePopup/>
         <Navbar/>
         {children}
         <Footer/>
