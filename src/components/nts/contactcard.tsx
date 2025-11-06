@@ -27,7 +27,7 @@ export default function ContactCard() {
         {contactData.map((item, index) => (
           <div
             key={index}
-            className="bg-[#EAF9F2] rounded-[10px] shadow-md transition-all duration-300 px-6 py-8 flex flex-col justify-center"
+            className="bg-[#EAF9F2] rounded-[10px] shadow-md transition-all duration-300 xl:px-10 xl:py-6 px-8 py-6 flex flex-col justify-center"
           >
             <div className="flex items-center gap-4 mb-3">
               <Image
@@ -37,7 +37,7 @@ export default function ContactCard() {
                 height={24}
                 className="object-contain"
               />
-              <h3 className="xl:text-[24px] font-extrabold text-[#18CE67]">{item.title}</h3>
+              <h3 className="xl:text-[24px] text-[22px] font-extrabold text-[#18CE67]">{item.title}</h3>
             </div>
             <p className="xl:text-[16px] text-[#122739] font-semibold">{item.info}</p>
           </div>
