@@ -62,7 +62,7 @@ export default function Footer() {
                     <p className="text-white text-[12px] text-center mt-[24px] mb-[40px]">Ruhunu Hospital is the no.1 doctor channelling service located in
                   the Southern Province's medical hub. Book your appointment, at your convenience and be Safe.</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-[30px]">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-[30px] text-white">
                     <div className="col-span-3">
                         <h1 className="text-[24px] mb-[24px] text-[#18CE67] font-bold">Quick Links</h1>
                         <div className="w-full grid grid-cols-2 md:grid-cols-3">
@@ -73,7 +73,7 @@ export default function Footer() {
                             ))}
                         </div>
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-2 ">
                         <h1 className="text-[24px] mb-[24px] text-[#18CE67] font-bold">Get In Touch</h1>
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <div className="">
