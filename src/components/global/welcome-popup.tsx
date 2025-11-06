@@ -15,7 +15,7 @@ export default function WelcomePopup() {
     if (!showPopup) return null;
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-99">
             <div className="relative bg-white rounded-[9px] shadow-xl max-w-[500px] w-[500px] h-[500px] p-[24px] text-center animate-fadeIn">
                 {/* Close Button */}
                 <button
