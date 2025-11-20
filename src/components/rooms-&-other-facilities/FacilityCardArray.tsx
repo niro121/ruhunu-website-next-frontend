@@ -33,11 +33,14 @@ const FacilityCardArray: React.FC = () => {
       image: "/images/Facilities/Cards/Facilities/InsuranceFacilitiesCardImg.jpg",
       title: "Insurance Facility & Agarahara",
       content: `
-        <p>
-          Insurance Facility and Agarahara 
-          <br><br>
-          <a href="" className="text-gray-500">View More</a>
-        </p>
+        <div>
+          <p>Insurance Facility and Agarahara</p>
+          <br>
+          <div class="flex justify-center gap-2 text-[#777] hover:text-[#2fd376] font-medium cursor-pointer group">
+            <span>View More</span>
+            <span class="transition-all duration-300 group-hover:translate-x-1">→</span>
+          </div>
+        </div>
       `,
     },
     {
@@ -133,7 +136,7 @@ const FacilityCardArray: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-6 px-6 mb-20 md:px-32 no-scrollbar overflow-hidden">
-      <h2 className="text-[#122739] text-[40px] text-center font-extrabold my-10">
+      <h2 className="text-[#122739] text-lg md:text-[40px] text-center font-extrabold my-10">
         <span className="text-[#18CE67]">Other </span>Facilities
       </h2>
 

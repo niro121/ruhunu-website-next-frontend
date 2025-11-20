@@ -13,11 +13,11 @@ const RoomCardArray: React.FC = () => {
 
   return (
     <section className="px-6 md:px-32 py-10 " id="Rooms Section">
-      <h2 className="text-[#122739] text-[40px] text-center font-extrabold my-10">
+      <h2 className="text-[#122739] text-lg md:text-[40px] text-center font-extrabold my-10">
         Rooms <span className="text-[#18CE67]">Facilities</span>
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {rooms.map((room, index) => (
           <RoomCard
             key={index}
