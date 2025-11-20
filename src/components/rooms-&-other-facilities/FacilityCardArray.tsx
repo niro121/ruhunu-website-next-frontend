@@ -154,7 +154,7 @@ const FacilityCardArray: React.FC = () => {
         className="w-full overflow-x-scroll no-scrollbar cursor-grab active:cursor-grabbing scroll-smooth"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           {facilities.map((facility, index) => (
             <div
               key={index}
