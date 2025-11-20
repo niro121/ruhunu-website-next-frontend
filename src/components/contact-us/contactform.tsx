@@ -1,6 +1,6 @@
 "use client";
-
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface ContactFormData {
   name: string;
@@ -17,6 +17,8 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -24,9 +26,20 @@ const ContactForm: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleRecaptcha = (token: string | null) => {
+    setCaptchaToken(token);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!captchaToken) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
+
     console.log("Form submitted:", formData);
+    console.log("Captcha Token:", captchaToken);
   };
 
   return (
@@ -97,11 +110,12 @@ const ContactForm: React.FC = () => {
             />
           </div>
 
-          {/* ReCAPTCHA Placeholder */}
-          <div>
-            <div className="w-[304px] h-[78px] xl:mt-12 bg-gray-100 border border-gray-300 rounded-sm flex items-center justify-center text-black text-sm">
-              reCAPTCHA Placeholder
-            </div>
+          {/* Active reCAPTCHA */}
+          <div className="xl:mt-12">
+            <ReCAPTCHA
+              sitekey="6Leo2hIsAAAAAGBpQHmn4CxqD4a751C1O6CAKJ11"
+              onChange={handleRecaptcha}
+            />
           </div>
 
           {/* Submit Button */}
