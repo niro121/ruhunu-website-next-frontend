@@ -7,12 +7,12 @@ interface OverViewProps {
 }
 
 export default function Overview({
-  imageSrc = "/images/nts/ntsoverview.jpg", // replace with your actual path
+  imageSrc = "/images/nts/ntsoverview.jpg",
 }: OverViewProps) {
   return (
     <section className="xl:px-32 px-4 xl:py-16 py-16 bg-white">
       {/* Responsive Grid */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 items-center">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-9 items-center">
         {/* Right Side - Text (goes first on mobile, second on desktop) */}
         <div className="flex flex-col xl:order-2 order-1 xl:justify-center">
           <p className="text-[#18CE67] font-medium xl:text-[16px] text-[13px] tracking-wide xl:text-start text-center">

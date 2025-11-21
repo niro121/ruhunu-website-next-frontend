@@ -8,7 +8,7 @@ export default function NursingCollegeSection() {
       {/* Top Section */}
       <div className="grid grid-cols-12 gap-10 items-center">
         {/* Left Side */}
-        <div className="col-span-12 space-y-4 xl:px-32 px-4 bg-[#f4f9fd] xl:py-20 py-10">
+        <div className="col-span-12 space-y-4 xl:px-32 px-4 bg-[#f4f9fd] xl:py-16 py-10">
           <h1 className="text-[#122739] font-extrabold xl:text-[40px] text-[20px] leading-tight">
             Ruhunu{" "}
             <span className="text-[#18CE67]">Hospital College Of Nursing</span>
