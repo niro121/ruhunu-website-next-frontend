@@ -24,7 +24,7 @@ const Banner: React.FC<BannerProps> = ({
   const router = useRouter();
 
   return (
-    <div className="relative flex xl:justify-start xl:items-center w-full xl:h-[430px] h-[300px] md:h-[360px] overflow-hidden">
+    <div className="relative flex xl:justify-start xl:items-center w-full xl:h-[430px] h-[470px] md:h-[360px] overflow-hidden">
       {/* Desktop Background Image */}
       <div className="hidden xl:block absolute inset-0">
         <Image
@@ -50,8 +50,8 @@ const Banner: React.FC<BannerProps> = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full xl:px-32 lg:px-30 md:px-16 sm:px-6 flex flex-col justify-center h-full">
-        <h1 className="font-extrabold text-[#122739] text-[28px] xl:text-[48px] leading-tight">
+      <div className="relative z-10 w-full xl:px-32 lg:px-30 md:px-16 px-6 flex flex-col justify-center h-full">
+        <h1 className="font-extrabold text-[#122739] text-[30px] xl:text-[48px] leading-tight">
           {title}
         </h1>
 
