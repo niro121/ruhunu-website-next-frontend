@@ -85,14 +85,14 @@ export default function HeroSlider() {
 
                 {/* Text Box */}
                 <div className="bg-white w-[300px] md:w-[500px] lg:w-[650px] p-6 lg:p-12 rounded-l-[30px] shadow-xl">
-                    <p className="text-green-600 text-sm mb-2">Welcome to Ruhunu Hospital</p>
+                    <p className="text-[#18CE67] text-sm mb-2">Welcome to Ruhunu Hospital</p>
 
                     <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#003163] mb-4">
                         Exceptional Medical Specialty Healthcare
                     </h1>
 
                     <div className="flex flex-col md:flex-row gap-4">
-                        <a className="bg-green-600 text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
+                        <a className="bg-[#18CE67] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
                             Doctor Appointment
                         </a>
                         <a className="bg-[#003163] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
