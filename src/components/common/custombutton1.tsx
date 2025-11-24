@@ -29,7 +29,7 @@ const CustomButton1: React.FC<CustomButton1Props> = ({
   return (
     <button
       onClick={onClick}
-      className={`border ${borderColor} ${textColor} ${hoverBgColor} ${hoverTextColor} ${width} ${height} ${fontSize} font-semibold px-6 py-3 rounded-md transition-all duration-300 ${className}`}
+      className={`border ${borderColor} ${textColor} ${hoverBgColor} ${hoverTextColor} ${width} ${height} ${fontSize} font-semibold px-6 py-3 rounded-sm transition-all duration-300 ${className}`}
     >
       {label}
     </button>

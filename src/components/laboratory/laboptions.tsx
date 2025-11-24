@@ -32,7 +32,8 @@ export default function LabOptions() {
           </p>
           <CustomButton1
             label="View Lab Home Visiting"
-            width="xl:w-[230px]"
+            width="xl:w-[276.49px]"
+            height="xl:h-[54.1px]"
             textColor="text-[#18CE67]"
             borderColor="border border-[#18CE67]"
             hoverBgColor="hover:bg-[#18CE67]"
