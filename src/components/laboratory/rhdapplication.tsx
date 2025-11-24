@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function RhdApplication() {
   return (
-    <div className="bg-[#30c47019] w-full xl:h-[595px] h-auto xl:mt-6 xl:-mb-16 -mb-16 mt-6">
+    <div className="bg-[#30c47019] w-full xl:h-[560px] h-auto xl:mt-6 xl:-mb-16 -mb-16 mt-6">
       {/* Title */}
-      <h1 className="text-center font-extrabold xl:text-[40px] text-[28px] text-black xl:pt-14 pt-10 mb-10">
+      <h1 className="text-center font-extrabold xl:text-[40px] text-[28px] text-black xl:pt-16 pt-10 mb-10">
         Laboratory - <span className="text-[#18CE67]">RHD Application</span>
       </h1>
 
@@ -66,13 +66,13 @@ export default function RhdApplication() {
 
         {/* Right Section (Mobile Mockup) */}
         <div className="col-span-12 xl:col-span-6 flex justify-center xl:justify-center">
-          <div className="relative w-auto xl:w-[350px] xl:h-[345px]">
+          <div className="relative">
             <Image
               src="/images/laboratory/9.png"
               alt="RHD App Mobile Preview"
               width={400}
               height={800}
-              className="object-fill"
+              className="object-contain w-auto xl:w-[350px] xl:h-[380px]"
             />
           </div>
         </div>

@@ -22,7 +22,7 @@ export default function LabService() {
   const totalSlides = services.length;
 
   return (
-    <section className="bg-[#F5FBFF] px-4 xl:px-32 py-12">
+    <section className="bg-[#F5FBFF] px-4 xl:px-32 py-16">
       {/* Heading */}
       <h2 className="text-center font-extrabold xl:text-[40px] text-[22px] mb-10">
         <span className="text-black">Lab </span>

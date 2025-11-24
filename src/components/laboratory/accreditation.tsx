@@ -31,7 +31,7 @@ export default function Accreditation() {
   if (!isClient) return null;
 
   return (
-    <section className="bg-[#F5FBFF] px-4 xl:px-32 py-12">
+    <section className="bg-[#F5FBFF] px-4 xl:px-32 py-16">
       {/* Heading */}
       <h2 className="text-center font-extrabold xl:text-[36px] text-[24px] mb-10 text-black">
         Accreditation

@@ -113,7 +113,7 @@ export default function CollectingCenters() {
         {/* Header row */}
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-[#f4f9fd] cursor-pointer flex justify-between items-center px-6 py-4 xl:h-[77px] h-[60px] transition-all"
+          className="bg-[#F4F9Fd] cursor-pointer flex justify-between items-center px-6 py-4 xl:h-[77px] h-[60px] transition-all"
         >
           <h3 className="font-semibold text-[16px] xl:text-[20px] text-[#071017]">
             Collecting Centers
