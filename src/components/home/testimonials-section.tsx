@@ -33,13 +33,13 @@ export default function OurTestimonials () {
                     Over  <span className="text-[#18CE67]">1,000+ </span>People Patients Trust Us
                 </h1>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 sm:gap-[10px] gap-[20px] mt-[48px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 sm:gap-[10px] md:gap-[20px] lg:gap-[30px] mt-[48px]">
                 {testimonials.map((testimonials,index) => (
-                    <div key={index} className="p-[16px] bg-white w-full">
+                    <div key={index} className="p-[16px] bg-white w-full flex flex-col h-full">
                         <div className="sm:p-[5px] p-[16px]">
                             <div className="grid grid-cols-8">
-                                <div className="col-span-2">
-                                    {testimonials.image ? (
+                                 <div className="col-span-2">
+                                     {testimonials.image ? (
                                         <Image
                                             src={testimonials.image}
                                             alt={testimonials.name || ""}
@@ -70,12 +70,15 @@ export default function OurTestimonials () {
                                 </div>
                             </div>
                         </div>
+
                         <div className="p-[16px]">
-                            <p className="p-[10px] text-[13px] text-black">
+                            <p className="p-[10px] text-[16px] text-black">
                                 {testimonials.message}
                             </p>
                         </div>
-                        <div className="p-[16px] flex justify-end self-end mt-auto">
+
+                        {/* Bottom element */}
+                        <div className="p-[16px] flex justify-end mt-auto">
                             <Image
                                 src="/images/home/colean.png"
                                 alt=""

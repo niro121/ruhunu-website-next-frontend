@@ -18,27 +18,39 @@ const socialIcon = [
 
 const slides = [
     {
-        desktop: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+        desktop: "/images/home/silder/silder-image-1.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
     {
-        desktop: "/images/home/5225ac27-69a9-487b-80a8-664c440656ad.jpg",
+        desktop: "/images/home/silder/silder-image-2.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
     {
-        desktop: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+        desktop: "/images/home/silder/silder-image-3.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
     {
-        desktop: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+        desktop: "/images/home/silder/silder-image-4.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
     {
-        desktop: "/images/home/5225ac27-69a9-487b-80a8-664c440656ad.jpg",
+        desktop: "/images/home/silder/silder-image-5.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
     {
-        desktop: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+        desktop: "/images/home/silder/silder-image-6.png",
+        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+    },
+    {
+        desktop: "/images/home/silder/silder-image-7.jpg",
+        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+    },
+    {
+        desktop: "/images/home/silder/silder-image-8.png",
+        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
+    },
+    {
+        desktop: "/images/home/silder/silder-image-9.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
 ];
@@ -60,7 +72,7 @@ export default function HeroSlider() {
                 centeredSlides
                 effect="fade"
                 loop
-                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                autoplay={{ delay: 5000, disableOnInteraction: false }}
                 onSlideChange={(swiper) => setCurrent(swiper.realIndex)}
                 modules={[EffectFade, Autoplay]}
                 className="h-full w-full hero-swiper"
@@ -100,7 +112,7 @@ export default function HeroSlider() {
                 </div>
 
                 {/* Text Content Box */}
-                <div className="block bg-white w-[300px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
+                <div className="block bg-white w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
                     <p className="text-[16px] text-[#18CE67] mb-2">
                         Welcome to Ruhunu Hospital
                     </p>
@@ -131,7 +143,7 @@ export default function HeroSlider() {
                             <button
                                 key={idx}
                                 onClick={() => goTo(idx)}
-                                className={`w-[14px] h-[14px] rounded-full border-2 transition-all duration-200 ${
+                                className={`w-[10px] h-[10px] rounded-full border-1 transition-all duration-200 ${
                                     idx === current
                                         ? "bg-[#18CE67] border-[#18CE67]"
                                         : "bg-gray-200 border-[#18CE67]"
