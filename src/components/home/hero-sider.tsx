@@ -18,41 +18,14 @@ const socialIcon = [
 
 const slides = [
     {
-        desktop: "/images/home/silder/silder-image-1.png",
+        desktop: "https://localwebteam.s3.amazonaws.com/be406d95-9fd3-4d1c-966b-2e319d300461.jpg",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
     {
-        desktop: "/images/home/silder/silder-image-2.png",
+        desktop: "https://localwebteam.s3.amazonaws.com/c5a53827-87f5-4261-8462-e88bb2247487.png",
         mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
     },
-    {
-        desktop: "/images/home/silder/silder-image-3.png",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
-    {
-        desktop: "/images/home/silder/silder-image-4.png",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
-    {
-        desktop: "/images/home/silder/silder-image-5.png",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
-    {
-        desktop: "/images/home/silder/silder-image-6.png",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
-    {
-        desktop: "/images/home/silder/silder-image-7.jpg",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
-    {
-        desktop: "/images/home/silder/silder-image-8.png",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
-    {
-        desktop: "/images/home/silder/silder-image-9.png",
-        mobile: "/images/home/bf8c6ca3-16ce-406e-b3ee-41cb5701afcc.jpg",
-    },
+    
 ];
 
 export default function HeroSlider() {
