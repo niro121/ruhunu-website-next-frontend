@@ -9,13 +9,14 @@ interface HospitalData {
   location: string;
   tel: string;
   link: string;
-}
+} 
 
 const BranchArraySection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect if the screen is mobile
+  // Mobile Screen Detection
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -81,16 +82,6 @@ const BranchArraySection: React.FC = () => {
       link: "/rH-branches/ruhunu-hospital-collecting-center-ranna",
     },
   ];
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % hospitalData.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? hospitalData.length - 1 : prev - 1
-    );
-  };
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);

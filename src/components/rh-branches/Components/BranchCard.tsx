@@ -18,12 +18,10 @@ const HospitalCard: React.FC<HospitalCardProps> = ({
 }) => {
   return (
     <div className="bg-[#f4f9fd] overflow-hidden shadow hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
-      {/* Image */}
       <div className="w-full h-56 relative flex-shrink-0">
         <Image src={image} alt={`${title} ${location}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw"/>
       </div>
-
-      {/* Content */}
+      
       <div className="p-6 text-center flex flex-col justify-between flex-grow">
         <h5 className="text-[#122739] text-md md:text-lg font-extrabold mb-1 lg:mb-5">
           <Link href={link}>
