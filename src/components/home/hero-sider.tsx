@@ -100,7 +100,7 @@ export default function HeroSlider() {
                 </div>
 
                 {/* Text Content Box */}
-                <div className="block bg-white w-[300px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
+                <div className="block bg-white w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
                     <p className="text-[16px] text-[#18CE67] mb-2">
                         Welcome to Ruhunu Hospital
                     </p>
