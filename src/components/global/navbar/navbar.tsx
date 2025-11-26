@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef, Key } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MenuItemType } from "@/types/menu-type";
 
 interface NavbarProps {
-    items: MenuItemType[]; 
+  items: MenuItemType[]; 
 }
 
 export default function Navbar({ items }: NavbarProps) {
@@ -35,32 +35,17 @@ export default function Navbar({ items }: NavbarProps) {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
-  const getRows = (subMenuGroups: MenuItemType[][]) => {
-    const maxColsPerRow = 3;
-    const rows: MenuItemType[][][] = [];
-    let currentRow: MenuItemType[][] = [];
-
-    subMenuGroups.forEach((group) => {
-      currentRow.push(group);
-      if (currentRow.length >= maxColsPerRow) {
-        rows.push(currentRow);
-        currentRow = [];
-      }
-    });
-
-    if (currentRow.length) rows.push(currentRow);
-    return rows;
-  };
-
   return (
     <header ref={navbarRef} className="bg-transparent px-2 md:px-5 lg:px-12 fixed top-5 h-fit w-full z-50 flex justify-center">
       <div className="bg-white h-20 rounded-xl pl-5 pr-6 flex items-center justify-between shadow-md w-full relative">
+        {/* Logo */}
         <div className="relative h-15 w-24 md:w-28">
           <Link href="/">
             <Image src="/logo.png" alt="logo" fill className="object-contain" />
           </Link>
         </div>
 
+        {/* Desktop Menu */}
         <nav className="hidden md:flex items-center">
           {items.map((menu, idx) => (
             <div key={menu.id} className="relative group">
@@ -91,23 +76,29 @@ export default function Navbar({ items }: NavbarProps) {
                       ref={dropdownRef}
                       className="fixed left-1/2 top-30 -translate-x-1/2 w-11/12 h-[80vh] bg-white rounded-xl shadow-lg p-6 overflow-auto z-40 flex flex-wrap gap-6"
                     >
-                      {getRows([menu.children]).map((row, rIdx) => (
-                        <div key={rIdx} className="flex gap-6 w-full">
-                          {row.map((column, cIdx) => (
-                            <div key={cIdx} className="flex flex-col min-w-[200px]">
-                              {column.map((item) => (
-                                  <Link
-                                      key={item.id}
-                                      href={item.url || "#"}
-                                      className={`font-semibold text-green-500 mb-2 block text-sm ${
-                                          pathname === item.url ? "pl-2 text-green-700" : ""
-                                      }`}
-                                  >
-                                      {item.title}
-                                  </Link>
+                      {menu.children.map((child) => (
+                        <div key={child.id} className="flex flex-col min-w-[200px]">
+                          <Link
+                            href={child.url || "#"}
+                            className="font-semibold text-green-500 mb-2 block text-sm"
+                          >
+                            {child.title}
+                          </Link>
+                          {child.children && child.children.length > 0 && (
+                            <div className="flex flex-col pl-2">
+                              {child.children.map((sub) => (
+                                <Link
+                                  key={sub.id}
+                                  href={sub.url || "#"}
+                                  className={`text-sm text-black mb-1 block hover:text-green-500 ${
+                                    pathname === sub.url ? "pl-2 text-green-700" : ""
+                                  }`}
+                                >
+                                  {sub.title}
+                                </Link>
                               ))}
                             </div>
-                          ))}
+                          )}
                         </div>
                       ))}
                     </div>
@@ -125,17 +116,92 @@ export default function Navbar({ items }: NavbarProps) {
               )}
             </div>
           ))}
+
           {/* Doctor Appointment button */}
+          <Link
+            href="/appointment"
+            className="ml-4 bg-green-500 border border-green-500 text-white text-sm font-bold px-3 py-2 rounded-md hover:bg-dark hover:border-dark transition-all duration-200"
+          >
+            Doctor Appointment
+          </Link>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden block text-black text-2xl"
+          onClick={() => setOpenDropdown(openDropdown === -1 ? null : -1)}
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile Dropdown */}
+      {openDropdown === -1 && (
+        <div className="md:hidden fixed left-1/2 top-[105px] -translate-x-1/2 w-11/12 h-[80vh] bg-white z-50 flex flex-col shadow-lg">
+          <div className="flex justify-end items-center px-5">
+            <button
+              onClick={() => setOpenDropdown(null)}
+              className="text-gray-500 hover:text-green-500 transition-colors duration-200"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto px-5">
+            {items.map((menu) => (
+              <div key={menu.id} className="mb-3 pb-3 border-b last:border-b-0">
+                {menu.children && menu.children.length > 0 ? (
+                  <details className="group">
+                    <summary className="flex justify-between items-center cursor-pointer text-base text-gray-800 mb-1 hover:text-green-500">
+                      {menu.title}
+                    </summary>
+                    <div className="pl-3 mt-2">
+                      {menu.children.map((child) => (
+                        <div key={child.id} className="mb-2">
+                          <Link
+                            href={child.url || "#"}
+                            className="block text-sm text-green-500 mb-1"
+                          >
+                            {child.title}
+                          </Link>
+                          {child.children && child.children.length > 0 && (
+                            <div className="pl-3">
+                              {child.children.map((sub) => (
+                                <Link
+                                  key={sub.id}
+                                  href={sub.url || "#"}
+                                  className="block text-sm text-gray-700 mb-1 hover:text-green-500"
+                                >
+                                  {sub.title}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </details>
+                ) : (
+                  <Link
+                    href={menu.url || "#"}
+                    className="block text-base font-medium text-gray-800 hover:text-green-500"
+                  >
+                    {menu.title}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+
           <div className="sticky bottom-0 bg-white p-4 flex justify-center">
             <Link
               href="/appointment"
-              className="w-full text-center block bg-[#18CE67] border border-[#18CE67] text-white text-[15px] font-bold px-[18px] py-[10px] rounded-[6px] hover:bg-[#122739] hover:border-[#122739] transition-all duration-200"
+              className="w-full text-center block bg-green-500 border border-green-500 text-white text-sm font-bold px-3 py-2 rounded-md hover:bg-dark hover:border-dark transition-all duration-200"
             >
               Doctor Appointment
             </Link>
           </div>
-        </nav>
-      </div>
+        </div>
+      )}
     </header>
   );
 }
