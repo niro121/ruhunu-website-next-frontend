@@ -133,3 +133,11 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.hero-swiper .swiper-pagination {
+  position: absolute;
+  right: 20px !important;
+  left: auto !important;
+  top: 50%;
+  transform: translateY(-50%);
+}

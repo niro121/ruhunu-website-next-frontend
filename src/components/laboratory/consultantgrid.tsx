@@ -56,7 +56,7 @@ const ConsultantGrid: React.FC = () => {
         {allDoctors.slice(0, visibleCount).map((doctor) => (
           <div
             key={doctor.id}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+            className="bg-white shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
           >
             {/* Image */}
             <div className="relative w-auto xl:h-[300px] h-[300px] bg-[#f9f9f9] flex items-center justify-center">
