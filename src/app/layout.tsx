@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/global/footer";
-import Navbar from "@/components/global/navbar/navbar";
 import WelcomePopup from "@/components/global/welcome-popup";
 import NavbarServerWrapper from "@/components/global/navbar/NavbarServerWrapper";
+import FooterServerWrapper from "@/components/global/footer/FooterServerWrapper";
 
 // -------------------- FONTS ------------------------
 const opensansbold =  ({
@@ -69,7 +68,7 @@ export default function RootLayout({
         <WelcomePopup/>
         <NavbarServerWrapper/>
         {children}
-        <Footer/>
+        <FooterServerWrapper/>
       </body>
     </html>
   );

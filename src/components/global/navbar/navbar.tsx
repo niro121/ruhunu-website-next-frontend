@@ -7,7 +7,7 @@ import Image from "next/image";
 import { MenuItemType } from "@/types/menu-type";
 
 interface NavbarProps {
-  items: MenuItemType[]; // <-- only items
+    items: MenuItemType[]; 
 }
 
 export default function Navbar({ items }: NavbarProps) {
@@ -89,22 +89,22 @@ export default function Navbar({ items }: NavbarProps) {
                   {openDropdown === idx && (
                     <div
                       ref={dropdownRef}
-                      className="fixed left-1/2 top-32 -translate-x-1/2 w-11/12 h-[85vh] bg-white rounded-xl shadow-lg p-6 overflow-auto z-40 flex flex-wrap gap-6"
+                      className="fixed left-1/2 top-30 -translate-x-1/2 w-11/12 h-[80vh] bg-white rounded-xl shadow-lg p-6 overflow-auto z-40 flex flex-wrap gap-6"
                     >
                       {getRows([menu.children]).map((row, rIdx) => (
                         <div key={rIdx} className="flex gap-6 w-full">
                           {row.map((column, cIdx) => (
                             <div key={cIdx} className="flex flex-col min-w-[200px]">
                               {column.map((item) => (
-                                <Link
-                                  key={item.id}
-                                  href={item.url || "#"}
-                                  className={`font-semibold text-green-500 mb-2 block text-sm ${
-                                    pathname === item.url ? "pl-2 text-green-700" : ""
-                                  }`}
-                                >
-                                  {item.title}
-                                </Link>
+                                  <Link
+                                      key={item.id}
+                                      href={item.url || "#"}
+                                      className={`font-semibold text-green-500 mb-2 block text-sm ${
+                                          pathname === item.url ? "pl-2 text-green-700" : ""
+                                      }`}
+                                  >
+                                      {item.title}
+                                  </Link>
                               ))}
                             </div>
                           ))}
@@ -126,12 +126,14 @@ export default function Navbar({ items }: NavbarProps) {
             </div>
           ))}
           {/* Doctor Appointment button */}
-          <Link
-            href="/appointment"
-            className="ml-4 bg-green-500 border border-green-500 text-white text-sm font-bold px-3 py-2 rounded-md hover:bg-dark hover:border-dark transition-all duration-200"
-          >
-            Doctor Appointment
-          </Link>
+          <div className="sticky bottom-0 bg-white p-4 flex justify-center">
+            <Link
+              href="/appointment"
+              className="w-full text-center block bg-[#18CE67] border border-[#18CE67] text-white text-[15px] font-bold px-[18px] py-[10px] rounded-[6px] hover:bg-[#122739] hover:border-[#122739] transition-all duration-200"
+            >
+              Doctor Appointment
+            </Link>
+          </div>
         </nav>
       </div>
     </header>

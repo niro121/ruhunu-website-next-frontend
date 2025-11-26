@@ -1,4 +1,9 @@
+import { MenuItemType } from "@/types/menu-type";
 import Image from "next/image";
+
+interface FooterProps {
+    items: MenuItemType[];
+}
 
 const scoialIcon = [
     { name: "facebook", link: "/", image: "/social-media-icons/facebook.png"},
@@ -8,25 +13,8 @@ const scoialIcon = [
     { name: "skype", link: "/", image: "/social-media-icons/skype.png"}
 ]
 
-const mainMenu = [
-    { name: "Home", url: "/" },
-    { name: "About Us", url: "/about-us" },
-    { name: "Services & Facilities", url: "/" },
-    { name: "International Patients", url: "/" },
-    { name: "Home", url: "/"},
-    { name: "About Us", url: "/"},
-    { name: "Services & Facilities", url: "/"},
-    { name: "International Patients", url: "/"},
-    { name: "Home", url: "/"},
-    { name: "About Us", url: "/"},
-    { name: "Services & Facilities", url: "/"},
-    { name: "International Patients", url: "/"},
-    { name: "Home", url: "/"},
-    { name: "About Us", url: "/"}
-]
 
-
-export default function Footer() {
+export default function Footer({ items }: FooterProps) {
     return (
         <div className="">
             <div className="bg-[#f4f9fd] px-[10px] md:px-[20px] lg:px-[50px] py-[70px] grid grid-cols-1 md:grid-cols-5 gap-[0px]">
@@ -41,7 +29,7 @@ export default function Footer() {
             </div>
             <div className="bg-[#122739] px-[10px] md:px-[20px] lg:px-[50px] py-[70px]">
                 <div className="">
-                    <div className="flex justify-center gap-5">
+                    <div className="flex justify-center gap-1">
                         {scoialIcon.map((icon, index) => (
                             <div
                                 key={index}
@@ -50,8 +38,8 @@ export default function Footer() {
                                 <a href={icon.link} className="block">
                                     <Image
                                         src={icon.image}
-                                        width={20}
-                                        height={20}
+                                        width={15}
+                                        height={15}
                                         alt={icon.name}
                                         className="rounded-full transition-transform duration-300 ease-in-out"
                                     />
@@ -66,9 +54,9 @@ export default function Footer() {
                     <div className="col-span-3">
                         <h1 className="text-[24px] mb-[24px] text-[#18CE67] font-bold">Quick Links</h1>
                         <div className="w-full grid grid-cols-2 md:grid-cols-3">
-                            {mainMenu.map((link,index) => (
+                            {items.map((link,index) => (
                                 <div key={index} className="">
-                                    <a href={link.url} className="text-[12px] mt-[16px]">{link.name}</a>
+                                    <a href={link.url} className="text-[12px] mt-[16px] pt-[16px] leading-[18px]">{link.title}</a>
                                 </div>
                             ))}
                         </div>
