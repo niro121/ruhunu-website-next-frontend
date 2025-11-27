@@ -7,12 +7,13 @@ import Image from "next/image";
 import { MenuItemType } from "@/types/menu-type";
 
 interface NavbarProps {
-  items: MenuItemType[]; 
+  items: MenuItemType[];
 }
 
 export default function Navbar({ items }: NavbarProps) {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [columns, setColumns] = useState<MenuItemType[][]>([[], [], []]);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const navbarRef = useRef<HTMLDivElement | null>(null);
@@ -35,8 +36,45 @@ export default function Navbar({ items }: NavbarProps) {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
+  // Distribute items into columns with column 1 filled first
+  const distributeItems = (menuItems: MenuItemType[]) => {
+    const cols: MenuItemType[][] = [[], [], []];
+    const colHeights = [0, 0, 0];
+    const maxHeight = 80 * 16; // 80vh in px (~16px per rem)
+    const padding = 30 * 2; // top + bottom padding
+
+    let currentCol = 0;
+
+    menuItems.forEach((item) => {
+      const itemHeight = 40 + (item.children?.length || 0) * 20;
+
+      // Move to next column if this item exceeds maxHeight
+      if (colHeights[currentCol] + itemHeight + padding > maxHeight) {
+        currentCol++;
+        if (currentCol > 2) currentCol = 2; // max 3 columns
+      }
+
+      cols[currentCol].push(item);
+      colHeights[currentCol] += itemHeight;
+    });
+
+    setColumns(cols);
+  };
+
+  useEffect(() => {
+    if (openDropdown !== null) {
+      const menu = items[openDropdown];
+      if (menu && menu.children) {
+        distributeItems(menu.children);
+      }
+    }
+  }, [openDropdown]);
+
   return (
-    <header ref={navbarRef} className="bg-transparent px-2 md:px-5 lg:px-12 fixed top-5 h-fit w-full z-50 flex justify-center">
+    <header
+      ref={navbarRef}
+      className="bg-transparent px-2 md:px-5 lg:px-12 fixed top-5 h-fit w-full z-50 flex justify-center"
+    >
       <div className="bg-white h-20 rounded-xl pl-5 pr-6 flex items-center justify-between shadow-md w-full relative">
         {/* Logo */}
         <div className="relative h-15 w-24 md:w-28">
@@ -71,34 +109,39 @@ export default function Navbar({ items }: NavbarProps) {
                     </svg>
                   </button>
 
+                  {/* Mega Menu */}
                   {openDropdown === idx && (
                     <div
                       ref={dropdownRef}
-                      className="fixed left-1/2 top-30 -translate-x-1/2 w-11/12 h-[80vh] bg-white rounded-xl shadow-lg p-6 overflow-auto z-40 flex flex-wrap gap-6"
+                      className="fixed left-1/2 top-30 -translate-x-1/2 w-11/12 h-[80vh] bg-white rounded-xl shadow-lg p-6 z-40 grid grid-cols-3 gap-6"
                     >
-                      {menu.children.map((child) => (
-                        <div key={child.id} className="flex flex-col min-w-[200px]">
-                          <Link
-                            href={child.url || "#"}
-                            className="font-semibold text-green-500 mb-2 block text-sm"
-                          >
-                            {child.title}
-                          </Link>
-                          {child.children && child.children.length > 0 && (
-                            <div className="flex flex-col pl-2">
-                              {child.children.map((sub) => (
-                                <Link
-                                  key={sub.id}
-                                  href={sub.url || "#"}
-                                  className={`text-sm text-black mb-1 block hover:text-green-500 ${
-                                    pathname === sub.url ? "pl-2 text-green-700" : ""
-                                  }`}
-                                >
-                                  {sub.title}
-                                </Link>
-                              ))}
+                      {columns.map((col, colIdx) => (
+                        <div key={colIdx} className="flex flex-col gap-4">
+                          {col.map((item) => (
+                            <div key={item.id} className="break-inside-avoid">
+                              <Link
+                                href={item.url || "#"}
+                                className="font-semibold text-green-600 text-base block mb-2"
+                              >
+                                {item.title}
+                              </Link>
+                              {item.children?.length > 0 && (
+                                <div className="flex flex-col ml-3">
+                                  {item.children.map((sub) => (
+                                    <Link
+                                      key={sub.id}
+                                      href={sub.url || "#"}
+                                      className={`text-sm text-black mb-1 block hover:text-green-600 ${
+                                        pathname === sub.url ? "pl-2 text-green-700" : ""
+                                      }`}
+                                    >
+                                      {sub.title}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                          )}
+                          ))}
                         </div>
                       ))}
                     </div>
@@ -146,14 +189,16 @@ export default function Navbar({ items }: NavbarProps) {
               ✕
             </button>
           </div>
+
           <div className="flex-1 overflow-y-auto px-5">
             {items.map((menu) => (
               <div key={menu.id} className="mb-3 pb-3 border-b last:border-b-0">
-                {menu.children && menu.children.length > 0 ? (
-                  <details className="group">
+                {menu.children ? (
+                  <details>
                     <summary className="flex justify-between items-center cursor-pointer text-base text-gray-800 mb-1 hover:text-green-500">
                       {menu.title}
                     </summary>
+
                     <div className="pl-3 mt-2">
                       {menu.children.map((child) => (
                         <div key={child.id} className="mb-2">
@@ -163,7 +208,8 @@ export default function Navbar({ items }: NavbarProps) {
                           >
                             {child.title}
                           </Link>
-                          {child.children && child.children.length > 0 && (
+
+                          {child.children && (
                             <div className="pl-3">
                               {child.children.map((sub) => (
                                 <Link
