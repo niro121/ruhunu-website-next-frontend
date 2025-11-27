@@ -15,7 +15,7 @@ const NewsCard = ({ imageSrc, title, date, description, link }: NewsCardProps) =
   const router = useRouter();
 
   return (
-    <div onClick={() => router.push(link)} className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.01] p-5">
+    <div onClick={() => router.push(link)} className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.01] p-6">
       {/* Image */}
       <div className="relative w-full md:w-110 h-60 md:h-90">
         <Image src={imageSrc} alt={title} fill className="object-cover"/>
