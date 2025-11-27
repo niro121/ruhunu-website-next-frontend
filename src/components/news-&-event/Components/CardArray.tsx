@@ -24,9 +24,9 @@ const NewsSection = ({ newsItems }: NewsSectionProps) => {
   };
 
   return (
-    <section className="w-full flex flex-col items-center gap-8 py-10 px-6 md:px-12">
+    <section className="w-full flex flex-col items-center gap-8 py-10 px-3 md:px-6 md:py-16">
       {/* News Cards */}
-      <div className="grid grid-cols-1 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 gap-8 w-full max-w-7xl">
         {newsItems.slice(0, visibleCount).map((item, index) => (
           <NewsCard
             key={index}
