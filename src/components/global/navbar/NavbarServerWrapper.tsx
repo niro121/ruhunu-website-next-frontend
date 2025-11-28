@@ -7,6 +7,5 @@ export default async function NavbarServerWrapper() {
     const mainMenu = menuList.find(menu => menu.name.toLowerCase() === "main menu");
     if (!mainMenu) return null;
 
-    // Pass only the items
     return <Navbar items={mainMenu.items || []} />;
 }

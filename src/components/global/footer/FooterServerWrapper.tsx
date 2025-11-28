@@ -7,8 +7,5 @@ export default async function FooterServerWrapper() {
     const footer = menuList.find(menu => menu.name.toLowerCase() === "footer");
     if (!footer) return null;
 
-    console.log({footer})
-
-    // Pass only the items
     return <Footer items={footer.items || []}/>;
 }
