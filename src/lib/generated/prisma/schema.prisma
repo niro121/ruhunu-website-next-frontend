@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model Menu {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  visibility Boolean @default(false)
+  order      Int     @default(0)
+
+  items MenuItem[] @relation("MenuToMenuItem")
+
+  createdBy String?  @db.ObjectId
+  updatedBy String?  @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MenuItem {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  url     String
+  order   Int     @default(0)
+  visible Boolean @default(true)
+
+  // 🔗 Link to Menu
+  menuId String? @db.ObjectId
+  menu   Menu?   @relation("MenuToMenuItem", fields: [menuId], references: [id])
+
+  // 🔁 Self relation (parent-child)
+  parentId String?    @db.ObjectId
+  parent   MenuItem?  @relation("SubMenuRelation", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  children MenuItem[] @relation("SubMenuRelation")
+
+  createdBy String?  @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedBy String?  @db.ObjectId
+  updatedAt DateTime @updatedAt
+}
