@@ -35,11 +35,9 @@ model MenuItem {
   order   Int     @default(0)
   visible Boolean @default(true)
 
-  // 🔗 Link to Menu
   menuId String? @db.ObjectId
   menu   Menu?   @relation("MenuToMenuItem", fields: [menuId], references: [id])
 
-  // 🔁 Self relation (parent-child)
   parentId String?    @db.ObjectId
   parent   MenuItem?  @relation("SubMenuRelation", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   children MenuItem[] @relation("SubMenuRelation")
@@ -47,5 +45,40 @@ model MenuItem {
   createdBy String?  @db.ObjectId
   createdAt DateTime @default(now())
   updatedBy String?  @db.ObjectId
+  updatedAt DateTime @updatedAt
+}
+
+model Page {
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  title           String  @default("")
+  metaTitle       String
+  metaKeyword     String
+  metaDescription String
+  metaImage       String
+  slug            String  @unique // Important for routing
+  visibility      Boolean @default(false)
+
+  sections Section[]
+
+  createdBy String?  @db.ObjectId
+  updatedBy String?  @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Section {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  type       String
+  layout     Int
+  data       Json
+  order      Int
+  visibility Boolean @default(false)
+
+  pageId String @db.ObjectId
+  page   Page   @relation(fields: [pageId], references: [id])
+
+  createdBy String?  @db.ObjectId
+  updatedBy String?  @db.ObjectId
+  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
