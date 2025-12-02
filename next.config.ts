@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "localwebteam.s3.amazonaws.com",
+        hostname: "ram-cinema.s3.amazonaws.com",
       },
     ],
   }

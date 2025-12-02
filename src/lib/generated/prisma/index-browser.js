@@ -138,6 +138,35 @@ exports.Prisma.MenuItemScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.PageScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  metaTitle: 'metaTitle',
+  metaKeyword: 'metaKeyword',
+  metaDescription: 'metaDescription',
+  metaImage: 'metaImage',
+  slug: 'slug',
+  visibility: 'visibility',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SectionScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  layout: 'layout',
+  data: 'data',
+  order: 'order',
+  visibility: 'visibility',
+  pageId: 'pageId',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -151,7 +180,9 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   Menu: 'Menu',
-  MenuItem: 'MenuItem'
+  MenuItem: 'MenuItem',
+  Page: 'Page',
+  Section: 'Section'
 };
 
 /**
