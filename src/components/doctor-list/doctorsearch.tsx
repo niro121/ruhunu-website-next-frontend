@@ -37,7 +37,7 @@ export default function DoctorSearch({
   };
 
   return (
-    <div className="bg-[#F4F9FD] p-8 xl:px-32 px-4 flex flex-col md:flex-row items-center justify-between gap-4 xl:mt-16 xl:mb-16 xl:pb-14 pb-12 mt-8 mb-8">
+    <div className="bg-[#F4F9FD] p-8 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-4 xl:mt-16 xl:mb-16 mt-8 mb-8">
       {/* Doctor Name */}
       <div className="flex flex-col w-full md:w-1/3">
         <label className="text-[#122739] font-normal mb-2 xl:text-[16px] text-[14px]">
@@ -55,7 +55,7 @@ export default function DoctorSearch({
 
       {/* Specialty */}
       <div className="flex flex-col w-full md:w-1/3">
-        <label className="text-[#122739] font-normal mb-2">
+        <label className="text-[#122739] font-normal mb-2 xl:text-[16px] text-[14px]">
           Specialty
         </label>
         <div className="relative">
@@ -63,7 +63,7 @@ export default function DoctorSearch({
             name="specialty"
             value={filters.specialty}
             onChange={handleChange}
-            className="appearance-none bg-white focus:ring-2 text-[#a5a5a5] xl:text-[16px] text-[13.5px] focus:ring-[#a5a5a5] outline-none p-5 rounded-[5px] w-full pr-10"
+            className="appearance-none bg-white focus:ring-2 text-[#a5a5a5] focus:ring-[#a5a5a5] outline-none p-5 rounded-[5px] w-full pr-10"
           >
             <option value="">Select Specialty</option>
             {specialties.map((item) => (
@@ -89,7 +89,7 @@ export default function DoctorSearch({
 
       {/* Branch */}
       <div className="flex flex-col w-full md:w-1/3">
-        <label className="text-[#122739] font-normal mb-2">
+        <label className="text-[#122739] font-normal mb-2 xl:text-[16px] text-[14px]">
           Branch
         </label>
         <div className="relative">
@@ -97,7 +97,7 @@ export default function DoctorSearch({
             name="branch"
             value={filters.branch}
             onChange={handleChange}
-            className="appearance-none bg-white focus:ring-2 text-[#a5a5a5] xl:text-[16px] text-[14px] focus:ring-[#a5a5a5] outline-none p-5 rounded-[5px] w-full pr-10"
+            className="appearance-none bg-white focus:ring-2 text-[#a5a5a5] focus:ring-[#a5a5a5] outline-none p-5 rounded-[5px] w-full pr-10"
           >
             <option value="">Select Branch</option>
             {branches.map((item) => (

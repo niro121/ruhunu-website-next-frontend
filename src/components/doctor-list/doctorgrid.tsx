@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import CustomButton from "../common/custombutton";
 
+
 interface Doctor {
   id: number;
   name: string;
@@ -12,8 +13,6 @@ interface Doctor {
 }
 
 const DoctorGrid: React.FC = () => {
-
-  // Added more doctors so Load More can work
   const allDoctors: Doctor[] = [
     {
       id: 1,
@@ -51,41 +50,18 @@ const DoctorGrid: React.FC = () => {
       specialty: "Andrologist",
       image: "/images/doctorlist/doctor6.jpg",
     },
-
-    // ADDING MORE DOCTORS FOR LOAD MORE
-    {
-      id: 7,
-      name: "DR. SANDUN JAYASINGHE",
-      specialty: "Dermatologist",
-      image: "/images/doctorlist/doctor7.jpg",
-    },
-    {
-      id: 8,
-      name: "DR. NILANTHI RANASINGHE",
-      specialty: "Cardiologist",
-      image: "/images/doctorlist/doctor8.jpg",
-    },
-    {
-      id: 9,
-      name: "DR. RAVINDU PERERA",
-      specialty: "ENT Specialist",
-      image: "/images/doctorlist/doctor9.jpg",
-    },
   ];
 
-  // 👉 Show only 6 doctors on load
   const [visibleCount, setVisibleCount] = useState(6);
 
-  // 👉 Load more function
   const handleLoadMore = () => {
-    setVisibleCount(prevCount =>
-      prevCount + 3 > allDoctors.length ? allDoctors.length : prevCount + 3
+    setVisibleCount((prev) =>
+      prev + 3 > allDoctors.length ? allDoctors.length : prev + 3
     );
   };
 
   return (
     <section className="px-4 xl:px-32 xl:py-16 py-10">
-
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:-mt-10 -mt-6">
         {allDoctors.slice(0, visibleCount).map((doctor) => (
@@ -94,7 +70,7 @@ const DoctorGrid: React.FC = () => {
             className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
           >
             {/* Image */}
-            <div className="relative w-full xl:h-[380px] h-[300px] bg-[#f9f9f9] flex items-center justify-center">
+            <div className="relative w-auto xl:h-[380px] h-[300px] bg-[#f9f9f9] flex items-center justify-center">
               {doctor.image ? (
                 <Image
                   src={doctor.image}
@@ -118,28 +94,25 @@ const DoctorGrid: React.FC = () => {
               <h3 className="text-[#122739] font-normal xl:text-[16px] text-[14px] uppercase leading-snug">
                 {doctor.name}
               </h3>
-              <p className="text-[#122739] xl:text-[12px] mt-1 font-semibold">
+              <p className="text-[#122739] xl:text-[12px] mt-1 font-semibold ">
                 {doctor.specialty}
               </p>
             </div>
 
-            {/* Book Now button */}
-            <div className="flex justify-center pb-4">
-              <CustomButton
-                className="xl:w-[348px] xl:h-[48.1px] w-[259px] h-[45px] xl:text-[16px] font-semibold"
-                label="Book Now"
-              />
-            </div>
+            {/* Book Now */}
+            <CustomButton className="xl:w-[348px] xl:h-[48.1px] w-[259px] h-[45px] xl:text-[16px] font-semibold"
+              label="Book Now"
+            />
           </div>
         ))}
       </div>
 
-      {/* Load More Button → Show only when more doctors available */}
+      {/* Load More Button */}
       {visibleCount < allDoctors.length && (
         <div className="flex justify-center mt-10">
           <button
             onClick={handleLoadMore}
-            className="bg-[#18CE67] hover:bg-[#122739] xl:w-[158.94px] xl:h-[54.1px] w-[390.4px] h-[54.1px] text-white font-medium px-8 py-3 rounded-[8px] text-[16px] transition-colors duration-300"
+            className="bg-[#18CE67] hover:bg-[#122739] text-white font-medium px-8 py-3 rounded-[8px] text-[16px] transition-colors duration-300"
           >
             Load More
           </button>
