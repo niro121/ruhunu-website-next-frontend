@@ -1,5 +1,8 @@
 import AboutUs from "../home/about-us-section";
 import HeroSlider from "../home/hero-sider";
+import NewsAndArticleNews from "../home/news-and-article-new-section";
+import OurServices from "../home/services-section";
+import OurTestimonials from "../home/testimonials-section";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -26,7 +29,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Media-Media":
-            return <AboutUs/>;
+            return <NewsAndArticleNews/>;
             break;
 
         case "Extra Large Text":
@@ -71,6 +74,14 @@ export default function SectionRenderer({ section }: any) {
 
         case "Map":
             return <AboutUs/>;
+            break;
+
+        case "Services":
+            return <OurServices/>;
+            break;
+
+        case "Testimonials":
+            return <OurTestimonials/>;
             break;
 
         default:

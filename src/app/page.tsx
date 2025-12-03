@@ -1,5 +1,7 @@
 // app/page.tsx
 import { fetchPage } from "@/actions/page.action";
+import OurServices from "@/components/home/services-section";
+import OurTestimonials from "@/components/home/testimonials-section";
 import SectionRenderer from "@/components/sections/SectionRenderer";
 import { notFound } from "next/navigation";
 
@@ -11,7 +13,7 @@ export default async function HomePage() {
     }
     
     return (
-        <div className="space-y-10">
+        <div className="">
             {page.sections?.map((section: any) => (
                 <SectionRenderer key={section.id} section={section} />
             ))}
