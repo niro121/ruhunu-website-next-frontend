@@ -13,7 +13,7 @@ export default async function Page(props: { params: { slug: string } }) {
 
   return (
     <div>
-        <div className="space-y-10">
+        <div className="">
             {page.sections?.map((section: any) => (
                 <SectionRenderer key={section.id} section={section} />
             ))}
