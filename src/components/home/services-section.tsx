@@ -22,7 +22,11 @@ const serviceData = [
     { link: "/", image: "/images/home/11.png", heading: "Ruhunu Cardiology Center" },
 ];
 
-export default function OurServices() {
+type OurServicesProps = {
+    data: any;
+}
+
+export default function OurServices({data}: OurServicesProps) {
     const [visibleCount, setVisibleCount] = useState(8);
 
     const handleLoadMore = () => {
@@ -32,7 +36,14 @@ export default function OurServices() {
     const visibleServices = serviceData.slice(0, visibleCount);
 
     return (
-        <div className="bg-[#f4f9fd] py-[70px] px-[10px] md:px-[20px] lg:px-[50px]">
+        <div 
+            className="bg-[#f4f9fd] px-[10px] md:px-[20px] lg:px-[50px]"
+            style={{
+                backgroundColor: data.bg_color || "#f4f9fd",
+                paddingTop: data.padding_top || "70px",
+                paddingBottom: data.padding_bottom || "70px",
+            }}
+        >
             <div className="text-center">
                 <p className="text-[16px] mb-[16px] text-[#18CE67]">Our Services</p>
                 <h1 className="text-[40px] text-[#122739] font-bold">
