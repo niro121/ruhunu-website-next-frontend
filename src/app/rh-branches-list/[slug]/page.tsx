@@ -1,17 +1,17 @@
 import { fetchSingleBranche } from "@/actions/branch.action";
 import { fetchPage } from "@/actions/page.action";
-import TextMedia from "@/components/cms/text-media-component";
 import Hero from "@/components/common/hero";
 import MapSection from "@/components/common/MapSection";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Gallery from "@/components/cms/gallery";
+import ReportBanner from "@/components/rh-branches/report-banner";
 
 export default async function BranchesDetailsPage(props: {params: { slug: string}}) {
     const { slug } = await props.params;
 
-    const page = await fetchPage("rh-branches-list");
+    const page = await fetchPage("rh-branches-details");
 
     const data = await fetchSingleBranche(slug);
     
@@ -105,6 +105,7 @@ export default async function BranchesDetailsPage(props: {params: { slug: string
                     </div>
                 </div>
             </div>
+            <ReportBanner/>
             <Gallery images={data?.listImage || []}/>
             <MapSection lat={Number(data?.latitude || 0)} lng={Number(data?.longitude || 0)}/>
         </div>

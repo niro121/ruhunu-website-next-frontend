@@ -1,3 +1,4 @@
+import BannerSection from "../about-us/Banner";
 import Hero from "../common/hero";
 import WelcomePopup from "../global/welcome-popup";
 import AboutUs from "../home/about-us-section";
@@ -46,7 +47,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Banner":
-            return <AboutUs/>;
+            return <BannerSection data={data}/>;
             break;
         
         case "Borad Of Directors":

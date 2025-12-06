@@ -1,6 +1,13 @@
 import Button1 from "@/components/global/Buttons/Button1";
 
-export default function BannerSection() {
+type BannerSectionProps = {
+  data : any;
+}
+
+export default function BannerSection({data} : BannerSectionProps) {
+
+  console.log({data});
+
   return (
     <section id="Banner Section" className="w-full bg-cover bg-center bg-no-repeat flex flex-col md:flex-row justify-between items-center text-white px-6 md:px-20 py-25 mt-10" style={{ backgroundImage: 'url("https://localwebteam.s3.amazonaws.com/5651c1fa-1c45-42a9-ba5c-08ac52e70f6b.jpg")', }}>
 
