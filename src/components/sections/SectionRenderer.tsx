@@ -1,6 +1,6 @@
-import BannerSection from "../about-us/Banner";
+import BannerSection from "../common/Banner";
 import Hero from "../common/hero";
-import WelcomePopup from "../global/welcome-popup";
+import Popup from "../global/popup";
 import AboutUs from "../home/about-us-section";
 import NewsAndArticleNews from "../home/news-and-article-new-section";
 import OurServices from "../home/services-section";
@@ -71,7 +71,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "PopUp":
-            return <WelcomePopup/>;
+            return <Popup data={data}/>;
             break;
 
         case "Map":
