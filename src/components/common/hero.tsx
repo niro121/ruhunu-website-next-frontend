@@ -11,33 +11,26 @@ import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 const socialIcon = [
-  { name: "facebook", link: "/", image: "/social-media-icons/facebook.png" },
-  { name: "youtube", link: "/", image: "/social-media-icons/youtube.png" },
-  { name: "instagram", link: "/", image: "/social-media-icons/instagram.png" },
-  { name: "linkedin", link: "/", image: "/social-media-icons/linkedin.png" },
-  { name: "skype", link: "/", image: "/social-media-icons/skype.png" },
+    { name: "facebook", link: "/", image: "/social-media-icons/facebook.png" },
+    { name: "youtube", link: "/", image: "/social-media-icons/youtube.png" },
+    { name: "instagram", link: "/", image: "/social-media-icons/instagram.png" },
+    { name: "linkedin", link: "/", image: "/social-media-icons/linkedin.png" },
+    { name: "skype", link: "/", image: "/social-media-icons/skype.png" },
 ];
 
 type HeroProps = {
-  layout: number;
-  data: any;
+    layout: number;
+    data: any;
 };
 
 export default function Hero({ layout, data }: HeroProps) {
-  // Normalize images to arrays for easy handling
-  const webImages = Array.isArray(data.webImage) ? data.webImage : [data.webImage];
-  const mobileImages = Array.isArray(data.mobileImage) ? data.mobileImage : [data.mobileImage];
-
-  return layout === 1 ? (
-    <HeroBanner data={{ ...data, webImage: webImages, mobileImage: mobileImages }} />
-  ) : (
-    <HeroSlider data={{ ...data, webImage: webImages, mobileImage: mobileImages }} />
-  );
+    return layout === 1 ? <HeroBanner data={data} /> : <HeroSlider data={data} />;
 }
 
 /* ---------------------------------------------------------
    HERO SLIDER
 --------------------------------------------------------- */
+
 const HeroSlider = ({ data }: { data: any }) => {
     const [current, setCurrent] = useState(0);
     const swiperRef = useRef<any>(null);
@@ -48,6 +41,7 @@ const HeroSlider = ({ data }: { data: any }) => {
 
     return (
         <section className="relative h-screen w-full overflow-hidden">
+
             <Swiper
                 ref={swiperRef}
                 spaceBetween={0}
@@ -59,101 +53,90 @@ const HeroSlider = ({ data }: { data: any }) => {
                 modules={[EffectFade, Autoplay]}
                 className="h-full w-full hero-swiper"
             >
-                {data.webImage.filter(Boolean).map((slide: string, i: number) => (
+                {data.webImage?.map((slide: any, i: number) => (
                     <SwiperSlide key={i} className="h-full w-full relative">
-                        <Image
-                          src={slide}
-                          alt={`slide-${i}`}
-                          fill
-                          className="object-cover"
-                          priority
-                          unoptimized
-                        />
+                        {slide && (
+                            <Image
+                                src={slide}
+                                alt={`slide-${i}`}
+                                fill
+                                className="object-cover"
+                                priority
+                                unoptimized
+                            />
+                        )}
                         <div className="absolute inset-0 bg-black/25" />
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-      <div className="absolute inset-0 z-20 flex items-center justify-between px-4 md:px-8 lg:px-20 h-full">
-        <div className="flex flex-col gap-3">
-          {socialIcon.map((icon, i) => (
-            <a
-              key={i}
-              href={icon.link}
-              className="bg-white p-2 border border-[#18CE67] rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform"
-            >
-              <Image src={icon.image} alt={icon.name} width={24} height={24} />
-            </a>
-          ))}
-        </div>
+            <div className="absolute inset-0 z-20 flex items-center justify-between px-4 md:px-8 lg:px-20 h-full">
 
-        <div className="block bg-white w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
-          <p className="text-[16px] text-[#18CE67] mb-2">Welcome to Ruhunu Hospital</p>
-          <h1 className="text-[34px] lg:text-[46px] text-[#003163] font-bold leading-tight mb-4">
-            Exceptional Medical Specialty Healthcare
-          </h1>
+                {/* Social Icons */}
+                <div className="flex flex-col gap-3">
+                    {socialIcon.map((icon, i) => (
+                        <a
+                            key={i}
+                            href={icon.link}
+                            className="bg-white p-2 border border-[#18CE67] rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+                        >
+                            <Image src={icon.image} alt={icon.name} width={24} height={24} />
+                        </a>
+                    ))}
+                </div>
 
-          <div className="flex flex-col md:flex-row gap-4">
-            <a
-              href="/"
-              className="w-fit bg-[#18CE67] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95"
-            >
-              Doctor Appointment
-            </a>
-            <a
-              href="/"
-              className="w-fit bg-[#003163] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95"
-            >
-              View My Lab Reports
-            </a>
-          </div>
+                {/* Text */}
+                <div className="block bg-white w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
+                    <p className="text-[16px] text-[#18CE67] mb-2">Welcome to Ruhunu Hospital</p>
+                    <h1 className="text-[34px] lg:text-[46px] text-[#003163] font-bold leading-tight mb-4">
+                        Exceptional Medical Specialty Healthcare
+                    </h1>
 
-          <div className="flex items-center gap-3 mt-6">
-            {data.webImage.map((_ : any, idx: number) => (
-              <button
-                key={idx}
-                onClick={() => goTo(idx)}
-                className={`w-[10px] h-[10px] rounded-full transition-all duration-200 ${
-                  idx === current ? "bg-[#18CE67]" : "bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+                    <div className="flex flex-col md:flex-row gap-4">
+                        <a href="/" className="w-fit bg-[#18CE67] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
+                            Doctor Appointment
+                        </a>
+                        <a href="/" className="w-fit bg-[#003163] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
+                            View My Lab Reports
+                        </a>
+                    </div>
+
+                    <div className="flex items-center gap-3 mt-6">
+                        {data.webImage?.map((_: any, idx: number) => (
+                            <button
+                                key={idx}
+                                onClick={() => goTo(idx)}
+                                className={`w-[10px] h-[10px] rounded-full transition-all duration-200 ${
+                                    idx === current
+                                        ? "bg-[#18CE67]"
+                                        : "bg-gray-300"
+                                }`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
 /* ---------------------------------------------------------
    HERO BANNER
 --------------------------------------------------------- */
+
 const HeroBanner = ({ data }: { data: any }) => {
-  const router = useRouter();
-  const pathname = usePathname();
+    const router = useRouter();
+    const pathname = usePathname();
 
-  const pathSegments = pathname.split("/").filter(Boolean);
+    const pathSegments = pathname.split("/").filter(Boolean);
 
-  const breadcrumbs = pathSegments.map((segment, idx) => ({
-    label: segment.replace(/-/g, " ").replace(/\b\w/g, (s) => s.toUpperCase()),
-    href: "/" + pathSegments.slice(0, idx + 1).join("/"),
-  }));
+    const breadcrumbs = pathSegments.map((segment, idx) => ({
+        label: segment.replace(/-/g, " ").replace(/\b\w/g, (s) => s.toUpperCase()),
+        href: "/" + pathSegments.slice(0, idx + 1).join("/"),
+    }));
 
-  return (
-    <div className="relative flex xl:justify-start xl:items-center w-full xl:h-[430px] h-[430px] md:h-[360px] overflow-hidden">
-      <div className="hidden xl:block absolute inset-0">
-        {data.webImage.filter(Boolean).map((img: string, i: number) => (
-          <Image
-            key={i}
-            src={img}
-            alt={`Banner Desktop ${i}`}
-            fill
-            className="object-cover"
-            priority
-            unoptimized
-          />
-        ))}
-      </div>
+    return (
+        <div className="relative flex xl:justify-start xl:items-center w-full xl:h-[430px] h-[470px] md:h-[360px] overflow-hidden">
 
             {/* ----------- WEB BACKGROUND IMAGE ----------- */}
             <div className="hidden xl:block absolute inset-0">
@@ -182,7 +165,7 @@ const HeroBanner = ({ data }: { data: any }) => {
             </div>
 
             {/* ----------- OVERLAY (LIKE ATTACHED IMAGE) ----------- */}
-            <div className="absolute inset-0 bg-white/60 xl:bg-white/55 pointer-events-none"></div>
+            <div className="absolute xl:justify-center justify-center bg-white/60 xl:bg-white/55 pointer-events-none rounded-br-[30px] xl:w-[1150px] xl:h-[290px] w-[310px] h-[320px]"></div>
             {/* You can adjust opacity: white/50 → white/60 → white/70 etc. */}
 
             {/* ----------- TEXT CONTENT ----------- */}
@@ -191,7 +174,7 @@ const HeroBanner = ({ data }: { data: any }) => {
                     {data.title}
                 </h1>
 
-                <div className="flex gap-1 text-[14px] xl:text-[16px] flex-wrap mt-2">
+                <div className="flex gap-2 text-[14px] xl:text-[16px] flex-wrap mt-2 font-medium">
                     <button onClick={() => router.push("/")} className="hover:text-[#18CE67]">
                         Home
                     </button>
@@ -201,7 +184,6 @@ const HeroBanner = ({ data }: { data: any }) => {
                             <span>›</span>
                             <button
                                 onClick={() => router.push(item.href)}
-                                className="hover:text-[#18CE67]"
                             >
                                 {item.label}
                             </button>
@@ -210,6 +192,5 @@ const HeroBanner = ({ data }: { data: any }) => {
                 </div>
             </div>
         </div>
-  );
+    );
 };
-
