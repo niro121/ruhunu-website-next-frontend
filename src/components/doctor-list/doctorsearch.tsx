@@ -37,7 +37,7 @@ export default function DoctorSearch({
   };
 
   return (
-    <div className="bg-[#F4F9FD] p-8 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-4 xl:mt-16 xl:mb-16 mt-8 mb-8">
+    <div className="bg-[#F4F9FD] p-8 xl:px-16 flex flex-col md:flex-row items-center justify-between gap-4 xl:mt-16 xl:mb-16 mt-8 mb-8">
       {/* Doctor Name */}
       <div className="flex flex-col w-full md:w-1/3">
         <label className="text-[#122739] font-normal mb-2 xl:text-[16px] text-[14px]">
