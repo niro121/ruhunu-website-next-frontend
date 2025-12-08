@@ -182,7 +182,7 @@ const HeroBanner = ({ data }: { data: any }) => {
             </div>
 
             {/* ----------- OVERLAY (LIKE ATTACHED IMAGE) ----------- */}
-            <div className="absolute inset-0 bg-white/60 xl:bg-white/55 pointer-events-none"></div>
+            <div className="absolute inset-2 bg-white/60 xl:bg-white/55 rounded-br-md pointer-events-none xl:w-[1150px] xl:h-[290px]"></div>
             {/* You can adjust opacity: white/50 → white/60 → white/70 etc. */}
 
             {/* ----------- TEXT CONTENT ----------- */}
@@ -212,4 +212,3 @@ const HeroBanner = ({ data }: { data: any }) => {
         </div>
   );
 };
-
