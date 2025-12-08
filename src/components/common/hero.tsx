@@ -138,19 +138,38 @@ const HeroBanner = ({ data }: { data: any }) => {
     return (
         <div className="relative flex xl:justify-start xl:items-center w-full xl:h-[430px] h-[470px] md:h-[360px] overflow-hidden">
 
+            {/* ----------- WEB BACKGROUND IMAGE ----------- */}
             <div className="hidden xl:block absolute inset-0">
                 {data.webImage && (
-                    <Image src={data.webImage} alt="Banner Background" fill className="object-cover" priority />
+                    <Image
+                        src={data.webImage}
+                        alt="Banner Background"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
                 )}
             </div>
 
+            {/* ----------- MOBILE BACKGROUND IMAGE ----------- */}
             <div className="block xl:hidden absolute inset-0">
                 {data.mobileImage && (
-                    <Image src={data.mobileImage} alt="Mobile Banner Background" fill className="object-cover" priority />
+                    <Image
+                        src={data.mobileImage}
+                        alt="Mobile Banner Background"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
                 )}
             </div>
 
-            <div className="relative z-10 w-full xl:px-32 lg:px-30 md:px-16 px-6 flex flex-col justify-center h-full">
+            {/* ----------- OVERLAY (LIKE ATTACHED IMAGE) ----------- */}
+            <div className="absolute inset-0 bg-white/60 xl:bg-white/55 pointer-events-none"></div>
+            {/* You can adjust opacity: white/50 → white/60 → white/70 etc. */}
+
+            {/* ----------- TEXT CONTENT ----------- */}
+            <div className="relative z-10 w-full xl:px-16 lg:px-15 md:px-16 px-6 flex flex-col justify-center h-full">
                 <h1 className="font-extrabold text-[#122739] text-[30px] xl:text-[48px] leading-tight">
                     {data.title}
                 </h1>
@@ -163,7 +182,10 @@ const HeroBanner = ({ data }: { data: any }) => {
                     {breadcrumbs.map((item, idx) => (
                         <React.Fragment key={idx}>
                             <span>›</span>
-                            <button onClick={() => router.push(item.href)} className="hover:text-[#18CE67]">
+                            <button
+                                onClick={() => router.push(item.href)}
+                                className="hover:text-[#18CE67]"
+                            >
                                 {item.label}
                             </button>
                         </React.Fragment>
@@ -173,3 +195,4 @@ const HeroBanner = ({ data }: { data: any }) => {
         </div>
     );
 };
+
