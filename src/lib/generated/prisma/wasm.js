@@ -139,6 +139,7 @@ exports.Prisma.SectionScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+<<<<<<< HEAD
 exports.Prisma.TestimonialScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -146,6 +147,18 @@ exports.Prisma.TestimonialScalarFieldEnum = {
   designation: 'designation',
   testimonial: 'testimonial',
   rating: 'rating',
+=======
+exports.Prisma.BrancheScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image',
+  listImage: 'listImage',
+  description: 'description',
+  phone: 'phone',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  slug: 'slug',
+>>>>>>> origin/develop
   visibility: 'visibility',
   createdBy: 'createdBy',
   updatedBy: 'updatedBy',
@@ -169,7 +182,11 @@ exports.Prisma.ModelName = {
   MenuItem: 'MenuItem',
   Page: 'Page',
   Section: 'Section',
+<<<<<<< HEAD
   Testimonial: 'Testimonial'
+=======
+  Branche: 'Branche'
+>>>>>>> origin/develop
 };
 /**
  * Create the Client
@@ -182,7 +199,11 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
+<<<<<<< HEAD
       "value": "C:\\Users\\ROG\\Documents\\GitHub\\ruhunu-website-next-frontend\\src\\lib\\generated\\prisma",
+=======
+      "value": "C:\\Users\\User\\Desktop\\ruhunu-website-next-frontend\\src\\lib\\generated\\prisma",
+>>>>>>> origin/develop
       "fromEnvVar": null
     },
     "config": {
@@ -196,7 +217,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
+<<<<<<< HEAD
     "sourceFilePath": "C:\\Users\\ROG\\Documents\\GitHub\\ruhunu-website-next-frontend\\prisma\\schema.prisma",
+=======
+    "sourceFilePath": "C:\\Users\\User\\Desktop\\ruhunu-website-next-frontend\\prisma\\schema.prisma",
+>>>>>>> origin/develop
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -219,13 +244,22 @@ const config = {
       }
     }
   },
+<<<<<<< HEAD
   "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/lib/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"MONGODB_URI\")\n}\n\nmodel Menu {\n  id         String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name       String\n  visibility Boolean @default(false)\n  order      Int     @default(0)\n\n  items MenuItem[] @relation(\"MenuToMenuItem\")\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel MenuItem {\n  id      String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  title   String\n  url     String\n  order   Int     @default(0)\n  visible Boolean @default(true)\n\n  menuId String? @db.ObjectId\n  menu   Menu?   @relation(\"MenuToMenuItem\", fields: [menuId], references: [id])\n\n  parentId String?    @db.ObjectId\n  parent   MenuItem?  @relation(\"SubMenuRelation\", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)\n  children MenuItem[] @relation(\"SubMenuRelation\")\n\n  createdBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedBy String?  @db.ObjectId\n  updatedAt DateTime @updatedAt\n}\n\nmodel Page {\n  id              String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  title           String  @default(\"\")\n  metaTitle       String\n  metaKeyword     String\n  metaDescription String\n  metaImage       String\n  slug            String  @unique // Important for routing\n  visibility      Boolean @default(false)\n\n  sections Section[]\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Section {\n  id         String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  type       String\n  layout     Int\n  data       Json\n  order      Int\n  visibility Boolean @default(false)\n\n  pageId String @db.ObjectId\n  page   Page   @relation(fields: [pageId], references: [id])\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n\n  updatedAt DateTime @updatedAt\n}\n\nmodel Testimonial {\n  id          String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name        String\n  image       String?\n  designation String\n  testimonial String\n  rating      Int\n  visibility  Boolean @default(false)\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
   "inlineSchemaHash": "c6c8c88ac42996ce9389f92c1a8f7ea64bac3d1e654c830e833d8f8a6c2f06da",
+=======
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/lib/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"MONGODB_URI\")\n}\n\nmodel Menu {\n  id         String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name       String\n  visibility Boolean @default(false)\n  order      Int     @default(0)\n\n  items MenuItem[] @relation(\"MenuToMenuItem\")\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel MenuItem {\n  id      String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  title   String\n  url     String\n  order   Int     @default(0)\n  visible Boolean @default(true)\n\n  menuId String? @db.ObjectId\n  menu   Menu?   @relation(\"MenuToMenuItem\", fields: [menuId], references: [id])\n\n  parentId String?    @db.ObjectId\n  parent   MenuItem?  @relation(\"SubMenuRelation\", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)\n  children MenuItem[] @relation(\"SubMenuRelation\")\n\n  createdBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedBy String?  @db.ObjectId\n  updatedAt DateTime @updatedAt\n}\n\nmodel Page {\n  id              String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  title           String  @default(\"\")\n  metaTitle       String\n  metaKeyword     String\n  metaDescription String\n  metaImage       String\n  slug            String  @unique // Important for routing\n  visibility      Boolean @default(false)\n\n  sections Section[]\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Section {\n  id         String  @id @default(auto()) @map(\"_id\") @db.ObjectId\n  type       String\n  layout     Int\n  data       Json\n  order      Int\n  visibility Boolean @default(false)\n\n  pageId String @db.ObjectId\n  page   Page   @relation(fields: [pageId], references: [id])\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Branche {\n  id          String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name        String\n  image       String\n  listImage   String[]\n  description String   @default(\"\")\n  phone       String[]\n  latitude    String\n  longitude   String\n  slug        String\n  visibility  Boolean  @default(false)\n\n  createdBy String?  @db.ObjectId\n  updatedBy String?  @db.ObjectId\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "ab2a3372a5ede411753d21afcc184ed5e6c7e355f9771ede4c1f2bd1546d594d",
+>>>>>>> origin/develop
   "copyEngine": true
 }
 config.dirname = '/'
 
+<<<<<<< HEAD
 config.runtimeDataModel = JSON.parse("{\"models\":{\"Menu\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"order\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"items\",\"kind\":\"object\",\"type\":\"MenuItem\",\"relationName\":\"MenuToMenuItem\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"MenuItem\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"order\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"visible\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"menuId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"menu\",\"kind\":\"object\",\"type\":\"Menu\",\"relationName\":\"MenuToMenuItem\"},{\"name\":\"parentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"parent\",\"kind\":\"object\",\"type\":\"MenuItem\",\"relationName\":\"SubMenuRelation\"},{\"name\":\"children\",\"kind\":\"object\",\"type\":\"MenuItem\",\"relationName\":\"SubMenuRelation\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Page\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaTitle\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaKeyword\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaDescription\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaImage\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"sections\",\"kind\":\"object\",\"type\":\"Section\",\"relationName\":\"PageToSection\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Section\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"layout\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"data\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"order\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"pageId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"page\",\"kind\":\"object\",\"type\":\"Page\",\"relationName\":\"PageToSection\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Testimonial\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"designation\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"testimonial\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"rating\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+=======
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Menu\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"order\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"items\",\"kind\":\"object\",\"type\":\"MenuItem\",\"relationName\":\"MenuToMenuItem\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"MenuItem\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"order\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"visible\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"menuId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"menu\",\"kind\":\"object\",\"type\":\"Menu\",\"relationName\":\"MenuToMenuItem\"},{\"name\":\"parentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"parent\",\"kind\":\"object\",\"type\":\"MenuItem\",\"relationName\":\"SubMenuRelation\"},{\"name\":\"children\",\"kind\":\"object\",\"type\":\"MenuItem\",\"relationName\":\"SubMenuRelation\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Page\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaTitle\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaKeyword\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaDescription\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metaImage\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"sections\",\"kind\":\"object\",\"type\":\"Section\",\"relationName\":\"PageToSection\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Section\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"layout\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"data\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"order\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"pageId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"page\",\"kind\":\"object\",\"type\":\"Page\",\"relationName\":\"PageToSection\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Branche\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"_id\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"listImage\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phone\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"latitude\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"longitude\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"visibility\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedBy\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+>>>>>>> origin/develop
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

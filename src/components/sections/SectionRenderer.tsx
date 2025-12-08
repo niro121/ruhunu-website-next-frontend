@@ -1,5 +1,7 @@
+import BannerSection from "../common/Banner";
+import Hero from "../common/hero";
+import Popup from "../global/popup";
 import AboutUs from "../home/about-us-section";
-import HeroSlider from "../home/hero-sider";
 import NewsAndArticleNews from "../home/news-and-article-new-section";
 import OurServices from "../home/services-section";
 import OurTestimonials from "../home/testimonials-section";
@@ -9,7 +11,7 @@ export default function SectionRenderer({ section }: any) {
 
     switch (type) {
         case "Hero":
-            return <HeroSlider layout={layout} data={data}/>;
+            return <Hero layout={layout} data={data}/>;
             break;
 
         case "Text Only":
@@ -45,7 +47,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Banner":
-            return <AboutUs/>;
+            return <BannerSection data={data}/>;
             break;
         
         case "Borad Of Directors":
@@ -69,7 +71,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "PopUp":
-            return <AboutUs/>;
+            return <Popup data={data}/>;
             break;
 
         case "Map":
@@ -77,7 +79,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Services":
-            return <OurServices/>;
+            return <OurServices data={data}/>;
             break;
 
         case "Testimonials":

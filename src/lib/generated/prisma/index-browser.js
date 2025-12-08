@@ -167,6 +167,7 @@ exports.Prisma.SectionScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+<<<<<<< HEAD
 exports.Prisma.TestimonialScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -174,6 +175,18 @@ exports.Prisma.TestimonialScalarFieldEnum = {
   designation: 'designation',
   testimonial: 'testimonial',
   rating: 'rating',
+=======
+exports.Prisma.BrancheScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image',
+  listImage: 'listImage',
+  description: 'description',
+  phone: 'phone',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  slug: 'slug',
+>>>>>>> origin/develop
   visibility: 'visibility',
   createdBy: 'createdBy',
   updatedBy: 'updatedBy',
@@ -197,7 +210,11 @@ exports.Prisma.ModelName = {
   MenuItem: 'MenuItem',
   Page: 'Page',
   Section: 'Section',
+<<<<<<< HEAD
   Testimonial: 'Testimonial'
+=======
+  Branche: 'Branche'
+>>>>>>> origin/develop
 };
 
 /**
