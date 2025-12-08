@@ -167,6 +167,23 @@ exports.Prisma.SectionScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.BrancheScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image',
+  listImage: 'listImage',
+  description: 'description',
+  phone: 'phone',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  slug: 'slug',
+  visibility: 'visibility',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -182,7 +199,8 @@ exports.Prisma.ModelName = {
   Menu: 'Menu',
   MenuItem: 'MenuItem',
   Page: 'Page',
-  Section: 'Section'
+  Section: 'Section',
+  Branche: 'Branche'
 };
 
 /**

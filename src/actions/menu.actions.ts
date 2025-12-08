@@ -45,12 +45,14 @@ export async function fetchMenuTree(): Promise<MenuType[]> {
   try {
     const menus = await getMenus();
 
+    if (!menus) return []; // ← Prevent undefined issue
+
     return menus.map(menu => ({
       id: menu.id,
       name: menu.name,
       visibility: menu.visibility,
       order: menu.order,
-      items: buildMenuTree(menu.items), // ← Here we use it!
+      items: buildMenuTree(menu.items),
     }));
 
   } catch (error) {
@@ -58,3 +60,4 @@ export async function fetchMenuTree(): Promise<MenuType[]> {
     return [];
   }
 }
+

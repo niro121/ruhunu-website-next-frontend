@@ -7,18 +7,12 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay"
 
-const images = [
-  { name: "image 1", link: "/images/img1.jpg" },
-  { name: "image 2", link: "/images/img2.jpg" },
-  { name: "image 3", link: "/images/img3.jpg" },
-  { name: "image 1", link: "/images/img1.jpg" },
-  { name: "image 2", link: "/images/img2.jpg" },
-  { name: "image 3", link: "/images/img3.jpg" },
-];
+type GalleryProps = {
+    images: string[];
+};
 
-export default function Gallery() {
+export default function Gallery({ images }: GalleryProps) {
     return (
         <div className="px-[10px] md:px-[20px] lg:px-[50px] py-[70px] bg-white">
             <div className="flex items-center justify-center">
@@ -26,12 +20,7 @@ export default function Gallery() {
             </div>
 
             <div className="relative w-full">
-                <Carousel 
-                    plugins={[
-                        Autoplay({
-                            delay: 5000,
-                        }),
-                    ]}
+                <Carousel
                     opts={{
                         align: "center",
                         loop: true,
@@ -40,14 +29,16 @@ export default function Gallery() {
                 >
                     <CarouselContent className="-ml-1">
                         {images.map((image, index) => (
-                            <CarouselItem key={index} className="pl-[10px] md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-[240px] w-full">
+                            <CarouselItem
+                                key={index}
+                                className="pl-[20px] md:basis-1/2 lg:basis-1/3"
+                            >
+                                <div className="p-1 h-[310px] w-full relative">
                                     <Image
-                                        src={image.link}
-                                        alt={image.name}
-                                        width={0}
-                                        height={240}
-                                        className="object-cover w-full"
+                                        src={image}
+                                        alt={`Gallery image ${index}`}
+                                        fill
+                                        className="object-cover rounded-md"
                                     />
                                 </div>
                             </CarouselItem>
