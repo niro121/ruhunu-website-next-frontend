@@ -167,6 +167,20 @@ exports.Prisma.SectionScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.TestimonialScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image',
+  designation: 'designation',
+  testimonial: 'testimonial',
+  rating: 'rating',
+  visibility: 'visibility',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -182,7 +196,8 @@ exports.Prisma.ModelName = {
   Menu: 'Menu',
   MenuItem: 'MenuItem',
   Page: 'Page',
-  Section: 'Section'
+  Section: 'Section',
+  Testimonial: 'Testimonial'
 };
 
 /**

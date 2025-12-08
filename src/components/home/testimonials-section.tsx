@@ -1,30 +1,10 @@
+import { fetchTestimonials } from "@/actions/testimonial.actions";
 import Image from "next/image"
 
-const testimonials = [
-    {
-        image: "",
-        name: "Shaun",
-        country: "Germany",
-        rate: 5,
-        message: "Ruhunu IMC's wellness center program is a game changer"
-    },
-    {
-        image: "",
-        name: "Anna",
-        country: "Australia",
-        rate: 5,
-        message: "IMC made my childbirth experience feel safe and manageable."
-    },
-    {
-        image: "",
-        name: "Russlan Boss",
-        country: "Ukrain",
-        rate: 4,
-        message: "Outstanding surgical care at the International Medical Center! They made a daunting experience feel safe & manageable."
-    },
-]
 
-export default function OurTestimonials () {
+export default async function OurTestimonials () {
+
+    const testimonials = await fetchTestimonials();
     return (
         <div className="bg-[#f4f9fd] py-[70px] px-[10px] md:px-[20px] lg:px-[50px]">
             <div className="text-center">
@@ -41,9 +21,10 @@ export default function OurTestimonials () {
                                  <div className="col-span-2">
                                      {testimonials.image ? (
                                         <Image
+                                            width={65}
+                                            height={65}
                                             src={testimonials.image}
                                             alt={testimonials.name || ""}
-                                            className="w-[65px] h-[65px]"
                                         />
                                         ) : (
                                         <div className="w-[65px] h-[65px] bg-gray-300 flex items-center justify-center text-white font-bold text-lg">
@@ -53,9 +34,9 @@ export default function OurTestimonials () {
                                 </div>
                                 <div className="col-span-6">
                                     <p className="text-[20px] text-[#2b3e4f] font-semibold">{testimonials.name}</p>
-                                    <p className="text-[16px] text-[#2b3e4f] font-semibold">{testimonials.country}</p>
+                                    <p className="text-[16px] text-[#2b3e4f] font-semibold">{testimonials.designation}</p>
                                     <div className="flex gap-1">
-                                        {Array.from({ length: testimonials.rate}, (_, i) => (
+                                        {Array.from({ length: testimonials.rating}, (_, i) => (
                                             <svg
                                                 key={i}
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +54,7 @@ export default function OurTestimonials () {
 
                         <div className="p-[16px]">
                             <p className="p-[10px] text-[16px] text-black">
-                                {testimonials.message}
+                                {testimonials.testimonial}
                             </p>
                         </div>
 
