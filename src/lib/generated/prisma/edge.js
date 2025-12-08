@@ -200,7 +200,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\ROG\\Documents\\GitHub\\ruhunu-website-next-frontend\\src\\lib\\generated\\prisma",
+      "value": "/Users/Allana/Documents/GitHub/ruhunu-website-next-frontend/src/lib/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -209,16 +209,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\ROG\\Documents\\GitHub\\ruhunu-website-next-frontend\\prisma\\schema.prisma",
+    "sourceFilePath": "/Users/Allana/Documents/GitHub/ruhunu-website-next-frontend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../../.env"
   },
   "relativePath": "../../../../prisma",
