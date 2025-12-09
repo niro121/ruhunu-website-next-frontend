@@ -147,6 +147,7 @@ const HeroBanner = ({ data }: { data: any }) => {
                         fill
                         className="object-cover"
                         priority
+                        unoptimized
                     />
                 )}
             </div>

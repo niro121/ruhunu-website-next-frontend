@@ -1,6 +1,6 @@
 // app/page.tsx
 import { fetchPage } from "@/actions/page.action";
-import OurServices from "@/components/home/services-section";
+import OurServices from "@/components/common/services-section";
 import OurTestimonials from "@/components/home/testimonials-section";
 import SectionRenderer from "@/components/sections/SectionRenderer";
 import { notFound } from "next/navigation";
