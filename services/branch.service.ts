@@ -5,6 +5,9 @@ import prisma from "@/lib/prisma";
 export async function getBranchs () {
     try {
         const records = await prisma.branche.findMany({
+            where: {
+                visibility: true
+            },
             orderBy: { createdAt: "asc" },
         });
 
@@ -26,6 +29,6 @@ export async function getSingleBranch (slug : string) {
 
         return branch
     } catch (error: any){
-
+        console.log("get single branch error : ",error);
     }
 }
