@@ -88,7 +88,7 @@ const DoctorGrid: React.FC = () => {
         {allDoctors.slice(0, visibleCount).map((doctor) => (
           <div
             key={doctor.id}
-            onClick={() => router.push(`/doctors-list/${doctor.id}`)}
+            onClick={() => router.push(`/doctors/${doctor.id}`)}
             className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:scale-[1.02]"
           >
             {/* Image */}
