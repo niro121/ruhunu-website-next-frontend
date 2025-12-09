@@ -5,123 +5,50 @@ import Image from "next/image";
 import CustomButton from "../common/custombutton";
 import { useRouter } from "next/navigation";
 
-interface Doctor {
-  id: number;
-  name: string;
-  specialty: string;
-  image?: string;
-}
+type DoctorGridProps = {
+  doctor?: any[];
+};
 
-const DoctorGrid: React.FC = () => {
+export default function DoctorGrid({ doctor = [] }: DoctorGridProps) {
   const router = useRouter();
-
-  const allDoctors: Doctor[] = [
-    {
-      id: 1,
-      name: "DR.(MRS) HARSHANI DHARMAWARDENA",
-      specialty: "Pediatric Nephrologist",
-      image: "/images/doctorlist/doctor5.png",
-    },
-    {
-      id: 2,
-      name: "DR.(MRS) LALITHA SENARATH",
-      specialty: "Eye Surgeon",
-      image: "/images/doctorlist/doctor2.jpg",
-    },
-    {
-      id: 3,
-      name: "DR. DIMANTHA DE SILVA",
-      specialty: "Genito Urinary Surgeon",
-      image: "/images/doctorlist/doctor3.jpg",
-    },
-    {
-      id: 4,
-      name: "DR.(MRS) IRESHA HETTIARACHCHI",
-      specialty: "Nephrologist",
-      image: "/images/doctorlist/doctor4.jpg",
-    },
-    {
-      id: 5,
-      name: "DR. NARAYANA",
-      specialty: "Ayurvedic",
-      image: "/images/doctorlist/doctor5.png",
-    },
-    {
-      id: 6,
-      name: "DR. H H L K FERNANDO",
-      specialty: "Andrologist",
-      image: "/images/doctorlist/doctor6.jpg",
-    },
-    {
-      id: 7,
-      name: "DR. SANDUN JAYASINGHE",
-      specialty: "Dermatologist",
-      image: "/images/doctorlist/doctor7.jpg",
-    },
-    {
-      id: 8,
-      name: "DR. NILANTHI RANASINGHE",
-      specialty: "Cardiologist",
-      image: "/images/doctorlist/doctor8.jpg",
-    },
-    {
-      id: 9,
-      name: "DR. RAVINDU PERERA",
-      specialty: "ENT Specialist",
-      image: "/images/doctorlist/doctor9.jpg",
-    },
-  ];
-
   const [visibleCount, setVisibleCount] = useState(6);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) =>
-      prev + 3 >= allDoctors.length ? allDoctors.length : prev + 3
+      prev + 3 >= doctor.length ? doctor.length : prev + 3
     );
   };
 
   return (
     <section className="px-4 xl:px-16 xl:py-16 py-10">
 
-      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:-mt-10 -mt-6">
-        {allDoctors.slice(0, visibleCount).map((doctor) => (
+        {doctor.slice(0, visibleCount).map((d: any) => (
           <div
-            key={doctor.id}
-            onClick={() => router.push(`/doctors/${doctor.id}`)}
+            key={d.id}
+            onClick={() => router.push(`/doctors-list/${d.id}`)}
             className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:scale-[1.02]"
           >
-            {/* Image */}
             <div className="relative xl:w-auto xl:h-[296px] w-auto h-[300px] bg-[#f9f9f9] flex items-center justify-center">
-              {doctor.image ? (
-                <Image
-                  src={doctor.image}
-                  alt={doctor.name}
-                  fill
-                  className="object-fill"
-                />
-              ) : (
-                <Image
-                  src="/images/doctor-placeholder.png"
-                  alt="Default Doctor"
-                  width={180}
-                  height={180}
-                  className="opacity-60"
-                />
-              )}
+              <Image
+                src={d.image || "/images/doctor-placeholder.png"}
+                alt={d.name || "Doctor"}
+                fill={!!d.image}
+                width={!d.image ? 180 : undefined}
+                height={!d.image ? 180 : undefined}
+                className={d.image ? "object-fill" : "opacity-60"}
+              />
             </div>
 
-            {/* Info */}
             <div className="p-4 text-center">
               <h3 className="text-[#122739] font-normal xl:text-[16px] text-[14px] uppercase leading-snug">
-                {doctor.name}
+                {d.name}
               </h3>
               <p className="text-[#122739] xl:text-[12px] mt-1 font-semibold">
-                {doctor.specialty}
+                {d.specialty}
               </p>
             </div>
 
-            {/* Book Now */}
             <div className="flex justify-center pb-4">
               <CustomButton
                 className="xl:w-[348px] xl:h-[48.1px] w-[259px] h-[45px] xl:text-[16px] font-semibold"
@@ -132,8 +59,7 @@ const DoctorGrid: React.FC = () => {
         ))}
       </div>
 
-      {/* Load More Button */}
-      {allDoctors.length > 6 && visibleCount < allDoctors.length && (
+      {doctor.length > 6 && visibleCount < doctor.length && (
         <div className="flex justify-center mt-10">
           <button
             onClick={handleLoadMore}
@@ -145,6 +71,4 @@ const DoctorGrid: React.FC = () => {
       )}
     </section>
   );
-};
-
-export default DoctorGrid;
+}
