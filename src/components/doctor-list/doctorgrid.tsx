@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import CustomButton from "../common/custombutton";
+import { useRouter } from "next/navigation";
 
 interface Doctor {
   id: number;
@@ -12,6 +13,8 @@ interface Doctor {
 }
 
 const DoctorGrid: React.FC = () => {
+  const router = useRouter();
+
   const allDoctors: Doctor[] = [
     {
       id: 1,
@@ -69,10 +72,8 @@ const DoctorGrid: React.FC = () => {
     },
   ];
 
-  // Show ONLY 6 doctors initially
   const [visibleCount, setVisibleCount] = useState(6);
 
-  // Load more function (3 at a time)
   const handleLoadMore = () => {
     setVisibleCount((prev) =>
       prev + 3 >= allDoctors.length ? allDoctors.length : prev + 3
@@ -87,10 +88,11 @@ const DoctorGrid: React.FC = () => {
         {allDoctors.slice(0, visibleCount).map((doctor) => (
           <div
             key={doctor.id}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+            onClick={() => router.push(`/doctors/${doctor.id}`)}
+            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:scale-[1.02]"
           >
             {/* Image */}
-            <div className="relative xl:w-auto xl:h-[296x] w-aut0 h-[300px] bg-[#f9f9f9] flex items-center justify-center">
+            <div className="relative xl:w-auto xl:h-[296px] w-auto h-[300px] bg-[#f9f9f9] flex items-center justify-center">
               {doctor.image ? (
                 <Image
                   src={doctor.image}
@@ -130,7 +132,7 @@ const DoctorGrid: React.FC = () => {
         ))}
       </div>
 
-      {/* Load More → show ONLY if there are MORE THAN 6 doctors */}
+      {/* Load More Button */}
       {allDoctors.length > 6 && visibleCount < allDoctors.length && (
         <div className="flex justify-center mt-10">
           <button
