@@ -3,8 +3,8 @@ import Hero from "../common/hero";
 import Popup from "../global/popup";
 import AboutUs from "../home/about-us-section";
 import NewsAndArticleNews from "../home/news-and-article-new-section";
-import OurServices from "../home/services-section";
 import OurTestimonials from "../home/testimonials-section";
+import ServicesWrapper from "../common/services-wrapper";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -79,7 +79,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Services":
-            return <OurServices data={data}/>;
+            return <ServicesWrapper data={data}/>;
             break;
 
         case "Testimonials":
