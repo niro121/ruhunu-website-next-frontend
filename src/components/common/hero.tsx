@@ -136,7 +136,7 @@ const HeroBanner = ({ data }: { data: any }) => {
     }));
 
     return (
-        <div className="relative flex xl:justify-start xl:items-center w-full xl:h-[430px] h-[470px] md:h-[360px] overflow-hidden">
+        <div className="relative flex justify-start items-center w-full xl:h-[430px] h-[470px] md:h-[360px] overflow-hidden">
 
             {/* ----------- WEB BACKGROUND IMAGE ----------- */}
             <div className="hidden xl:block absolute inset-0">
@@ -164,9 +164,18 @@ const HeroBanner = ({ data }: { data: any }) => {
                 )}
             </div>
 
-            {/* ----------- OVERLAY (LIKE ATTACHED IMAGE) ----------- */}
-            <div className="absolute xl:justify-center justify-center bg-white/60 xl:bg-white/55 pointer-events-none rounded-br-[30px] xl:w-[1150px] xl:h-[290px] w-[310px] h-[320px]"></div>
-            {/* You can adjust opacity: white/50 → white/60 → white/70 etc. */}
+            {/* ----------- FIXED OVERLAY (LEFT ALIGNED ALL SCREENS) ----------- */}
+            <div
+                className="
+                    absolute 
+                    left-0 top-1/2 -translate-y-1/2
+                    bg-white/60 xl:bg-white/55 
+                    pointer-events-none 
+                    rounded-br-[30px]
+                    xl:w-[1150px] xl:h-[290px]
+                    w-[310px] h-[320px]
+                "
+            ></div>
 
             {/* ----------- TEXT CONTENT ----------- */}
             <div className="relative z-10 w-full xl:px-16 lg:px-15 md:px-16 px-6 flex flex-col justify-center h-full">
@@ -182,9 +191,7 @@ const HeroBanner = ({ data }: { data: any }) => {
                     {breadcrumbs.map((item, idx) => (
                         <React.Fragment key={idx}>
                             <span>›</span>
-                            <button
-                                onClick={() => router.push(item.href)}
-                            >
+                            <button onClick={() => router.push(item.href)}>
                                 {item.label}
                             </button>
                         </React.Fragment>
