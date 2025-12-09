@@ -41,7 +41,7 @@ export default function Services({ data,services }: OurServicesProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-[20px] mt-[48px]">
                 {visibleServices.map((service:any, index: number) => (
-                    <a key={index} href={service.slug} className="group shadow-[2px_3px_6px_#00000029]">
+                    <a key={index} href={`service-detail/${service.slug}`} className="group shadow-[2px_3px_6px_#00000029]">
                         <div
                             className="
                                 bg-white px-[25px] py-[40px] flex flex-col items-center text-center
