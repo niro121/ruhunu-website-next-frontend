@@ -1,5 +1,6 @@
 import { fetchPage } from "@/actions/page.action";
 import Hero from "@/components/common/hero";
+import DoctorGridWrapper from "@/components/doctor-list/doctor-grid-wrapper";
 import DoctorGrid from "@/components/doctor-list/doctorgrid";
 import DoctorSearch from "@/components/doctor-list/doctorsearch";
 import { notFound } from "next/navigation";
@@ -58,7 +59,7 @@ export default async function DoctorsListPage() {
                 </h1>
             </div>
 
-            <DoctorGrid />
+            <DoctorGridWrapper />
 
             {/* Matara Section */}
             <div className="xl:px-32 px-4 py-4">
@@ -67,7 +68,7 @@ export default async function DoctorsListPage() {
                 </h1>
             </div>
 
-            <DoctorGrid />
+            <DoctorGridWrapper />
         </div>
     );
 }

@@ -2,7 +2,7 @@ import { fetchMenuTree } from "@/actions/menu.actions";
 import DoctorGrid from "./doctorgrid";
 import { getAllDoctors } from "@/actions/docter.action";
 
-export default async function DoctorGridrWrapper() {
+export default async function DoctorGridWrapper() {
 
     console.log("woking 1")
 
