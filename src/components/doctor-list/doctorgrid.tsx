@@ -27,16 +27,14 @@ export default function DoctorGrid({ doctor = [] }: DoctorGridProps) {
           <div
             key={d.id}
             onClick={() => router.push(`/doctors-list/${d.id}`)}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:scale-[1.02]"
+            className="bg-white shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:scale-[1.02]"
           >
             <div className="relative xl:w-auto xl:h-[296px] w-auto h-[300px] bg-[#f9f9f9] flex items-center justify-center">
               <Image
-                src={d.image || "/images/doctor-placeholder.png"}
-                alt={d.name || "Doctor"}
-                fill={!!d.image}
-                width={!d.image ? 180 : undefined}
-                height={!d.image ? 180 : undefined}
-                className={d.image ? "object-fill" : "opacity-60"}
+                src={d.image}
+                alt={d.name}
+                fill
+                className="object-fill"
               />
             </div>
 
@@ -45,7 +43,7 @@ export default function DoctorGrid({ doctor = [] }: DoctorGridProps) {
                 {d.name}
               </h3>
               <p className="text-[#122739] xl:text-[12px] mt-1 font-semibold">
-                {d.specialty}
+                {d.speciality}
               </p>
             </div>
 

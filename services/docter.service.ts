@@ -10,7 +10,7 @@ export const getDoctors = async () => {
             where: {
                 visibility: true
             },
-            orderBy: { createdAt: "asc" },
+            orderBy: { order: "asc" },
         })
 
         console.log({records})
