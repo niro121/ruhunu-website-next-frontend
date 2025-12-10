@@ -48,6 +48,11 @@ export type Branche = $Result.DefaultSelection<Prisma.$BranchePayload>
  * 
  */
 export type Service = $Result.DefaultSelection<Prisma.$ServicePayload>
+/**
+ * Model Docter
+ * 
+ */
+export type Docter = $Result.DefaultSelection<Prisma.$DocterPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -203,6 +208,16 @@ export class PrismaClient<
     * ```
     */
   get service(): Prisma.ServiceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.docter`: Exposes CRUD operations for the **Docter** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Docters
+    * const docters = await prisma.docter.findMany()
+    * ```
+    */
+  get docter(): Prisma.DocterDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -649,7 +664,8 @@ export namespace Prisma {
     Section: 'Section',
     Testimonial: 'Testimonial',
     Branche: 'Branche',
-    Service: 'Service'
+    Service: 'Service',
+    Docter: 'Docter'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -668,7 +684,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "menu" | "menuItem" | "page" | "section" | "testimonial" | "branche" | "service"
+      modelProps: "menu" | "menuItem" | "page" | "section" | "testimonial" | "branche" | "service" | "docter"
       txIsolationLevel: never
     }
     model: {
@@ -1190,6 +1206,80 @@ export namespace Prisma {
           }
         }
       }
+      Docter: {
+        payload: Prisma.$DocterPayload<ExtArgs>
+        fields: Prisma.DocterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DocterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DocterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>
+          }
+          findFirst: {
+            args: Prisma.DocterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DocterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>
+          }
+          findMany: {
+            args: Prisma.DocterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>[]
+          }
+          create: {
+            args: Prisma.DocterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>
+          }
+          createMany: {
+            args: Prisma.DocterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.DocterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>
+          }
+          update: {
+            args: Prisma.DocterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>
+          }
+          deleteMany: {
+            args: Prisma.DocterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DocterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DocterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocterPayload>
+          }
+          aggregate: {
+            args: Prisma.DocterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocter>
+          }
+          groupBy: {
+            args: Prisma.DocterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocterGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.DocterFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.DocterAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.DocterCountArgs<ExtArgs>
+            result: $Utils.Optional<DocterCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1276,6 +1366,7 @@ export namespace Prisma {
     testimonial?: TestimonialOmit
     branche?: BrancheOmit
     service?: ServiceOmit
+    docter?: DocterOmit
   }
 
   /* Types for Logging */
@@ -8900,6 +8991,1196 @@ export namespace Prisma {
 
 
   /**
+   * Model Docter
+   */
+
+  export type AggregateDocter = {
+    _count: DocterCountAggregateOutputType | null
+    _avg: DocterAvgAggregateOutputType | null
+    _sum: DocterSumAggregateOutputType | null
+    _min: DocterMinAggregateOutputType | null
+    _max: DocterMaxAggregateOutputType | null
+  }
+
+  export type DocterAvgAggregateOutputType = {
+    order: number | null
+    referralCharge: number | null
+  }
+
+  export type DocterSumAggregateOutputType = {
+    order: number | null
+    referralCharge: number | null
+  }
+
+  export type DocterMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    name: string | null
+    speciality: string | null
+    branch: string | null
+    image: string | null
+    code: string | null
+    order: number | null
+    phone: string | null
+    mobile: string | null
+    address1: string | null
+    address2: string | null
+    city: string | null
+    regNumber: string | null
+    qualification: string | null
+    referralCharge: number | null
+    sessionNoPrefix: string | null
+    featured: boolean | null
+    laboratory: boolean | null
+    visibility: boolean | null
+    advanceBooking: boolean | null
+    createdBy: string | null
+    updatedBy: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DocterMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    name: string | null
+    speciality: string | null
+    branch: string | null
+    image: string | null
+    code: string | null
+    order: number | null
+    phone: string | null
+    mobile: string | null
+    address1: string | null
+    address2: string | null
+    city: string | null
+    regNumber: string | null
+    qualification: string | null
+    referralCharge: number | null
+    sessionNoPrefix: string | null
+    featured: boolean | null
+    laboratory: boolean | null
+    visibility: boolean | null
+    advanceBooking: boolean | null
+    createdBy: string | null
+    updatedBy: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DocterCountAggregateOutputType = {
+    id: number
+    title: number
+    name: number
+    speciality: number
+    branch: number
+    image: number
+    code: number
+    order: number
+    phone: number
+    mobile: number
+    address1: number
+    address2: number
+    city: number
+    regNumber: number
+    qualification: number
+    referralCharge: number
+    sessionNoPrefix: number
+    featured: number
+    laboratory: number
+    visibility: number
+    advanceBooking: number
+    createdBy: number
+    updatedBy: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DocterAvgAggregateInputType = {
+    order?: true
+    referralCharge?: true
+  }
+
+  export type DocterSumAggregateInputType = {
+    order?: true
+    referralCharge?: true
+  }
+
+  export type DocterMinAggregateInputType = {
+    id?: true
+    title?: true
+    name?: true
+    speciality?: true
+    branch?: true
+    image?: true
+    code?: true
+    order?: true
+    phone?: true
+    mobile?: true
+    address1?: true
+    address2?: true
+    city?: true
+    regNumber?: true
+    qualification?: true
+    referralCharge?: true
+    sessionNoPrefix?: true
+    featured?: true
+    laboratory?: true
+    visibility?: true
+    advanceBooking?: true
+    createdBy?: true
+    updatedBy?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DocterMaxAggregateInputType = {
+    id?: true
+    title?: true
+    name?: true
+    speciality?: true
+    branch?: true
+    image?: true
+    code?: true
+    order?: true
+    phone?: true
+    mobile?: true
+    address1?: true
+    address2?: true
+    city?: true
+    regNumber?: true
+    qualification?: true
+    referralCharge?: true
+    sessionNoPrefix?: true
+    featured?: true
+    laboratory?: true
+    visibility?: true
+    advanceBooking?: true
+    createdBy?: true
+    updatedBy?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DocterCountAggregateInputType = {
+    id?: true
+    title?: true
+    name?: true
+    speciality?: true
+    branch?: true
+    image?: true
+    code?: true
+    order?: true
+    phone?: true
+    mobile?: true
+    address1?: true
+    address2?: true
+    city?: true
+    regNumber?: true
+    qualification?: true
+    referralCharge?: true
+    sessionNoPrefix?: true
+    featured?: true
+    laboratory?: true
+    visibility?: true
+    advanceBooking?: true
+    createdBy?: true
+    updatedBy?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DocterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Docter to aggregate.
+     */
+    where?: DocterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Docters to fetch.
+     */
+    orderBy?: DocterOrderByWithRelationInput | DocterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DocterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Docters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Docters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Docters
+    **/
+    _count?: true | DocterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DocterAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DocterSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DocterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DocterMaxAggregateInputType
+  }
+
+  export type GetDocterAggregateType<T extends DocterAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDocter[P]>
+      : GetScalarType<T[P], AggregateDocter[P]>
+  }
+
+
+
+
+  export type DocterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocterWhereInput
+    orderBy?: DocterOrderByWithAggregationInput | DocterOrderByWithAggregationInput[]
+    by: DocterScalarFieldEnum[] | DocterScalarFieldEnum
+    having?: DocterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DocterCountAggregateInputType | true
+    _avg?: DocterAvgAggregateInputType
+    _sum?: DocterSumAggregateInputType
+    _min?: DocterMinAggregateInputType
+    _max?: DocterMaxAggregateInputType
+  }
+
+  export type DocterGroupByOutputType = {
+    id: string
+    title: string
+    name: string
+    speciality: string
+    branch: string
+    image: string
+    code: string
+    order: number
+    phone: string
+    mobile: string
+    address1: string
+    address2: string
+    city: string
+    regNumber: string
+    qualification: string
+    referralCharge: number
+    sessionNoPrefix: string
+    featured: boolean
+    laboratory: boolean
+    visibility: boolean
+    advanceBooking: boolean
+    createdBy: string | null
+    updatedBy: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: DocterCountAggregateOutputType | null
+    _avg: DocterAvgAggregateOutputType | null
+    _sum: DocterSumAggregateOutputType | null
+    _min: DocterMinAggregateOutputType | null
+    _max: DocterMaxAggregateOutputType | null
+  }
+
+  type GetDocterGroupByPayload<T extends DocterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DocterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DocterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DocterGroupByOutputType[P]>
+            : GetScalarType<T[P], DocterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DocterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    name?: boolean
+    speciality?: boolean
+    branch?: boolean
+    image?: boolean
+    code?: boolean
+    order?: boolean
+    phone?: boolean
+    mobile?: boolean
+    address1?: boolean
+    address2?: boolean
+    city?: boolean
+    regNumber?: boolean
+    qualification?: boolean
+    referralCharge?: boolean
+    sessionNoPrefix?: boolean
+    featured?: boolean
+    laboratory?: boolean
+    visibility?: boolean
+    advanceBooking?: boolean
+    createdBy?: boolean
+    updatedBy?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["docter"]>
+
+
+
+  export type DocterSelectScalar = {
+    id?: boolean
+    title?: boolean
+    name?: boolean
+    speciality?: boolean
+    branch?: boolean
+    image?: boolean
+    code?: boolean
+    order?: boolean
+    phone?: boolean
+    mobile?: boolean
+    address1?: boolean
+    address2?: boolean
+    city?: boolean
+    regNumber?: boolean
+    qualification?: boolean
+    referralCharge?: boolean
+    sessionNoPrefix?: boolean
+    featured?: boolean
+    laboratory?: boolean
+    visibility?: boolean
+    advanceBooking?: boolean
+    createdBy?: boolean
+    updatedBy?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DocterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "name" | "speciality" | "branch" | "image" | "code" | "order" | "phone" | "mobile" | "address1" | "address2" | "city" | "regNumber" | "qualification" | "referralCharge" | "sessionNoPrefix" | "featured" | "laboratory" | "visibility" | "advanceBooking" | "createdBy" | "updatedBy" | "createdAt" | "updatedAt", ExtArgs["result"]["docter"]>
+
+  export type $DocterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Docter"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      name: string
+      speciality: string
+      branch: string
+      image: string
+      code: string
+      order: number
+      phone: string
+      mobile: string
+      address1: string
+      address2: string
+      city: string
+      regNumber: string
+      qualification: string
+      referralCharge: number
+      sessionNoPrefix: string
+      featured: boolean
+      laboratory: boolean
+      visibility: boolean
+      advanceBooking: boolean
+      createdBy: string | null
+      updatedBy: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["docter"]>
+    composites: {}
+  }
+
+  type DocterGetPayload<S extends boolean | null | undefined | DocterDefaultArgs> = $Result.GetResult<Prisma.$DocterPayload, S>
+
+  type DocterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DocterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DocterCountAggregateInputType | true
+    }
+
+  export interface DocterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Docter'], meta: { name: 'Docter' } }
+    /**
+     * Find zero or one Docter that matches the filter.
+     * @param {DocterFindUniqueArgs} args - Arguments to find a Docter
+     * @example
+     * // Get one Docter
+     * const docter = await prisma.docter.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DocterFindUniqueArgs>(args: SelectSubset<T, DocterFindUniqueArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Docter that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DocterFindUniqueOrThrowArgs} args - Arguments to find a Docter
+     * @example
+     * // Get one Docter
+     * const docter = await prisma.docter.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DocterFindUniqueOrThrowArgs>(args: SelectSubset<T, DocterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Docter that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterFindFirstArgs} args - Arguments to find a Docter
+     * @example
+     * // Get one Docter
+     * const docter = await prisma.docter.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DocterFindFirstArgs>(args?: SelectSubset<T, DocterFindFirstArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Docter that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterFindFirstOrThrowArgs} args - Arguments to find a Docter
+     * @example
+     * // Get one Docter
+     * const docter = await prisma.docter.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DocterFindFirstOrThrowArgs>(args?: SelectSubset<T, DocterFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Docters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Docters
+     * const docters = await prisma.docter.findMany()
+     * 
+     * // Get first 10 Docters
+     * const docters = await prisma.docter.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const docterWithIdOnly = await prisma.docter.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DocterFindManyArgs>(args?: SelectSubset<T, DocterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Docter.
+     * @param {DocterCreateArgs} args - Arguments to create a Docter.
+     * @example
+     * // Create one Docter
+     * const Docter = await prisma.docter.create({
+     *   data: {
+     *     // ... data to create a Docter
+     *   }
+     * })
+     * 
+     */
+    create<T extends DocterCreateArgs>(args: SelectSubset<T, DocterCreateArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Docters.
+     * @param {DocterCreateManyArgs} args - Arguments to create many Docters.
+     * @example
+     * // Create many Docters
+     * const docter = await prisma.docter.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DocterCreateManyArgs>(args?: SelectSubset<T, DocterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Docter.
+     * @param {DocterDeleteArgs} args - Arguments to delete one Docter.
+     * @example
+     * // Delete one Docter
+     * const Docter = await prisma.docter.delete({
+     *   where: {
+     *     // ... filter to delete one Docter
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DocterDeleteArgs>(args: SelectSubset<T, DocterDeleteArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Docter.
+     * @param {DocterUpdateArgs} args - Arguments to update one Docter.
+     * @example
+     * // Update one Docter
+     * const docter = await prisma.docter.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DocterUpdateArgs>(args: SelectSubset<T, DocterUpdateArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Docters.
+     * @param {DocterDeleteManyArgs} args - Arguments to filter Docters to delete.
+     * @example
+     * // Delete a few Docters
+     * const { count } = await prisma.docter.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DocterDeleteManyArgs>(args?: SelectSubset<T, DocterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Docters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Docters
+     * const docter = await prisma.docter.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DocterUpdateManyArgs>(args: SelectSubset<T, DocterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Docter.
+     * @param {DocterUpsertArgs} args - Arguments to update or create a Docter.
+     * @example
+     * // Update or create a Docter
+     * const docter = await prisma.docter.upsert({
+     *   create: {
+     *     // ... data to create a Docter
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Docter we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DocterUpsertArgs>(args: SelectSubset<T, DocterUpsertArgs<ExtArgs>>): Prisma__DocterClient<$Result.GetResult<Prisma.$DocterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Docters that matches the filter.
+     * @param {DocterFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const docter = await prisma.docter.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: DocterFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a Docter.
+     * @param {DocterAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const docter = await prisma.docter.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: DocterAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of Docters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterCountArgs} args - Arguments to filter Docters to count.
+     * @example
+     * // Count the number of Docters
+     * const count = await prisma.docter.count({
+     *   where: {
+     *     // ... the filter for the Docters we want to count
+     *   }
+     * })
+    **/
+    count<T extends DocterCountArgs>(
+      args?: Subset<T, DocterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DocterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Docter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DocterAggregateArgs>(args: Subset<T, DocterAggregateArgs>): Prisma.PrismaPromise<GetDocterAggregateType<T>>
+
+    /**
+     * Group by Docter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DocterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DocterGroupByArgs['orderBy'] }
+        : { orderBy?: DocterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DocterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Docter model
+   */
+  readonly fields: DocterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Docter.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DocterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Docter model
+   */
+  interface DocterFieldRefs {
+    readonly id: FieldRef<"Docter", 'String'>
+    readonly title: FieldRef<"Docter", 'String'>
+    readonly name: FieldRef<"Docter", 'String'>
+    readonly speciality: FieldRef<"Docter", 'String'>
+    readonly branch: FieldRef<"Docter", 'String'>
+    readonly image: FieldRef<"Docter", 'String'>
+    readonly code: FieldRef<"Docter", 'String'>
+    readonly order: FieldRef<"Docter", 'Int'>
+    readonly phone: FieldRef<"Docter", 'String'>
+    readonly mobile: FieldRef<"Docter", 'String'>
+    readonly address1: FieldRef<"Docter", 'String'>
+    readonly address2: FieldRef<"Docter", 'String'>
+    readonly city: FieldRef<"Docter", 'String'>
+    readonly regNumber: FieldRef<"Docter", 'String'>
+    readonly qualification: FieldRef<"Docter", 'String'>
+    readonly referralCharge: FieldRef<"Docter", 'Int'>
+    readonly sessionNoPrefix: FieldRef<"Docter", 'String'>
+    readonly featured: FieldRef<"Docter", 'Boolean'>
+    readonly laboratory: FieldRef<"Docter", 'Boolean'>
+    readonly visibility: FieldRef<"Docter", 'Boolean'>
+    readonly advanceBooking: FieldRef<"Docter", 'Boolean'>
+    readonly createdBy: FieldRef<"Docter", 'String'>
+    readonly updatedBy: FieldRef<"Docter", 'String'>
+    readonly createdAt: FieldRef<"Docter", 'DateTime'>
+    readonly updatedAt: FieldRef<"Docter", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Docter findUnique
+   */
+  export type DocterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * Filter, which Docter to fetch.
+     */
+    where: DocterWhereUniqueInput
+  }
+
+  /**
+   * Docter findUniqueOrThrow
+   */
+  export type DocterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * Filter, which Docter to fetch.
+     */
+    where: DocterWhereUniqueInput
+  }
+
+  /**
+   * Docter findFirst
+   */
+  export type DocterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * Filter, which Docter to fetch.
+     */
+    where?: DocterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Docters to fetch.
+     */
+    orderBy?: DocterOrderByWithRelationInput | DocterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Docters.
+     */
+    cursor?: DocterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Docters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Docters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Docters.
+     */
+    distinct?: DocterScalarFieldEnum | DocterScalarFieldEnum[]
+  }
+
+  /**
+   * Docter findFirstOrThrow
+   */
+  export type DocterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * Filter, which Docter to fetch.
+     */
+    where?: DocterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Docters to fetch.
+     */
+    orderBy?: DocterOrderByWithRelationInput | DocterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Docters.
+     */
+    cursor?: DocterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Docters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Docters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Docters.
+     */
+    distinct?: DocterScalarFieldEnum | DocterScalarFieldEnum[]
+  }
+
+  /**
+   * Docter findMany
+   */
+  export type DocterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * Filter, which Docters to fetch.
+     */
+    where?: DocterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Docters to fetch.
+     */
+    orderBy?: DocterOrderByWithRelationInput | DocterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Docters.
+     */
+    cursor?: DocterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Docters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Docters.
+     */
+    skip?: number
+    distinct?: DocterScalarFieldEnum | DocterScalarFieldEnum[]
+  }
+
+  /**
+   * Docter create
+   */
+  export type DocterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Docter.
+     */
+    data: XOR<DocterCreateInput, DocterUncheckedCreateInput>
+  }
+
+  /**
+   * Docter createMany
+   */
+  export type DocterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Docters.
+     */
+    data: DocterCreateManyInput | DocterCreateManyInput[]
+  }
+
+  /**
+   * Docter update
+   */
+  export type DocterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Docter.
+     */
+    data: XOR<DocterUpdateInput, DocterUncheckedUpdateInput>
+    /**
+     * Choose, which Docter to update.
+     */
+    where: DocterWhereUniqueInput
+  }
+
+  /**
+   * Docter updateMany
+   */
+  export type DocterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Docters.
+     */
+    data: XOR<DocterUpdateManyMutationInput, DocterUncheckedUpdateManyInput>
+    /**
+     * Filter which Docters to update
+     */
+    where?: DocterWhereInput
+    /**
+     * Limit how many Docters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Docter upsert
+   */
+  export type DocterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Docter to update in case it exists.
+     */
+    where: DocterWhereUniqueInput
+    /**
+     * In case the Docter found by the `where` argument doesn't exist, create a new Docter with this data.
+     */
+    create: XOR<DocterCreateInput, DocterUncheckedCreateInput>
+    /**
+     * In case the Docter was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DocterUpdateInput, DocterUncheckedUpdateInput>
+  }
+
+  /**
+   * Docter delete
+   */
+  export type DocterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+    /**
+     * Filter which Docter to delete.
+     */
+    where: DocterWhereUniqueInput
+  }
+
+  /**
+   * Docter deleteMany
+   */
+  export type DocterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Docters to delete
+     */
+    where?: DocterWhereInput
+    /**
+     * Limit how many Docters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Docter findRaw
+   */
+  export type DocterFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Docter aggregateRaw
+   */
+  export type DocterAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Docter without action
+   */
+  export type DocterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Docter
+     */
+    select?: DocterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Docter
+     */
+    omit?: DocterOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9023,6 +10304,37 @@ export namespace Prisma {
   };
 
   export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+  export const DocterScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    name: 'name',
+    speciality: 'speciality',
+    branch: 'branch',
+    image: 'image',
+    code: 'code',
+    order: 'order',
+    phone: 'phone',
+    mobile: 'mobile',
+    address1: 'address1',
+    address2: 'address2',
+    city: 'city',
+    regNumber: 'regNumber',
+    qualification: 'qualification',
+    referralCharge: 'referralCharge',
+    sessionNoPrefix: 'sessionNoPrefix',
+    featured: 'featured',
+    laboratory: 'laboratory',
+    visibility: 'visibility',
+    advanceBooking: 'advanceBooking',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DocterScalarFieldEnum = (typeof DocterScalarFieldEnum)[keyof typeof DocterScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9734,6 +11046,160 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Service"> | Date | string
   }
 
+  export type DocterWhereInput = {
+    AND?: DocterWhereInput | DocterWhereInput[]
+    OR?: DocterWhereInput[]
+    NOT?: DocterWhereInput | DocterWhereInput[]
+    id?: StringFilter<"Docter"> | string
+    title?: StringFilter<"Docter"> | string
+    name?: StringFilter<"Docter"> | string
+    speciality?: StringFilter<"Docter"> | string
+    branch?: StringFilter<"Docter"> | string
+    image?: StringFilter<"Docter"> | string
+    code?: StringFilter<"Docter"> | string
+    order?: IntFilter<"Docter"> | number
+    phone?: StringFilter<"Docter"> | string
+    mobile?: StringFilter<"Docter"> | string
+    address1?: StringFilter<"Docter"> | string
+    address2?: StringFilter<"Docter"> | string
+    city?: StringFilter<"Docter"> | string
+    regNumber?: StringFilter<"Docter"> | string
+    qualification?: StringFilter<"Docter"> | string
+    referralCharge?: IntFilter<"Docter"> | number
+    sessionNoPrefix?: StringFilter<"Docter"> | string
+    featured?: BoolFilter<"Docter"> | boolean
+    laboratory?: BoolFilter<"Docter"> | boolean
+    visibility?: BoolFilter<"Docter"> | boolean
+    advanceBooking?: BoolFilter<"Docter"> | boolean
+    createdBy?: StringNullableFilter<"Docter"> | string | null
+    updatedBy?: StringNullableFilter<"Docter"> | string | null
+    createdAt?: DateTimeFilter<"Docter"> | Date | string
+    updatedAt?: DateTimeFilter<"Docter"> | Date | string
+  }
+
+  export type DocterOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    name?: SortOrder
+    speciality?: SortOrder
+    branch?: SortOrder
+    image?: SortOrder
+    code?: SortOrder
+    order?: SortOrder
+    phone?: SortOrder
+    mobile?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    city?: SortOrder
+    regNumber?: SortOrder
+    qualification?: SortOrder
+    referralCharge?: SortOrder
+    sessionNoPrefix?: SortOrder
+    featured?: SortOrder
+    laboratory?: SortOrder
+    visibility?: SortOrder
+    advanceBooking?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DocterWhereInput | DocterWhereInput[]
+    OR?: DocterWhereInput[]
+    NOT?: DocterWhereInput | DocterWhereInput[]
+    title?: StringFilter<"Docter"> | string
+    name?: StringFilter<"Docter"> | string
+    speciality?: StringFilter<"Docter"> | string
+    branch?: StringFilter<"Docter"> | string
+    image?: StringFilter<"Docter"> | string
+    code?: StringFilter<"Docter"> | string
+    order?: IntFilter<"Docter"> | number
+    phone?: StringFilter<"Docter"> | string
+    mobile?: StringFilter<"Docter"> | string
+    address1?: StringFilter<"Docter"> | string
+    address2?: StringFilter<"Docter"> | string
+    city?: StringFilter<"Docter"> | string
+    regNumber?: StringFilter<"Docter"> | string
+    qualification?: StringFilter<"Docter"> | string
+    referralCharge?: IntFilter<"Docter"> | number
+    sessionNoPrefix?: StringFilter<"Docter"> | string
+    featured?: BoolFilter<"Docter"> | boolean
+    laboratory?: BoolFilter<"Docter"> | boolean
+    visibility?: BoolFilter<"Docter"> | boolean
+    advanceBooking?: BoolFilter<"Docter"> | boolean
+    createdBy?: StringNullableFilter<"Docter"> | string | null
+    updatedBy?: StringNullableFilter<"Docter"> | string | null
+    createdAt?: DateTimeFilter<"Docter"> | Date | string
+    updatedAt?: DateTimeFilter<"Docter"> | Date | string
+  }, "id">
+
+  export type DocterOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    name?: SortOrder
+    speciality?: SortOrder
+    branch?: SortOrder
+    image?: SortOrder
+    code?: SortOrder
+    order?: SortOrder
+    phone?: SortOrder
+    mobile?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    city?: SortOrder
+    regNumber?: SortOrder
+    qualification?: SortOrder
+    referralCharge?: SortOrder
+    sessionNoPrefix?: SortOrder
+    featured?: SortOrder
+    laboratory?: SortOrder
+    visibility?: SortOrder
+    advanceBooking?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DocterCountOrderByAggregateInput
+    _avg?: DocterAvgOrderByAggregateInput
+    _max?: DocterMaxOrderByAggregateInput
+    _min?: DocterMinOrderByAggregateInput
+    _sum?: DocterSumOrderByAggregateInput
+  }
+
+  export type DocterScalarWhereWithAggregatesInput = {
+    AND?: DocterScalarWhereWithAggregatesInput | DocterScalarWhereWithAggregatesInput[]
+    OR?: DocterScalarWhereWithAggregatesInput[]
+    NOT?: DocterScalarWhereWithAggregatesInput | DocterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Docter"> | string
+    title?: StringWithAggregatesFilter<"Docter"> | string
+    name?: StringWithAggregatesFilter<"Docter"> | string
+    speciality?: StringWithAggregatesFilter<"Docter"> | string
+    branch?: StringWithAggregatesFilter<"Docter"> | string
+    image?: StringWithAggregatesFilter<"Docter"> | string
+    code?: StringWithAggregatesFilter<"Docter"> | string
+    order?: IntWithAggregatesFilter<"Docter"> | number
+    phone?: StringWithAggregatesFilter<"Docter"> | string
+    mobile?: StringWithAggregatesFilter<"Docter"> | string
+    address1?: StringWithAggregatesFilter<"Docter"> | string
+    address2?: StringWithAggregatesFilter<"Docter"> | string
+    city?: StringWithAggregatesFilter<"Docter"> | string
+    regNumber?: StringWithAggregatesFilter<"Docter"> | string
+    qualification?: StringWithAggregatesFilter<"Docter"> | string
+    referralCharge?: IntWithAggregatesFilter<"Docter"> | number
+    sessionNoPrefix?: StringWithAggregatesFilter<"Docter"> | string
+    featured?: BoolWithAggregatesFilter<"Docter"> | boolean
+    laboratory?: BoolWithAggregatesFilter<"Docter"> | boolean
+    visibility?: BoolWithAggregatesFilter<"Docter"> | boolean
+    advanceBooking?: BoolWithAggregatesFilter<"Docter"> | boolean
+    createdBy?: StringNullableWithAggregatesFilter<"Docter"> | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Docter"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Docter"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Docter"> | Date | string
+  }
+
   export type MenuCreateInput = {
     id?: string
     name: string
@@ -10422,6 +11888,198 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DocterCreateInput = {
+    id?: string
+    title: string
+    name: string
+    speciality: string
+    branch: string
+    image: string
+    code: string
+    order?: number
+    phone: string
+    mobile: string
+    address1: string
+    address2: string
+    city: string
+    regNumber: string
+    qualification: string
+    referralCharge: number
+    sessionNoPrefix: string
+    featured?: boolean
+    laboratory?: boolean
+    visibility?: boolean
+    advanceBooking?: boolean
+    createdBy?: string | null
+    updatedBy?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocterUncheckedCreateInput = {
+    id?: string
+    title: string
+    name: string
+    speciality: string
+    branch: string
+    image: string
+    code: string
+    order?: number
+    phone: string
+    mobile: string
+    address1: string
+    address2: string
+    city: string
+    regNumber: string
+    qualification: string
+    referralCharge: number
+    sessionNoPrefix: string
+    featured?: boolean
+    laboratory?: boolean
+    visibility?: boolean
+    advanceBooking?: boolean
+    createdBy?: string | null
+    updatedBy?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocterUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    speciality?: StringFieldUpdateOperationsInput | string
+    branch?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
+    mobile?: StringFieldUpdateOperationsInput | string
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    regNumber?: StringFieldUpdateOperationsInput | string
+    qualification?: StringFieldUpdateOperationsInput | string
+    referralCharge?: IntFieldUpdateOperationsInput | number
+    sessionNoPrefix?: StringFieldUpdateOperationsInput | string
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    laboratory?: BoolFieldUpdateOperationsInput | boolean
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    advanceBooking?: BoolFieldUpdateOperationsInput | boolean
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocterUncheckedUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    speciality?: StringFieldUpdateOperationsInput | string
+    branch?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
+    mobile?: StringFieldUpdateOperationsInput | string
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    regNumber?: StringFieldUpdateOperationsInput | string
+    qualification?: StringFieldUpdateOperationsInput | string
+    referralCharge?: IntFieldUpdateOperationsInput | number
+    sessionNoPrefix?: StringFieldUpdateOperationsInput | string
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    laboratory?: BoolFieldUpdateOperationsInput | boolean
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    advanceBooking?: BoolFieldUpdateOperationsInput | boolean
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocterCreateManyInput = {
+    id?: string
+    title: string
+    name: string
+    speciality: string
+    branch: string
+    image: string
+    code: string
+    order?: number
+    phone: string
+    mobile: string
+    address1: string
+    address2: string
+    city: string
+    regNumber: string
+    qualification: string
+    referralCharge: number
+    sessionNoPrefix: string
+    featured?: boolean
+    laboratory?: boolean
+    visibility?: boolean
+    advanceBooking?: boolean
+    createdBy?: string | null
+    updatedBy?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocterUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    speciality?: StringFieldUpdateOperationsInput | string
+    branch?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
+    mobile?: StringFieldUpdateOperationsInput | string
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    regNumber?: StringFieldUpdateOperationsInput | string
+    qualification?: StringFieldUpdateOperationsInput | string
+    referralCharge?: IntFieldUpdateOperationsInput | number
+    sessionNoPrefix?: StringFieldUpdateOperationsInput | string
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    laboratory?: BoolFieldUpdateOperationsInput | boolean
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    advanceBooking?: BoolFieldUpdateOperationsInput | boolean
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocterUncheckedUpdateManyInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    speciality?: StringFieldUpdateOperationsInput | string
+    branch?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
+    mobile?: StringFieldUpdateOperationsInput | string
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    regNumber?: StringFieldUpdateOperationsInput | string
+    qualification?: StringFieldUpdateOperationsInput | string
+    referralCharge?: IntFieldUpdateOperationsInput | number
+    sessionNoPrefix?: StringFieldUpdateOperationsInput | string
+    featured?: BoolFieldUpdateOperationsInput | boolean
+    laboratory?: BoolFieldUpdateOperationsInput | boolean
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    advanceBooking?: BoolFieldUpdateOperationsInput | boolean
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -10948,6 +12606,100 @@ export namespace Prisma {
     updatedBy?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type DocterCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    name?: SortOrder
+    speciality?: SortOrder
+    branch?: SortOrder
+    image?: SortOrder
+    code?: SortOrder
+    order?: SortOrder
+    phone?: SortOrder
+    mobile?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    city?: SortOrder
+    regNumber?: SortOrder
+    qualification?: SortOrder
+    referralCharge?: SortOrder
+    sessionNoPrefix?: SortOrder
+    featured?: SortOrder
+    laboratory?: SortOrder
+    visibility?: SortOrder
+    advanceBooking?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocterAvgOrderByAggregateInput = {
+    order?: SortOrder
+    referralCharge?: SortOrder
+  }
+
+  export type DocterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    name?: SortOrder
+    speciality?: SortOrder
+    branch?: SortOrder
+    image?: SortOrder
+    code?: SortOrder
+    order?: SortOrder
+    phone?: SortOrder
+    mobile?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    city?: SortOrder
+    regNumber?: SortOrder
+    qualification?: SortOrder
+    referralCharge?: SortOrder
+    sessionNoPrefix?: SortOrder
+    featured?: SortOrder
+    laboratory?: SortOrder
+    visibility?: SortOrder
+    advanceBooking?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocterMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    name?: SortOrder
+    speciality?: SortOrder
+    branch?: SortOrder
+    image?: SortOrder
+    code?: SortOrder
+    order?: SortOrder
+    phone?: SortOrder
+    mobile?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    city?: SortOrder
+    regNumber?: SortOrder
+    qualification?: SortOrder
+    referralCharge?: SortOrder
+    sessionNoPrefix?: SortOrder
+    featured?: SortOrder
+    laboratory?: SortOrder
+    visibility?: SortOrder
+    advanceBooking?: SortOrder
+    createdBy?: SortOrder
+    updatedBy?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocterSumOrderByAggregateInput = {
+    order?: SortOrder
+    referralCharge?: SortOrder
   }
 
   export type MenuItemCreateNestedManyWithoutMenuInput = {

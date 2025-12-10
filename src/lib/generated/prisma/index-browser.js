@@ -214,6 +214,34 @@ exports.Prisma.ServiceScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DocterScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  name: 'name',
+  speciality: 'speciality',
+  branch: 'branch',
+  image: 'image',
+  code: 'code',
+  order: 'order',
+  phone: 'phone',
+  mobile: 'mobile',
+  address1: 'address1',
+  address2: 'address2',
+  city: 'city',
+  regNumber: 'regNumber',
+  qualification: 'qualification',
+  referralCharge: 'referralCharge',
+  sessionNoPrefix: 'sessionNoPrefix',
+  featured: 'featured',
+  laboratory: 'laboratory',
+  visibility: 'visibility',
+  advanceBooking: 'advanceBooking',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -232,7 +260,8 @@ exports.Prisma.ModelName = {
   Section: 'Section',
   Testimonial: 'Testimonial',
   Branche: 'Branche',
-  Service: 'Service'
+  Service: 'Service',
+  Docter: 'Docter'
 };
 
 /**
