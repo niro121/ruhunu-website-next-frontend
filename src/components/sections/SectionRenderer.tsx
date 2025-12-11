@@ -6,6 +6,7 @@ import NewsAndArticleNews from "../home/news-and-article-new-section";
 import OurTestimonials from "../home/testimonials-section";
 import ServicesWrapper from "../common/services-wrapper";
 import TextMedia from "../cms/text-media-component";
+import TextOnly from "../cms/text-only-section";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -16,7 +17,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Text Only":
-            return <AboutUs/>;
+            return <TextOnly data={data} layout={layout}/>;
             break;
 
         case "Text-Text":
