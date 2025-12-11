@@ -5,6 +5,7 @@ import AboutUs from "../home/about-us-section";
 import NewsAndArticleNews from "../home/news-and-article-new-section";
 import OurTestimonials from "../home/testimonials-section";
 import ServicesWrapper from "../common/services-wrapper";
+import TextMedia from "../cms/text-media-component";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -23,7 +24,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Text-Media":
-            return <AboutUs/>;
+            return <TextMedia data={data} layout={layout} />;
             break;
 
         case "Media Only":
