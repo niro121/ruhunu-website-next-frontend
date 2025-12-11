@@ -75,9 +75,11 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
         </div>
         <div className="flex flex-col justify-center">
           <p className="text-[#18CE67] mb-[16px] text-[16px]">{data.title}</p>
-          <h1 className="text-[40px] font-bold text-[#122739]">
-            {data.subTitle}
-          </h1>
+          {data.subTitle && (
+            <h1 className="text-[40px] font-bold text-[#122739]">
+              {data.subTitle}
+            </h1>
+          )}
           <div
             className="text-black text-[16px] mt-[48px] mb-[16px]"
             dangerouslySetInnerHTML={{ __html: data.content }}
@@ -90,9 +92,11 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
       <div className="px-[10px] md:px-[20px] lg:px-[50px] py-[70px] bg-white grid grid-cols-1 md:grid-cols-2 gap-[30px]">
         <div className="flex flex-col justify-center">
           <p className="text-[#18CE67] mb-[16px] text-[16px]">{data.title}</p>
-          <h1 className="text-[40px] font-bold text-[#122739]">
-            {data.subTitle}
-          </h1>
+          {data.subTitle && (
+            <h1 className="text-[40px] font-bold text-[#122739]">
+              {data.subTitle}
+            </h1>
+          )}
           <div
             className="text-black text-[16px] mt-[48px] mb-[16px]"
             dangerouslySetInnerHTML={{ __html: data.content }}
@@ -101,7 +105,7 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
 
         <div className="block md:hidden relative w-full h-[480px]">
           <Image
-            src={data.mobileImage || ""} 
+            src={data.mobileImage || ""}
             alt="about us image"
             fill
             className=""
