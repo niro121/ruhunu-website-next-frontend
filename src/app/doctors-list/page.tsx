@@ -53,7 +53,7 @@ export default async function DoctorsListPage() {
             <DoctorSearch specialties={specialties} branches={branches} />
 
             {/* Galle Section */}
-            <div className="xl:px-32 px-4 py-8">
+            <div className="xl:px-16 px-4 py-8">
                 <h1 className="xl:text-[34px] text-[24px] font-extrabold text-black">
                     Ruhunu Hospital <span className="text-[#18CE67]">Galle</span>
                 </h1>
@@ -62,7 +62,7 @@ export default async function DoctorsListPage() {
             <DoctorGridWrapper />
 
             {/* Matara Section */}
-            <div className="xl:px-32 px-4 py-4">
+            <div className="xl:px-16 px-4 py-4">
                 <h1 className="xl:text-[34px] text-[24px] font-extrabold text-black">
                     Ruhunu Hospital Medical Center{" "} <span className="text-[#18CE67]">Matara</span>
                 </h1>
