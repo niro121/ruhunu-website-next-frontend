@@ -25,7 +25,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Text-Media":
-            return <TextMedia data={data} />;
+            return <TextMedia data={data} layout={layout} />;
             break;
 
         case "Media Only":
