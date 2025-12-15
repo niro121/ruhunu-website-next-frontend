@@ -2,11 +2,14 @@ import BannerSection from "../common/Banner";
 import Hero from "../common/hero";
 import Popup from "../global/popup";
 import AboutUs from "../home/about-us-section";
-import NewsAndArticleNews from "../home/news-and-article-new-section";
 import OurTestimonials from "../home/testimonials-section";
 import ServicesWrapper from "../common/services-wrapper";
 import TextMedia from "../cms/text-media-component";
 import TextOnly from "../cms/text-only-section";
+import MediaMedia from "../cms/media-media-section";
+import LocationMap from "../cms/location-map";
+import BoardOfDirectors from "../cms/board-of-directors";
+import FacebookYoutube from "../cms/facebook-youtube-section";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -33,7 +36,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Media-Media":
-            return <NewsAndArticleNews/>;
+            return <MediaMedia data={data}/>
             break;
 
         case "Extra Large Text":
@@ -53,7 +56,7 @@ export default function SectionRenderer({ section }: any) {
             break;
         
         case "Borad Of Directors":
-            return <AboutUs/>;
+            return <BoardOfDirectors data={data}/>;
             break;
 
         case "Caousel":
@@ -77,7 +80,7 @@ export default function SectionRenderer({ section }: any) {
             break;
 
         case "Map":
-            return <AboutUs/>;
+            return <LocationMap lat={data.content[0].latitude} lng={data.content[0].longitude}/>;
             break;
 
         case "Services":
@@ -86,6 +89,14 @@ export default function SectionRenderer({ section }: any) {
 
         case "Testimonials":
             return <OurTestimonials/>;
+            break;
+
+        case "Facebook-Youtube":
+            return <FacebookYoutube data={data} />;
+            break;
+
+        case "Contact":
+            return <AboutUs />;
             break;
 
         default:

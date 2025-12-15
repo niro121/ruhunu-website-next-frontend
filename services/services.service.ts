@@ -18,11 +18,11 @@ export async function getServices () {
     }
 }
 
-export async function getSingleService (id: string) {
+export async function getSingleService (slug: string) {
     try {
         const service = await prisma.service.findFirst({
             where: {
-                id: id
+                slug: slug
             }
         })
 

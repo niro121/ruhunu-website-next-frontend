@@ -7,8 +7,6 @@ export default async function OurTestimonials () {
 
     const testimonials = await fetchTestimonials();
 
-    console.log ({testimonials})
-
     if (!testimonials || testimonials.length == 0) {
         return null;
     }

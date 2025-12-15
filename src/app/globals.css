@@ -3,6 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import "leaflet/dist/leaflet.css";
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -140,4 +143,38 @@ body {
   left: auto !important;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* Ordered lists (normal numbers) */
+.prose ol:not([data-ql-bullet]),
+.custom-content ol:not([data-ql-bullet]) {
+  list-style: decimal !important;
+  padding-left: 1.5rem !important;
+}
+
+/* Quill BULLET LISTS */
+.prose ol li[data-list="bullet"],
+.custom-content ol li[data-list="bullet"] {
+  list-style-type: disc !important;
+}
+
+/* Remove Quill UI markers */
+.ql-ui {
+  display: none !important;
+}
+
+.rich-content .ql-align-center {
+  text-align: center;
+}
+
+.rich-content .ql-align-right {
+  text-align: right;
+}
+
+.rich-content .ql-align-left {
+  text-align: left;
+}
+
+.rich-content .ql-align-justify {
+  text-align: justify;
 }
