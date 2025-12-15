@@ -242,6 +242,12 @@ exports.Prisma.DocterScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.NewsLetterScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -261,7 +267,8 @@ exports.Prisma.ModelName = {
   Testimonial: 'Testimonial',
   Branche: 'Branche',
   Service: 'Service',
-  Docter: 'Docter'
+  Docter: 'Docter',
+  NewsLetter: 'NewsLetter'
 };
 
 /**

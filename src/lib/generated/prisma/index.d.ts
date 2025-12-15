@@ -53,6 +53,11 @@ export type Service = $Result.DefaultSelection<Prisma.$ServicePayload>
  * 
  */
 export type Docter = $Result.DefaultSelection<Prisma.$DocterPayload>
+/**
+ * Model NewsLetter
+ * 
+ */
+export type NewsLetter = $Result.DefaultSelection<Prisma.$NewsLetterPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -218,6 +223,16 @@ export class PrismaClient<
     * ```
     */
   get docter(): Prisma.DocterDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.newsLetter`: Exposes CRUD operations for the **NewsLetter** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NewsLetters
+    * const newsLetters = await prisma.newsLetter.findMany()
+    * ```
+    */
+  get newsLetter(): Prisma.NewsLetterDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -665,7 +680,8 @@ export namespace Prisma {
     Testimonial: 'Testimonial',
     Branche: 'Branche',
     Service: 'Service',
-    Docter: 'Docter'
+    Docter: 'Docter',
+    NewsLetter: 'NewsLetter'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -684,7 +700,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "menu" | "menuItem" | "page" | "section" | "testimonial" | "branche" | "service" | "docter"
+      modelProps: "menu" | "menuItem" | "page" | "section" | "testimonial" | "branche" | "service" | "docter" | "newsLetter"
       txIsolationLevel: never
     }
     model: {
@@ -1280,6 +1296,80 @@ export namespace Prisma {
           }
         }
       }
+      NewsLetter: {
+        payload: Prisma.$NewsLetterPayload<ExtArgs>
+        fields: Prisma.NewsLetterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NewsLetterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NewsLetterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>
+          }
+          findFirst: {
+            args: Prisma.NewsLetterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NewsLetterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>
+          }
+          findMany: {
+            args: Prisma.NewsLetterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>[]
+          }
+          create: {
+            args: Prisma.NewsLetterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>
+          }
+          createMany: {
+            args: Prisma.NewsLetterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.NewsLetterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>
+          }
+          update: {
+            args: Prisma.NewsLetterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>
+          }
+          deleteMany: {
+            args: Prisma.NewsLetterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NewsLetterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.NewsLetterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NewsLetterPayload>
+          }
+          aggregate: {
+            args: Prisma.NewsLetterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNewsLetter>
+          }
+          groupBy: {
+            args: Prisma.NewsLetterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NewsLetterGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.NewsLetterFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.NewsLetterAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.NewsLetterCountArgs<ExtArgs>
+            result: $Utils.Optional<NewsLetterCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1367,6 +1457,7 @@ export namespace Prisma {
     branche?: BrancheOmit
     service?: ServiceOmit
     docter?: DocterOmit
+    newsLetter?: NewsLetterOmit
   }
 
   /* Types for Logging */
@@ -10181,6 +10272,916 @@ export namespace Prisma {
 
 
   /**
+   * Model NewsLetter
+   */
+
+  export type AggregateNewsLetter = {
+    _count: NewsLetterCountAggregateOutputType | null
+    _min: NewsLetterMinAggregateOutputType | null
+    _max: NewsLetterMaxAggregateOutputType | null
+  }
+
+  export type NewsLetterMinAggregateOutputType = {
+    id: string | null
+    email: string | null
+    createdAt: Date | null
+  }
+
+  export type NewsLetterMaxAggregateOutputType = {
+    id: string | null
+    email: string | null
+    createdAt: Date | null
+  }
+
+  export type NewsLetterCountAggregateOutputType = {
+    id: number
+    email: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NewsLetterMinAggregateInputType = {
+    id?: true
+    email?: true
+    createdAt?: true
+  }
+
+  export type NewsLetterMaxAggregateInputType = {
+    id?: true
+    email?: true
+    createdAt?: true
+  }
+
+  export type NewsLetterCountAggregateInputType = {
+    id?: true
+    email?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NewsLetterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NewsLetter to aggregate.
+     */
+    where?: NewsLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NewsLetters to fetch.
+     */
+    orderBy?: NewsLetterOrderByWithRelationInput | NewsLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NewsLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NewsLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NewsLetters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NewsLetters
+    **/
+    _count?: true | NewsLetterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NewsLetterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NewsLetterMaxAggregateInputType
+  }
+
+  export type GetNewsLetterAggregateType<T extends NewsLetterAggregateArgs> = {
+        [P in keyof T & keyof AggregateNewsLetter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNewsLetter[P]>
+      : GetScalarType<T[P], AggregateNewsLetter[P]>
+  }
+
+
+
+
+  export type NewsLetterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NewsLetterWhereInput
+    orderBy?: NewsLetterOrderByWithAggregationInput | NewsLetterOrderByWithAggregationInput[]
+    by: NewsLetterScalarFieldEnum[] | NewsLetterScalarFieldEnum
+    having?: NewsLetterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NewsLetterCountAggregateInputType | true
+    _min?: NewsLetterMinAggregateInputType
+    _max?: NewsLetterMaxAggregateInputType
+  }
+
+  export type NewsLetterGroupByOutputType = {
+    id: string
+    email: string
+    createdAt: Date
+    _count: NewsLetterCountAggregateOutputType | null
+    _min: NewsLetterMinAggregateOutputType | null
+    _max: NewsLetterMaxAggregateOutputType | null
+  }
+
+  type GetNewsLetterGroupByPayload<T extends NewsLetterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NewsLetterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NewsLetterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NewsLetterGroupByOutputType[P]>
+            : GetScalarType<T[P], NewsLetterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NewsLetterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    email?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["newsLetter"]>
+
+
+
+  export type NewsLetterSelectScalar = {
+    id?: boolean
+    email?: boolean
+    createdAt?: boolean
+  }
+
+  export type NewsLetterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "createdAt", ExtArgs["result"]["newsLetter"]>
+
+  export type $NewsLetterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NewsLetter"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      email: string
+      createdAt: Date
+    }, ExtArgs["result"]["newsLetter"]>
+    composites: {}
+  }
+
+  type NewsLetterGetPayload<S extends boolean | null | undefined | NewsLetterDefaultArgs> = $Result.GetResult<Prisma.$NewsLetterPayload, S>
+
+  type NewsLetterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NewsLetterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NewsLetterCountAggregateInputType | true
+    }
+
+  export interface NewsLetterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NewsLetter'], meta: { name: 'NewsLetter' } }
+    /**
+     * Find zero or one NewsLetter that matches the filter.
+     * @param {NewsLetterFindUniqueArgs} args - Arguments to find a NewsLetter
+     * @example
+     * // Get one NewsLetter
+     * const newsLetter = await prisma.newsLetter.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NewsLetterFindUniqueArgs>(args: SelectSubset<T, NewsLetterFindUniqueArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one NewsLetter that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NewsLetterFindUniqueOrThrowArgs} args - Arguments to find a NewsLetter
+     * @example
+     * // Get one NewsLetter
+     * const newsLetter = await prisma.newsLetter.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NewsLetterFindUniqueOrThrowArgs>(args: SelectSubset<T, NewsLetterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NewsLetter that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterFindFirstArgs} args - Arguments to find a NewsLetter
+     * @example
+     * // Get one NewsLetter
+     * const newsLetter = await prisma.newsLetter.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NewsLetterFindFirstArgs>(args?: SelectSubset<T, NewsLetterFindFirstArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NewsLetter that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterFindFirstOrThrowArgs} args - Arguments to find a NewsLetter
+     * @example
+     * // Get one NewsLetter
+     * const newsLetter = await prisma.newsLetter.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NewsLetterFindFirstOrThrowArgs>(args?: SelectSubset<T, NewsLetterFindFirstOrThrowArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NewsLetters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NewsLetters
+     * const newsLetters = await prisma.newsLetter.findMany()
+     * 
+     * // Get first 10 NewsLetters
+     * const newsLetters = await prisma.newsLetter.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const newsLetterWithIdOnly = await prisma.newsLetter.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NewsLetterFindManyArgs>(args?: SelectSubset<T, NewsLetterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a NewsLetter.
+     * @param {NewsLetterCreateArgs} args - Arguments to create a NewsLetter.
+     * @example
+     * // Create one NewsLetter
+     * const NewsLetter = await prisma.newsLetter.create({
+     *   data: {
+     *     // ... data to create a NewsLetter
+     *   }
+     * })
+     * 
+     */
+    create<T extends NewsLetterCreateArgs>(args: SelectSubset<T, NewsLetterCreateArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many NewsLetters.
+     * @param {NewsLetterCreateManyArgs} args - Arguments to create many NewsLetters.
+     * @example
+     * // Create many NewsLetters
+     * const newsLetter = await prisma.newsLetter.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NewsLetterCreateManyArgs>(args?: SelectSubset<T, NewsLetterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a NewsLetter.
+     * @param {NewsLetterDeleteArgs} args - Arguments to delete one NewsLetter.
+     * @example
+     * // Delete one NewsLetter
+     * const NewsLetter = await prisma.newsLetter.delete({
+     *   where: {
+     *     // ... filter to delete one NewsLetter
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NewsLetterDeleteArgs>(args: SelectSubset<T, NewsLetterDeleteArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one NewsLetter.
+     * @param {NewsLetterUpdateArgs} args - Arguments to update one NewsLetter.
+     * @example
+     * // Update one NewsLetter
+     * const newsLetter = await prisma.newsLetter.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NewsLetterUpdateArgs>(args: SelectSubset<T, NewsLetterUpdateArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more NewsLetters.
+     * @param {NewsLetterDeleteManyArgs} args - Arguments to filter NewsLetters to delete.
+     * @example
+     * // Delete a few NewsLetters
+     * const { count } = await prisma.newsLetter.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NewsLetterDeleteManyArgs>(args?: SelectSubset<T, NewsLetterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NewsLetters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NewsLetters
+     * const newsLetter = await prisma.newsLetter.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NewsLetterUpdateManyArgs>(args: SelectSubset<T, NewsLetterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NewsLetter.
+     * @param {NewsLetterUpsertArgs} args - Arguments to update or create a NewsLetter.
+     * @example
+     * // Update or create a NewsLetter
+     * const newsLetter = await prisma.newsLetter.upsert({
+     *   create: {
+     *     // ... data to create a NewsLetter
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NewsLetter we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NewsLetterUpsertArgs>(args: SelectSubset<T, NewsLetterUpsertArgs<ExtArgs>>): Prisma__NewsLetterClient<$Result.GetResult<Prisma.$NewsLetterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NewsLetters that matches the filter.
+     * @param {NewsLetterFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const newsLetter = await prisma.newsLetter.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: NewsLetterFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a NewsLetter.
+     * @param {NewsLetterAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const newsLetter = await prisma.newsLetter.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: NewsLetterAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of NewsLetters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterCountArgs} args - Arguments to filter NewsLetters to count.
+     * @example
+     * // Count the number of NewsLetters
+     * const count = await prisma.newsLetter.count({
+     *   where: {
+     *     // ... the filter for the NewsLetters we want to count
+     *   }
+     * })
+    **/
+    count<T extends NewsLetterCountArgs>(
+      args?: Subset<T, NewsLetterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NewsLetterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NewsLetter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NewsLetterAggregateArgs>(args: Subset<T, NewsLetterAggregateArgs>): Prisma.PrismaPromise<GetNewsLetterAggregateType<T>>
+
+    /**
+     * Group by NewsLetter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NewsLetterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NewsLetterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NewsLetterGroupByArgs['orderBy'] }
+        : { orderBy?: NewsLetterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NewsLetterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNewsLetterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NewsLetter model
+   */
+  readonly fields: NewsLetterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NewsLetter.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NewsLetterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NewsLetter model
+   */
+  interface NewsLetterFieldRefs {
+    readonly id: FieldRef<"NewsLetter", 'String'>
+    readonly email: FieldRef<"NewsLetter", 'String'>
+    readonly createdAt: FieldRef<"NewsLetter", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NewsLetter findUnique
+   */
+  export type NewsLetterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * Filter, which NewsLetter to fetch.
+     */
+    where: NewsLetterWhereUniqueInput
+  }
+
+  /**
+   * NewsLetter findUniqueOrThrow
+   */
+  export type NewsLetterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * Filter, which NewsLetter to fetch.
+     */
+    where: NewsLetterWhereUniqueInput
+  }
+
+  /**
+   * NewsLetter findFirst
+   */
+  export type NewsLetterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * Filter, which NewsLetter to fetch.
+     */
+    where?: NewsLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NewsLetters to fetch.
+     */
+    orderBy?: NewsLetterOrderByWithRelationInput | NewsLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NewsLetters.
+     */
+    cursor?: NewsLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NewsLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NewsLetters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NewsLetters.
+     */
+    distinct?: NewsLetterScalarFieldEnum | NewsLetterScalarFieldEnum[]
+  }
+
+  /**
+   * NewsLetter findFirstOrThrow
+   */
+  export type NewsLetterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * Filter, which NewsLetter to fetch.
+     */
+    where?: NewsLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NewsLetters to fetch.
+     */
+    orderBy?: NewsLetterOrderByWithRelationInput | NewsLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NewsLetters.
+     */
+    cursor?: NewsLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NewsLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NewsLetters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NewsLetters.
+     */
+    distinct?: NewsLetterScalarFieldEnum | NewsLetterScalarFieldEnum[]
+  }
+
+  /**
+   * NewsLetter findMany
+   */
+  export type NewsLetterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * Filter, which NewsLetters to fetch.
+     */
+    where?: NewsLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NewsLetters to fetch.
+     */
+    orderBy?: NewsLetterOrderByWithRelationInput | NewsLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NewsLetters.
+     */
+    cursor?: NewsLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NewsLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NewsLetters.
+     */
+    skip?: number
+    distinct?: NewsLetterScalarFieldEnum | NewsLetterScalarFieldEnum[]
+  }
+
+  /**
+   * NewsLetter create
+   */
+  export type NewsLetterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * The data needed to create a NewsLetter.
+     */
+    data: XOR<NewsLetterCreateInput, NewsLetterUncheckedCreateInput>
+  }
+
+  /**
+   * NewsLetter createMany
+   */
+  export type NewsLetterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NewsLetters.
+     */
+    data: NewsLetterCreateManyInput | NewsLetterCreateManyInput[]
+  }
+
+  /**
+   * NewsLetter update
+   */
+  export type NewsLetterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * The data needed to update a NewsLetter.
+     */
+    data: XOR<NewsLetterUpdateInput, NewsLetterUncheckedUpdateInput>
+    /**
+     * Choose, which NewsLetter to update.
+     */
+    where: NewsLetterWhereUniqueInput
+  }
+
+  /**
+   * NewsLetter updateMany
+   */
+  export type NewsLetterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NewsLetters.
+     */
+    data: XOR<NewsLetterUpdateManyMutationInput, NewsLetterUncheckedUpdateManyInput>
+    /**
+     * Filter which NewsLetters to update
+     */
+    where?: NewsLetterWhereInput
+    /**
+     * Limit how many NewsLetters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * NewsLetter upsert
+   */
+  export type NewsLetterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * The filter to search for the NewsLetter to update in case it exists.
+     */
+    where: NewsLetterWhereUniqueInput
+    /**
+     * In case the NewsLetter found by the `where` argument doesn't exist, create a new NewsLetter with this data.
+     */
+    create: XOR<NewsLetterCreateInput, NewsLetterUncheckedCreateInput>
+    /**
+     * In case the NewsLetter was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NewsLetterUpdateInput, NewsLetterUncheckedUpdateInput>
+  }
+
+  /**
+   * NewsLetter delete
+   */
+  export type NewsLetterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+    /**
+     * Filter which NewsLetter to delete.
+     */
+    where: NewsLetterWhereUniqueInput
+  }
+
+  /**
+   * NewsLetter deleteMany
+   */
+  export type NewsLetterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NewsLetters to delete
+     */
+    where?: NewsLetterWhereInput
+    /**
+     * Limit how many NewsLetters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * NewsLetter findRaw
+   */
+  export type NewsLetterFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * NewsLetter aggregateRaw
+   */
+  export type NewsLetterAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * NewsLetter without action
+   */
+  export type NewsLetterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsLetter
+     */
+    select?: NewsLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsLetter
+     */
+    omit?: NewsLetterOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -10335,6 +11336,15 @@ export namespace Prisma {
   };
 
   export type DocterScalarFieldEnum = (typeof DocterScalarFieldEnum)[keyof typeof DocterScalarFieldEnum]
+
+
+  export const NewsLetterScalarFieldEnum: {
+    id: 'id',
+    email: 'email',
+    createdAt: 'createdAt'
+  };
+
+  export type NewsLetterScalarFieldEnum = (typeof NewsLetterScalarFieldEnum)[keyof typeof NewsLetterScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11198,6 +12208,48 @@ export namespace Prisma {
     updatedBy?: StringNullableWithAggregatesFilter<"Docter"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Docter"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Docter"> | Date | string
+  }
+
+  export type NewsLetterWhereInput = {
+    AND?: NewsLetterWhereInput | NewsLetterWhereInput[]
+    OR?: NewsLetterWhereInput[]
+    NOT?: NewsLetterWhereInput | NewsLetterWhereInput[]
+    id?: StringFilter<"NewsLetter"> | string
+    email?: StringFilter<"NewsLetter"> | string
+    createdAt?: DateTimeFilter<"NewsLetter"> | Date | string
+  }
+
+  export type NewsLetterOrderByWithRelationInput = {
+    id?: SortOrder
+    email?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NewsLetterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    email?: string
+    AND?: NewsLetterWhereInput | NewsLetterWhereInput[]
+    OR?: NewsLetterWhereInput[]
+    NOT?: NewsLetterWhereInput | NewsLetterWhereInput[]
+    createdAt?: DateTimeFilter<"NewsLetter"> | Date | string
+  }, "id" | "email">
+
+  export type NewsLetterOrderByWithAggregationInput = {
+    id?: SortOrder
+    email?: SortOrder
+    createdAt?: SortOrder
+    _count?: NewsLetterCountOrderByAggregateInput
+    _max?: NewsLetterMaxOrderByAggregateInput
+    _min?: NewsLetterMinOrderByAggregateInput
+  }
+
+  export type NewsLetterScalarWhereWithAggregatesInput = {
+    AND?: NewsLetterScalarWhereWithAggregatesInput | NewsLetterScalarWhereWithAggregatesInput[]
+    OR?: NewsLetterScalarWhereWithAggregatesInput[]
+    NOT?: NewsLetterScalarWhereWithAggregatesInput | NewsLetterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NewsLetter"> | string
+    email?: StringWithAggregatesFilter<"NewsLetter"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NewsLetter"> | Date | string
   }
 
   export type MenuCreateInput = {
@@ -12080,6 +13132,44 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type NewsLetterCreateInput = {
+    id?: string
+    email: string
+    createdAt?: Date | string
+  }
+
+  export type NewsLetterUncheckedCreateInput = {
+    id?: string
+    email: string
+    createdAt?: Date | string
+  }
+
+  export type NewsLetterUpdateInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NewsLetterUncheckedUpdateInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NewsLetterCreateManyInput = {
+    id?: string
+    email: string
+    createdAt?: Date | string
+  }
+
+  export type NewsLetterUpdateManyMutationInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NewsLetterUncheckedUpdateManyInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -12700,6 +13790,24 @@ export namespace Prisma {
   export type DocterSumOrderByAggregateInput = {
     order?: SortOrder
     referralCharge?: SortOrder
+  }
+
+  export type NewsLetterCountOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NewsLetterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NewsLetterMinOrderByAggregateInput = {
+    id?: SortOrder
+    email?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type MenuItemCreateNestedManyWithoutMenuInput = {
