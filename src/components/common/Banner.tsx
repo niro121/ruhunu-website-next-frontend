@@ -22,7 +22,7 @@ export default function BannerSection({ data }: BannerSectionProps) {
   return (
     <section
       id="Banner Section"
-      className="w-full flex flex-col md:flex-row justify-between items-center text-white px-6 md:px-20 py-25 mt-10"
+      className="w-full flex flex-col md:flex-row justify-between items-center text-white px-6 md:px-20 h-[300px]"
       style={backgroundStyle}
     >
       <div>
@@ -34,8 +34,9 @@ export default function BannerSection({ data }: BannerSectionProps) {
           {data.subTitle}
         </p>
       </div>
-
-      <Button1 text={data.title} url={data.ctaUrl} />
+      {(data.buttonText || data.buttonUrl) && (
+        <Button1 text={data.buttonText} url={data.buttonUrl} />
+      )}
     </section>
   );
 }
