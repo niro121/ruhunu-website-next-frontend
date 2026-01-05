@@ -30,6 +30,15 @@ const ContactForm: React.FC = () => {
     setCaptchaToken(token);
   };
 
+  // Form Validation
+
+  const isFormValid =
+  formData.name.trim() !== "" &&
+  formData.email.trim() !== "" &&
+  formData.contact.trim() !== "" &&
+  formData.message.trim() !== "" &&
+  captchaToken !== null;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -120,14 +129,11 @@ const ContactForm: React.FC = () => {
 
           {/* Submit Button */}
           <div className="flex justify-center xl:mt-12 mt-12">
-            <button
-              type="submit"
-              className="bg-[#18CE67] hover:bg-[#16b85d] text-white xl:text-[16px] text-[11.5px] xl:w-[200px] xl:h-[60px] w-[130px] h-[40px] px-6 py-2 rounded-[5px] font-bold transition-colors duration-200"
-            >
+            <button type="submit" disabled={!isFormValid} className={`xl:text-[16px] text-[11.5px] xl:w-[200px] xl:h-[60px] w-[130px] h-[40px] px-6 py-2 rounded-[5px] font-bold transition-colors duration-200 ${isFormValid ? "bg-[#18CE67] hover:bg-[#16b85d] text-white" : "bg-gray-400 cursor-not-allowed text-white"}`}>
               Send Message
             </button>
           </div>
-        </form>
+        </form> 
       </div>
     </div>
   );

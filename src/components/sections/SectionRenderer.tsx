@@ -6,6 +6,7 @@ import NewsAndArticleNews from "../home/news-and-article-new-section";
 import OurTestimonials from "../home/testimonials-section";
 import ServicesWrapper from "../common/services-wrapper";
 import TextMedia from "../cms/text-media-component";
+import ContactForm from "../contact-us/contactform";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -85,6 +86,10 @@ export default function SectionRenderer({ section }: any) {
 
         case "Testimonials":
             return <OurTestimonials/>;
+            break;
+
+        case "Contact":
+            return <ContactForm/>;
             break;
 
         default:
