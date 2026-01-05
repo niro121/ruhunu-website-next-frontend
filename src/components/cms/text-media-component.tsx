@@ -41,13 +41,44 @@
 // }
 
 import Image from "next/image";
+import img1 from "../../../public/images/laboratory/biochemistry.jpg";
 
 type TextMediaProps = {
   data: any;
   layout: number;
 };
 
+
+
 export default function TextMedia({ data, layout }: TextMediaProps) {
+
+// Sample data for layout 4
+const sampledata = {
+  features: [
+    {
+      image: img1,
+      webImage: img1,
+      title: "Cutting-Edge Technology",
+      description:
+        "Our operation theaters are equipped with the latest advancements in medical technology; ensuring surgeons have access to the most advanced tools and equipment to perform a wide range of surgical procedures with highest accuracy and efficiency.",
+      alignment: "left", // This controls image position
+    },
+    {
+      image: img1,
+      webImage: img1,
+      title: "Sterile Environment",
+      description: "Maintaining strict adherence to international standards of hygiene and cleanliness, our theaters strictly maintained sterile environments. Stringent protocols are followed to prevent infections and ensure patient safety.",
+      alignment: "right", // Image on right, text on left
+    },
+    {
+      image: img1,
+      webImage: img1,
+      title: "Dedicated Support Staff",
+      description: "A highly skilled and experienced team of anesthetists, nurses, and technicians work collaboratively to support surgeons during procedures, ensuring seamless operations and attentive care for every patient.",
+      alignment: "left", // Image on left again
+    },
+  ],
+};
   console.log({ data });
 
   let layoutValue = layout;
@@ -123,7 +154,7 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
         </div>
       </div>
     );
-  } else if (layoutValue >= 3) {
+  } else if (layoutValue === 3) {
     return (
       <section
         id="MessageSection"
@@ -165,5 +196,51 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
         </div>
       </section>
     );
+  } else if (layoutValue === 4) {
+    return (
+    <div className="py-20 px-5 bg-white">
+      <div className="mx-auto space-y-32">
+        {sampledata.features &&
+          sampledata.features.map((feature, index) => (
+            <div
+              key={index}
+              className={`flex flex-col ${
+                feature.alignment === "left"
+                  ? "md:flex-row"
+                  : "md:flex-row-reverse"
+              } items-center gap-8 md:gap-12 bg-[#f4f9fd] p-8 md:p-12 relative pt-20 md:pt-12`}
+            >
+              {/* Image Section - with negative margin to pull it up */}
+              <div 
+                className={`w-[150px] md:w-[180px] lg:w-[230px] xl:w-[320px] flex-shrink-0 absolute md:relative top-0 -mt-12 md:-mt-64 lg:-mt-44 xl:-mt-28 ${
+                  feature.alignment === "left" 
+                    ? "left-8" 
+                    : "right-8"
+                } md:left-auto md:right-auto`}
+              >
+                <div className="relative w-full h-[100px] md:h-[120px] lg:h-[160px] xl:h-[210px] overflow-hidden">
+                  <Image
+                    src={feature.webImage || feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Text Section */}
+              <div className="w-full md:w-1/2">
+                <h2 className={`text-xl md:text-2xl font-bold text-[#18CE67] mb-4 ${feature.alignment === "left" ? "text-left" : "text-right"}`}>
+                  {feature.title}
+                </h2>
+                <p className="text-base md:text-lg text-[#2b3e4f] leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
   }
 }
