@@ -10,6 +10,7 @@ import MediaMedia from "../cms/media-media-section";
 import LocationMap from "../cms/location-map";
 import BoardOfDirectors from "../cms/board-of-directors";
 import FacebookYoutube from "../cms/facebook-youtube-section";
+import Gallery from "../cms/gallery";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -97,6 +98,10 @@ export default function SectionRenderer({ section }: any) {
 
         case "Contact":
             return <AboutUs />;
+            break;
+
+        case "Gallery":
+            return <Gallery data={data} layout={layout}/>;
             break;
 
         default:

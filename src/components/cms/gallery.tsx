@@ -20,12 +20,11 @@ type ImageData = {
 };
 
 type GalleryProps = {
-  images: string[] | ImageData[];
-  layout?: 1 | 2 | 3;
-  title?: string;
+  data: any;
+  layout: number;
 };
 
-export default function Gallery({ images, layout, title }: GalleryProps) {
+export default function Gallery({data, layout,}: GalleryProps) {
     const [activeIndex, setActiveIndex] = useState(0);
       const services = [
     { id: 1, src: "/images/laboratory/microbiology.jpg", title: "Microbiology" },
@@ -44,7 +43,7 @@ export default function Gallery({ images, layout, title }: GalleryProps) {
       <div className="px-[10px] md:px-[20px] lg:px-[50px] py-[70px] bg-white">
         <div className="flex items-center justify-center">
           <h1 className="text-[40px] text-[#18ce67] mb-[48px] font-medium">
-            {title}
+            {data.title}
           </h1>
         </div>
 
@@ -57,7 +56,7 @@ export default function Gallery({ images, layout, title }: GalleryProps) {
             className="w-full"
           >
             <CarouselContent className="-ml-1">
-              {images.map((image, index) => {
+              {data.images.map((image: any, index: number) => {
                 const imageSrc = typeof image === "string" ? image : image.src;
                 const imageAlt =
                   typeof image === "string"
@@ -74,6 +73,7 @@ export default function Gallery({ images, layout, title }: GalleryProps) {
                         alt={imageAlt}
                         fill
                         className="object-cover rounded-md"
+                        unoptimized
                       />
                     </div>
                   </CarouselItem>
@@ -91,11 +91,11 @@ export default function Gallery({ images, layout, title }: GalleryProps) {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-[#18CE67]">
-            {title}
+            {data.title}
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {images.map((image, index) => {
+            {data.images.map((image: any, index: number) => {
               const imageSrc = typeof image === "string" ? image : image.src;
               const imageAlt =
                 typeof image === "string"
