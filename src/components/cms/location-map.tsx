@@ -1,15 +1,18 @@
 type LocationMapProps = {
-  lat: string;
-  lng: string;
+    lat: string;
+    lng: string;
 };
 
-export default function LocationMap({ lat, lng }: LocationMapProps) {
+export default function LocationMap({ lat, lng ,}: LocationMapProps) {
+
+    console.log({lat},{lng})
+
     const mapSrc = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
 
     return (
         <div className="w-full h-[430px] overflow-hidden shadow-lg">
             <iframe
-                src={mapSrc}
+                src={`https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`}
                 width="100%"
                 height="100%"
                 allowFullScreen

@@ -11,9 +11,9 @@ export async function getAllServices () {
     }
 }
 
-export async function fetchSingleService (id: string) {
+export async function fetchSingleService (slug: string) {
     try {
-        const data = await getSingleService(id);
+        const data = await getSingleService(slug);
         return data;
     } catch (error: any) {
         console.log("fetch Single Service error : ",error)

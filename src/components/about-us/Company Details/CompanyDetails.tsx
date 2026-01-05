@@ -1,4 +1,4 @@
-import PersonCard from "./Card";
+import PersonCard from "../../cms/Card";
 
 const CompanyDetailsSection: React.FC = () => {
   return (
