@@ -248,6 +248,24 @@ exports.Prisma.NewsLetterScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.NewsAndEventsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  content: 'content',
+  image: 'image',
+  video: 'video',
+  facebook: 'facebook',
+  instagram: 'instagram',
+  twitter: 'twitter',
+  slug: 'slug',
+  featured: 'featured',
+  visibility: 'visibility',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -268,7 +286,8 @@ exports.Prisma.ModelName = {
   Branche: 'Branche',
   Service: 'Service',
   Docter: 'Docter',
-  NewsLetter: 'NewsLetter'
+  NewsLetter: 'NewsLetter',
+  NewsAndEvents: 'NewsAndEvents'
 };
 
 /**
