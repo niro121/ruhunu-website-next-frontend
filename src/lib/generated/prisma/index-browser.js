@@ -248,6 +248,25 @@ exports.Prisma.NewsLetterScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.NtsApplicationScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  full_name: 'full_name',
+  date_of_birth: 'date_of_birth',
+  age: 'age',
+  gender: 'gender',
+  address1: 'address1',
+  address2: 'address2',
+  city: 'city',
+  country: 'country',
+  phone: 'phone',
+  nic: 'nic',
+  email: 'email',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -268,7 +287,8 @@ exports.Prisma.ModelName = {
   Branche: 'Branche',
   Service: 'Service',
   Docter: 'Docter',
-  NewsLetter: 'NewsLetter'
+  NewsLetter: 'NewsLetter',
+  NtsApplication: 'NtsApplication'
 };
 
 /**
