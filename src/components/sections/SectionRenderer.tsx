@@ -12,6 +12,7 @@ import BoardOfDirectors from "../cms/board-of-directors";
 import FacebookYoutube from "../cms/facebook-youtube-section";
 import Gallery from "../cms/gallery";
 import ContactForm from "../contact-us/contactform";
+import NTSApplicationForm from "../nts/ntsapplicationform";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -104,6 +105,8 @@ export default function SectionRenderer({ section }: any) {
         case "Gallery":
             return <Gallery data={data} layout={layout}/>;
 
+        case "NtsApplication":
+            return <NTSApplicationForm />;
         default:
             return (
                 <div className="p-4 bg-red-100 text-red-800">

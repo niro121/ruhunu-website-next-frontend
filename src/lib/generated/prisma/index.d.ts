@@ -11451,6 +11451,25 @@ export namespace Prisma {
   }
 
 
+  export type NtsApplicationCountAggregateInputType = {
+    id?: true
+    title?: true
+    full_name?: true
+    date_of_birth?: true
+    age?: true
+    gender?: true
+    address1?: true
+    address2?: true
+    city?: true
+    country?: true
+    phone?: true
+    nic?: true
+    email?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
 
 
   export type NewsAndEventsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12311,6 +12330,981 @@ export namespace Prisma {
      * Omit specific fields from the NewsAndEvents
      */
     omit?: NewsAndEventsOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Enums
+   */
+
+  export const MenuScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    visibility: 'visibility',
+    order: 'order',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MenuScalarFieldEnum = (typeof MenuScalarFieldEnum)[keyof typeof MenuScalarFieldEnum]
+
+
+  export const MenuItemScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    url: 'url',
+    order: 'order',
+    visible: 'visible',
+    menuId: 'menuId',
+    parentId: 'parentId',
+    createdBy: 'createdBy',
+    createdAt: 'createdAt',
+    updatedBy: 'updatedBy',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MenuItemScalarFieldEnum = (typeof MenuItemScalarFieldEnum)[keyof typeof MenuItemScalarFieldEnum]
+
+
+  export const PageScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    metaTitle: 'metaTitle',
+    metaKeyword: 'metaKeyword',
+    metaDescription: 'metaDescription',
+    metaImage: 'metaImage',
+    slug: 'slug',
+    visibility: 'visibility',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PageScalarFieldEnum = (typeof PageScalarFieldEnum)[keyof typeof PageScalarFieldEnum]
+
+
+  export const SectionScalarFieldEnum: {
+    id: 'id',
+    type: 'type',
+    layout: 'layout',
+    data: 'data',
+    order: 'order',
+    visibility: 'visibility',
+    pageId: 'pageId',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SectionScalarFieldEnum = (typeof SectionScalarFieldEnum)[keyof typeof SectionScalarFieldEnum]
+
+
+  export const TestimonialScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    image: 'image',
+    designation: 'designation',
+    testimonial: 'testimonial',
+    rating: 'rating',
+    visibility: 'visibility',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TestimonialScalarFieldEnum = (typeof TestimonialScalarFieldEnum)[keyof typeof TestimonialScalarFieldEnum]
+
+
+  export const BrancheScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    image: 'image',
+    listImage: 'listImage',
+    description: 'description',
+    phone: 'phone',
+    latitude: 'latitude',
+    longitude: 'longitude',
+    slug: 'slug',
+    visibility: 'visibility',
+    createdBy: 'createdBy',
+    updatedBy: 'updatedBy',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+
+  export type NtsApplicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NtsApplicationWhereInput
+    orderBy?: NtsApplicationOrderByWithAggregationInput | NtsApplicationOrderByWithAggregationInput[]
+    by: NtsApplicationScalarFieldEnum[] | NtsApplicationScalarFieldEnum
+    having?: NtsApplicationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NtsApplicationCountAggregateInputType | true
+    _avg?: NtsApplicationAvgAggregateInputType
+    _sum?: NtsApplicationSumAggregateInputType
+    _min?: NtsApplicationMinAggregateInputType
+    _max?: NtsApplicationMaxAggregateInputType
+  }
+
+  export type NtsApplicationGroupByOutputType = {
+    id: string
+    title: string
+    full_name: string
+    date_of_birth: Date
+    age: number
+    gender: string
+    address1: string
+    address2: string | null
+    city: string
+    country: string
+    phone: string
+    nic: string
+    email: string
+    status: number
+    createdAt: Date
+    updatedAt: Date
+    _count: NtsApplicationCountAggregateOutputType | null
+    _avg: NtsApplicationAvgAggregateOutputType | null
+    _sum: NtsApplicationSumAggregateOutputType | null
+    _min: NtsApplicationMinAggregateOutputType | null
+    _max: NtsApplicationMaxAggregateOutputType | null
+  }
+
+  type GetNtsApplicationGroupByPayload<T extends NtsApplicationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NtsApplicationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NtsApplicationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NtsApplicationGroupByOutputType[P]>
+            : GetScalarType<T[P], NtsApplicationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NtsApplicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    full_name?: boolean
+    date_of_birth?: boolean
+    age?: boolean
+    gender?: boolean
+    address1?: boolean
+    address2?: boolean
+    city?: boolean
+    country?: boolean
+    phone?: boolean
+    nic?: boolean
+    email?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["ntsApplication"]>
+
+
+
+  export type NtsApplicationSelectScalar = {
+    id?: boolean
+    title?: boolean
+    full_name?: boolean
+    date_of_birth?: boolean
+    age?: boolean
+    gender?: boolean
+    address1?: boolean
+    address2?: boolean
+    city?: boolean
+    country?: boolean
+    phone?: boolean
+    nic?: boolean
+    email?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type NtsApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "full_name" | "date_of_birth" | "age" | "gender" | "address1" | "address2" | "city" | "country" | "phone" | "nic" | "email" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["ntsApplication"]>
+
+  export type $NtsApplicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NtsApplication"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      full_name: string
+      date_of_birth: Date
+      age: number
+      gender: string
+      address1: string
+      address2: string | null
+      city: string
+      country: string
+      phone: string
+      nic: string
+      email: string
+      status: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["ntsApplication"]>
+    composites: {}
+  }
+
+  type NtsApplicationGetPayload<S extends boolean | null | undefined | NtsApplicationDefaultArgs> = $Result.GetResult<Prisma.$NtsApplicationPayload, S>
+
+  type NtsApplicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NtsApplicationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NtsApplicationCountAggregateInputType | true
+    }
+
+  export interface NtsApplicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NtsApplication'], meta: { name: 'NtsApplication' } }
+    /**
+     * Find zero or one NtsApplication that matches the filter.
+     * @param {NtsApplicationFindUniqueArgs} args - Arguments to find a NtsApplication
+     * @example
+     * // Get one NtsApplication
+     * const ntsApplication = await prisma.ntsApplication.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NtsApplicationFindUniqueArgs>(args: SelectSubset<T, NtsApplicationFindUniqueArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one NtsApplication that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NtsApplicationFindUniqueOrThrowArgs} args - Arguments to find a NtsApplication
+     * @example
+     * // Get one NtsApplication
+     * const ntsApplication = await prisma.ntsApplication.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NtsApplicationFindUniqueOrThrowArgs>(args: SelectSubset<T, NtsApplicationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NtsApplication that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationFindFirstArgs} args - Arguments to find a NtsApplication
+     * @example
+     * // Get one NtsApplication
+     * const ntsApplication = await prisma.ntsApplication.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NtsApplicationFindFirstArgs>(args?: SelectSubset<T, NtsApplicationFindFirstArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NtsApplication that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationFindFirstOrThrowArgs} args - Arguments to find a NtsApplication
+     * @example
+     * // Get one NtsApplication
+     * const ntsApplication = await prisma.ntsApplication.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NtsApplicationFindFirstOrThrowArgs>(args?: SelectSubset<T, NtsApplicationFindFirstOrThrowArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NtsApplications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NtsApplications
+     * const ntsApplications = await prisma.ntsApplication.findMany()
+     * 
+     * // Get first 10 NtsApplications
+     * const ntsApplications = await prisma.ntsApplication.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ntsApplicationWithIdOnly = await prisma.ntsApplication.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NtsApplicationFindManyArgs>(args?: SelectSubset<T, NtsApplicationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a NtsApplication.
+     * @param {NtsApplicationCreateArgs} args - Arguments to create a NtsApplication.
+     * @example
+     * // Create one NtsApplication
+     * const NtsApplication = await prisma.ntsApplication.create({
+     *   data: {
+     *     // ... data to create a NtsApplication
+     *   }
+     * })
+     * 
+     */
+    create<T extends NtsApplicationCreateArgs>(args: SelectSubset<T, NtsApplicationCreateArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many NtsApplications.
+     * @param {NtsApplicationCreateManyArgs} args - Arguments to create many NtsApplications.
+     * @example
+     * // Create many NtsApplications
+     * const ntsApplication = await prisma.ntsApplication.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NtsApplicationCreateManyArgs>(args?: SelectSubset<T, NtsApplicationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a NtsApplication.
+     * @param {NtsApplicationDeleteArgs} args - Arguments to delete one NtsApplication.
+     * @example
+     * // Delete one NtsApplication
+     * const NtsApplication = await prisma.ntsApplication.delete({
+     *   where: {
+     *     // ... filter to delete one NtsApplication
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NtsApplicationDeleteArgs>(args: SelectSubset<T, NtsApplicationDeleteArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one NtsApplication.
+     * @param {NtsApplicationUpdateArgs} args - Arguments to update one NtsApplication.
+     * @example
+     * // Update one NtsApplication
+     * const ntsApplication = await prisma.ntsApplication.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NtsApplicationUpdateArgs>(args: SelectSubset<T, NtsApplicationUpdateArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more NtsApplications.
+     * @param {NtsApplicationDeleteManyArgs} args - Arguments to filter NtsApplications to delete.
+     * @example
+     * // Delete a few NtsApplications
+     * const { count } = await prisma.ntsApplication.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NtsApplicationDeleteManyArgs>(args?: SelectSubset<T, NtsApplicationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NtsApplications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NtsApplications
+     * const ntsApplication = await prisma.ntsApplication.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NtsApplicationUpdateManyArgs>(args: SelectSubset<T, NtsApplicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one NtsApplication.
+     * @param {NtsApplicationUpsertArgs} args - Arguments to update or create a NtsApplication.
+     * @example
+     * // Update or create a NtsApplication
+     * const ntsApplication = await prisma.ntsApplication.upsert({
+     *   create: {
+     *     // ... data to create a NtsApplication
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NtsApplication we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NtsApplicationUpsertArgs>(args: SelectSubset<T, NtsApplicationUpsertArgs<ExtArgs>>): Prisma__NtsApplicationClient<$Result.GetResult<Prisma.$NtsApplicationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NtsApplications that matches the filter.
+     * @param {NtsApplicationFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const ntsApplication = await prisma.ntsApplication.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: NtsApplicationFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a NtsApplication.
+     * @param {NtsApplicationAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const ntsApplication = await prisma.ntsApplication.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: NtsApplicationAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of NtsApplications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationCountArgs} args - Arguments to filter NtsApplications to count.
+     * @example
+     * // Count the number of NtsApplications
+     * const count = await prisma.ntsApplication.count({
+     *   where: {
+     *     // ... the filter for the NtsApplications we want to count
+     *   }
+     * })
+    **/
+    count<T extends NtsApplicationCountArgs>(
+      args?: Subset<T, NtsApplicationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NtsApplicationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NtsApplication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NtsApplicationAggregateArgs>(args: Subset<T, NtsApplicationAggregateArgs>): Prisma.PrismaPromise<GetNtsApplicationAggregateType<T>>
+
+    /**
+     * Group by NtsApplication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NtsApplicationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NtsApplicationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NtsApplicationGroupByArgs['orderBy'] }
+        : { orderBy?: NtsApplicationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NtsApplicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNtsApplicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NtsApplication model
+   */
+  readonly fields: NtsApplicationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NtsApplication.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NtsApplicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NtsApplication model
+   */
+  interface NtsApplicationFieldRefs {
+    readonly id: FieldRef<"NtsApplication", 'String'>
+    readonly title: FieldRef<"NtsApplication", 'String'>
+    readonly full_name: FieldRef<"NtsApplication", 'String'>
+    readonly date_of_birth: FieldRef<"NtsApplication", 'DateTime'>
+    readonly age: FieldRef<"NtsApplication", 'Int'>
+    readonly gender: FieldRef<"NtsApplication", 'String'>
+    readonly address1: FieldRef<"NtsApplication", 'String'>
+    readonly address2: FieldRef<"NtsApplication", 'String'>
+    readonly city: FieldRef<"NtsApplication", 'String'>
+    readonly country: FieldRef<"NtsApplication", 'String'>
+    readonly phone: FieldRef<"NtsApplication", 'String'>
+    readonly nic: FieldRef<"NtsApplication", 'String'>
+    readonly email: FieldRef<"NtsApplication", 'String'>
+    readonly status: FieldRef<"NtsApplication", 'Int'>
+    readonly createdAt: FieldRef<"NtsApplication", 'DateTime'>
+    readonly updatedAt: FieldRef<"NtsApplication", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NtsApplication findUnique
+   */
+  export type NtsApplicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * Filter, which NtsApplication to fetch.
+     */
+    where: NtsApplicationWhereUniqueInput
+  }
+
+  /**
+   * NtsApplication findUniqueOrThrow
+   */
+  export type NtsApplicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * Filter, which NtsApplication to fetch.
+     */
+    where: NtsApplicationWhereUniqueInput
+  }
+
+  /**
+   * NtsApplication findFirst
+   */
+  export type NtsApplicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * Filter, which NtsApplication to fetch.
+     */
+    where?: NtsApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NtsApplications to fetch.
+     */
+    orderBy?: NtsApplicationOrderByWithRelationInput | NtsApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NtsApplications.
+     */
+    cursor?: NtsApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NtsApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NtsApplications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NtsApplications.
+     */
+    distinct?: NtsApplicationScalarFieldEnum | NtsApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * NtsApplication findFirstOrThrow
+   */
+  export type NtsApplicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * Filter, which NtsApplication to fetch.
+     */
+    where?: NtsApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NtsApplications to fetch.
+     */
+    orderBy?: NtsApplicationOrderByWithRelationInput | NtsApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NtsApplications.
+     */
+    cursor?: NtsApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NtsApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NtsApplications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NtsApplications.
+     */
+    distinct?: NtsApplicationScalarFieldEnum | NtsApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * NtsApplication findMany
+   */
+  export type NtsApplicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * Filter, which NtsApplications to fetch.
+     */
+    where?: NtsApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NtsApplications to fetch.
+     */
+    orderBy?: NtsApplicationOrderByWithRelationInput | NtsApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NtsApplications.
+     */
+    cursor?: NtsApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NtsApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NtsApplications.
+     */
+    skip?: number
+    distinct?: NtsApplicationScalarFieldEnum | NtsApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * NtsApplication create
+   */
+  export type NtsApplicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * The data needed to create a NtsApplication.
+     */
+    data: XOR<NtsApplicationCreateInput, NtsApplicationUncheckedCreateInput>
+  }
+
+  /**
+   * NtsApplication createMany
+   */
+  export type NtsApplicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NtsApplications.
+     */
+    data: NtsApplicationCreateManyInput | NtsApplicationCreateManyInput[]
+  }
+
+  /**
+   * NtsApplication update
+   */
+  export type NtsApplicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * The data needed to update a NtsApplication.
+     */
+    data: XOR<NtsApplicationUpdateInput, NtsApplicationUncheckedUpdateInput>
+    /**
+     * Choose, which NtsApplication to update.
+     */
+    where: NtsApplicationWhereUniqueInput
+  }
+
+  /**
+   * NtsApplication updateMany
+   */
+  export type NtsApplicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NtsApplications.
+     */
+    data: XOR<NtsApplicationUpdateManyMutationInput, NtsApplicationUncheckedUpdateManyInput>
+    /**
+     * Filter which NtsApplications to update
+     */
+    where?: NtsApplicationWhereInput
+    /**
+     * Limit how many NtsApplications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * NtsApplication upsert
+   */
+  export type NtsApplicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * The filter to search for the NtsApplication to update in case it exists.
+     */
+    where: NtsApplicationWhereUniqueInput
+    /**
+     * In case the NtsApplication found by the `where` argument doesn't exist, create a new NtsApplication with this data.
+     */
+    create: XOR<NtsApplicationCreateInput, NtsApplicationUncheckedCreateInput>
+    /**
+     * In case the NtsApplication was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NtsApplicationUpdateInput, NtsApplicationUncheckedUpdateInput>
+  }
+
+  /**
+   * NtsApplication delete
+   */
+  export type NtsApplicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
+    /**
+     * Filter which NtsApplication to delete.
+     */
+    where: NtsApplicationWhereUniqueInput
+  }
+
+  /**
+   * NtsApplication deleteMany
+   */
+  export type NtsApplicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NtsApplications to delete
+     */
+    where?: NtsApplicationWhereInput
+    /**
+     * Limit how many NtsApplications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * NtsApplication findRaw
+   */
+  export type NtsApplicationFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * NtsApplication aggregateRaw
+   */
+  export type NtsApplicationAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * NtsApplication without action
+   */
+  export type NtsApplicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NtsApplication
+     */
+    select?: NtsApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NtsApplication
+     */
+    omit?: NtsApplicationOmit<ExtArgs> | null
   }
 
 

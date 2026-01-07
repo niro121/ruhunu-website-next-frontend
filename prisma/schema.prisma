@@ -170,21 +170,22 @@ model NewsLetter {
   createdAt DateTime @default(now())
 }
 
-model NewsAndEvents {
-  id         String  @id @default(auto()) @map("_id") @db.ObjectId
-  name       String  @default("")
-  content    String
-  image      String
-  video      String?
-  facebook   String?
-  instagram  String?
-  twitter    String?
-  slug       String
-  featured   Boolean @default(false)
-  visibility Boolean @default(false)
+model NtsApplication {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String   @default("")
+  full_name     String   @default("")
+  date_of_birth DateTime
+  age           Int
+  gender        String   @default("")
+  address1      String
+  address2      String?
+  city          String
+  country       String
+  phone         String
+  nic           String
+  email         String   @unique()
+  status        Int
 
-  createdBy String?  @db.ObjectId
-  updatedBy String?  @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
