@@ -105,6 +105,8 @@ export default async function BranchesDetailsPage(props: {params: { slug: string
                     </div>
                 </div>
 
+                {/* Services Section */}
+
                 <div className="px-[10px] md:px-[20px] lg:px-[50px] ml-2">
                     <h1 className="text-[#18CE67] text-[40px] font-extrabold max-w-[250px] leading-tight">Services</h1>
 
