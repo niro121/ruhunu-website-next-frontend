@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import OnlineLabeReportBanner from "./online-laboratory-reports";
 import laboratory_rhd from "../../../public/images/laboratory/9.png";
 import appstore from "../../../public/images/laboratory/7.png";
 import playstore from "../../../public/images/laboratory/8.png";
@@ -91,26 +92,7 @@ export default function LaboratoryRHD() {
       </div>
 
       {/* Online Laboratory Reports Section */}
-      <div className="bg-blue-50 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-            <div className="flex-1">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Online Laboratory Reports
-              </h2>
-              <p className="text-gray-700 text-base sm:text-lg">
-                Please enter your Bill Number and Phone Number in the given link
-                to access your lab reports.
-              </p>
-            </div>
-            <div className="lg:flex-shrink-0">
-              <button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-lg shadow-md">
-                View Lab Reports
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <OnlineLabeReportBanner />
     </>
   );
 }
