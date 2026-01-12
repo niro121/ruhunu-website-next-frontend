@@ -104,6 +104,15 @@ export default async function BranchesDetailsPage(props: {params: { slug: string
                         </div>
                     </div>
                 </div>
+
+                <div className="px-[10px] md:px-[20px] lg:px-[50px] ml-2">
+                    <h1 className="text-[#18CE67] text-[40px] font-extrabold max-w-[250px] leading-tight">Services</h1>
+
+                    <div
+                        className="mt-[24px]"
+                        dangerouslySetInnerHTML={{ __html: data?.services || ""}}
+                    ></div>
+                </div>
             </div>
             <ReportBanner/>
             <Gallery images={data?.listImage || []}/>
