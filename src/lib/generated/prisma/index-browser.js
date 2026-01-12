@@ -187,6 +187,7 @@ exports.Prisma.BrancheScalarFieldEnum = {
   image: 'image',
   listImage: 'listImage',
   description: 'description',
+  services: 'services',
   phone: 'phone',
   latitude: 'latitude',
   longitude: 'longitude',
@@ -248,20 +249,21 @@ exports.Prisma.NewsLetterScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.NewsAndEventsScalarFieldEnum = {
+exports.Prisma.NtsApplicationScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  content: 'content',
-  image: 'image',
-  video: 'video',
-  facebook: 'facebook',
-  instagram: 'instagram',
-  twitter: 'twitter',
-  slug: 'slug',
-  featured: 'featured',
-  visibility: 'visibility',
-  createdBy: 'createdBy',
-  updatedBy: 'updatedBy',
+  title: 'title',
+  full_name: 'full_name',
+  date_of_birth: 'date_of_birth',
+  age: 'age',
+  gender: 'gender',
+  address1: 'address1',
+  address2: 'address2',
+  city: 'city',
+  country: 'country',
+  phone: 'phone',
+  nic: 'nic',
+  email: 'email',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -287,7 +289,7 @@ exports.Prisma.ModelName = {
   Service: 'Service',
   Docter: 'Docter',
   NewsLetter: 'NewsLetter',
-  NewsAndEvents: 'NewsAndEvents'
+  NtsApplication: 'NtsApplication'
 };
 
 /**
