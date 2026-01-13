@@ -13,6 +13,7 @@ import FacebookYoutube from "../cms/facebook-youtube-section";
 import Gallery from "../cms/gallery";
 import ContactForm from "../contact-us/contactform";
 import NTSApplicationForm from "../nts/ntsapplicationform";
+import RmaSection from "../cms/laboratory-rhd";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -104,6 +105,10 @@ export default function SectionRenderer({ section }: any) {
 
         case "Gallery":
             return <Gallery data={data} layout={layout}/>;
+        
+        case "RMA Section":
+            return <RmaSection/>;
+            break;
 
         case "NtsApplication":
             return <NTSApplicationForm />;
