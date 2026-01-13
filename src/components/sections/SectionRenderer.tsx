@@ -12,7 +12,7 @@ import BoardOfDirectors from "../cms/board-of-directors";
 import FacebookYoutube from "../cms/facebook-youtube-section";
 import Gallery from "../cms/gallery";
 import ContactForm from "../contact-us/contactform";
-import RmaSection from "../cms/laboratory-rhd"
+import RmaSection from "../cms/laboratory-rhd";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;

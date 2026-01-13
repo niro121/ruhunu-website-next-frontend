@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import OnlineLabeReportBanner from "./online-laboratory-reports";
+import OnlineLabReportBanner from "./online-laboratory-reports";
 import laboratory_rhd from "../../../public/images/laboratory/9.png";
 import appstore from "../../../public/images/laboratory/7.png";
 import playstore from "../../../public/images/laboratory/8.png";
@@ -92,7 +92,7 @@ export default function LaboratoryRHD() {
       </div>
 
       {/* Online Laboratory Reports Section */}
-      <OnlineLabeReportBanner />
+      <OnlineLabReportBanner />
     </>
   );
 }
