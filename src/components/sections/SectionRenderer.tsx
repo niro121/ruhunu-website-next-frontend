@@ -12,6 +12,7 @@ import BoardOfDirectors from "../cms/board-of-directors";
 import FacebookYoutube from "../cms/facebook-youtube-section";
 import Gallery from "../cms/gallery";
 import ContactForm from "../contact-us/contactform";
+import NTSApplicationForm from "../nts/ntsapplicationform";
 import RmaSection from "../cms/laboratory-rhd";
 
 export default function SectionRenderer({ section }: any) {
@@ -109,6 +110,8 @@ export default function SectionRenderer({ section }: any) {
             return <RmaSection/>;
             break;
 
+        case "NtsApplication":
+            return <NTSApplicationForm />;
         default:
             return (
                 <div className="p-4 bg-red-100 text-red-800">

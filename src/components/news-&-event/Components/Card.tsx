@@ -11,22 +11,38 @@ type NewsCardProps = {
   link: string;
 };
 
-const NewsCard = ({ imageSrc, title, date, description, link }: NewsCardProps) => {
+const NewsCard = ({
+  imageSrc,
+  title,
+  date,
+  description,
+  link,
+}: NewsCardProps) => {
   const router = useRouter();
 
   return (
-    <div onClick={() => router.push(link)} className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.01] p-5">
+    <div
+      onClick={() => router.push(link)}
+      className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.01] p-5"
+    >
       {/* Image */}
       <div className="relative w-full md:w-1/4 h-60">
-        <Image src={imageSrc} alt={title} fill className="object-cover"/>
+        <Image src={imageSrc} alt={title} fill className="object-cover" />
       </div>
 
       {/* Content */}
       <div className="w-full md:w-3/4 p-6 flex flex-col justify-center text-[#122739]">
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2">{title}</h3>
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2">
+          {title}
+        </h3>
         <p className="text-md mb-3 font-semibold">{date}</p>
-        <p className="text-base mb-4 line-clamp-3">{description}</p>
-        <span className="text-[#18CE67] font-medium hover:underline">Read More »</span>
+        <div
+          className="text-base mb-4 line-clamp-3"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+        <span className="text-[#18CE67] font-medium hover:underline">
+          Read More »
+        </span>
       </div>
     </div>
   );

@@ -169,3 +169,23 @@ model NewsLetter {
 
   createdAt DateTime @default(now())
 }
+
+model NtsApplication {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String   @default("")
+  full_name     String   @default("")
+  date_of_birth DateTime
+  age           Int
+  gender        String   @default("")
+  address1      String
+  address2      String?
+  city          String
+  country       String
+  phone         String
+  nic           String
+  email         String   @unique()
+  status        Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
