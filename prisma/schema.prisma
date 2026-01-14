@@ -140,7 +140,7 @@ model Docter {
   title           String
   name            String
   speciality      String
-  branch          String
+  branch          String[]
   image           String
   code            String
   order           Int     @default(0)
