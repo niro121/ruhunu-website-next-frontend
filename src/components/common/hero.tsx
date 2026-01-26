@@ -12,10 +12,10 @@ import React from "react";
 
 const socialIcon = [
     { name: "facebook", link: "/", image: "/social-media-icons/facebook.png" },
-    { name: "youtube", link: "/", image: "/social-media-icons/youtube.png" },
-    { name: "instagram", link: "/", image: "/social-media-icons/instagram.png" },
     { name: "linkedin", link: "/", image: "/social-media-icons/linkedin.png" },
     { name: "skype", link: "/", image: "/social-media-icons/skype.png" },
+    { name: "youtube", link: "/", image: "/social-media-icons/youtube.png" },
+    { name: "instagram", link: "/", image: "/social-media-icons/instagram.png" },
 ];
 
 type HeroProps = {
@@ -73,22 +73,22 @@ const HeroSlider = ({ data }: { data: any }) => {
             <div className="absolute inset-0 z-20 flex items-center justify-between px-4 md:px-8 lg:px-20 h-full">
 
                 {/* Social Icons */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-[20px]">
                     {socialIcon.map((icon, i) => (
                         <a
                             key={i}
                             href={icon.link}
-                            className="bg-white p-2 border border-[#18CE67] rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+                            className="h-[40px] w-[40px] bg-white p-2 border border-[#18CE67] rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform"
                         >
-                            <Image src={icon.image} alt={icon.name} width={24} height={24} />
+                            <Image src={icon.image} alt={icon.name} width={33} height={33} />
                         </a>
                     ))}
                 </div>
 
                 {/* Text */}
-                <div className="block bg-white w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
+                <div className="block bg-[#f2fff8] w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
                     <p className="text-[16px] text-[#18CE67] mb-2">Welcome to Ruhunu Hospital</p>
-                    <h1 className="text-[34px] lg:text-[46px] text-[#003163] font-bold leading-tight mb-4">
+                    <h1 className="text-[34px] lg:text-[46px] text-[#003163] font-extrabold leading-tight mb-4 --font-opensans-extrabold">
                         Exceptional Medical Specialty Healthcare
                     </h1>
 
@@ -106,7 +106,7 @@ const HeroSlider = ({ data }: { data: any }) => {
                             <button
                                 key={idx}
                                 onClick={() => goTo(idx)}
-                                className={`w-[10px] h-[10px] rounded-full transition-all duration-200 ${
+                                className={`w-[10px] h-[10px] rounded-full transition-all duration-200 border border-[#18ce67] ${
                                     idx === current
                                         ? "bg-[#18CE67]"
                                         : "bg-gray-300"

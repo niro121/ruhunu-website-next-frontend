@@ -1,54 +1,35 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import WelcomePopup from "@/components/global/popup";
+import localFont from "next/font/local";
 import NavbarServerWrapper from "@/components/global/navbar/NavbarServerWrapper";
 import FooterServerWrapper from "@/components/global/footer/FooterServerWrapper";
 
 // -------------------- FONTS ------------------------
-const opensansbold =  ({
+const openSans = localFont({
   src: [
     {
-      path: "./fonts/opensans-bold.ttf",
-      weight: "700",
-      style: "normal",
+      path: "../../public/fonts/OpenSans-Regular.ttf",
+      weight: "400",
     },
-  ],
-  variable: "--font-opensans-bold",
-});
-
-const opensansmedium = ({
-  src: [
+    
     {
-      path: "./fonts/opensans-medium.ttf",
+      path: "../../public/fonts/OpenSans-Medium.ttf",
       weight: "500",
-      style: "normal",
+    },
+    {
+      path: "../../public/fonts/OpenSans-Bold.ttf",
+      weight: "700",
+    },
+    {
+      path: "../../public/fonts/OpenSans-ExtraBold.ttf",
+      weight: "800",
     },
   ],
-  variable: "--font-opensans-medium",
+  variable: "--font-opensans",
+  display: "swap",
 });
 
-const opensansregular = ({
-  src: [
-    {
-      path: "./fonts/opensans-regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-opensans-regular",
-});
-
-const opensansextrabold = ({
-  src: [
-    {
-      path: "./fonts/opensans-extrabold.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-opensans-extrabold",
-});
 
 export const metadata: Metadata = {
   title: "Ruhunu Hospital",
@@ -63,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${opensansbold.variable} ${opensansmedium.variable} ${opensansregular.variable} ${opensansextrabold.variable}`}
+        className={openSans.variable}
       >
         <NavbarServerWrapper/>
         {children}
