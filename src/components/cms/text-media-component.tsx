@@ -18,8 +18,8 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
   let layoutValue = layout;
   if (layoutValue === 1) {
     return (
-      <div className="px-[10px] md:px-[20px] lg:px-[50px] py-[70px] bg-white grid grid-cols-1 md:grid-cols-2 gap-[30px]">
-        <div className="sm:hidden relative w-full h-[480px]">
+      <div className="px-[25px] md:px-[20px] lg:px-[60px] xl:px-[125px] py-[70px] bg-white grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+        <div className="md:hidden relative w-full h-[350px]">
           <Image
             src={data.mobileImage || ""}
             alt="about us image"
@@ -28,7 +28,7 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
             priority
           />
         </div>
-        <div className="hidden sm:block relative w-full h-[480px]">
+        <div className="hidden md:block relative w-full xl:h-[570px] lg:h-[400px] md:h-[400px] ">
           <Image
             src={data.webImage}
             alt="about us image"
