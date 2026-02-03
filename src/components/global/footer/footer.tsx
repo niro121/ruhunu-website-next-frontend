@@ -119,18 +119,18 @@ export default function Footer({ items }: FooterProps) {
                     convenience and be Safe.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-[30px] text-white">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-[30px] text-white px-[20px]">
                     {/* Quick Links */}
-                    <div className="col-span-3">
+                    <div className="col-span-2">
                         <h1 className="text-[24px] mb-[24px] text-[#18CE67] font-bold">
                             Quick Links
                         </h1>
-                        <div className="grid grid-cols-2 md:grid-cols-3">
+                        <div className="grid grid-cols-1 md:grid-cols-3">
                             {items.map((link, index) => (
                                 <div key={index}>
                                     <a
                                         href={link.url}
-                                        className="text-[12px] leading-[18px]"
+                                        className="text-[12px] leading-[18px] mb-[10px]"
                                     >
                                         {link.title}
                                     </a>
@@ -189,9 +189,9 @@ export default function Footer({ items }: FooterProps) {
             </div>
 
             {/* ================= Copyright ================= */}
-            <div className="bg-[#070c19] h-[50px] flex flex-col md:flex-row items-center justify-between px-[50px]">
+            <div className="bg-[#070c19] md:h-[50px] flex flex-col md:flex-row items-center justify-between md:px-[50px] lg:px-[100px] sm:px-[10px] gap-3">
                 <p className="text-[#f8f9fa] text-[10px]">
-                    © 2025 <b>Ruhunu Hospitals (Pvt) Ltd</b>. All Rights Reserved.
+                    Copyright © 2025 <b>Ruhunu Hospitals (Pvt) Ltd</b>. All Rights Reserved.
                 </p>
                 <p className="text-[#f8f9fa] text-[10px]">
                     Designed & Developed By{" "}

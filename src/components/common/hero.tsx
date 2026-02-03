@@ -87,16 +87,16 @@ const HeroSlider = ({ data }: { data: any }) => {
 
                 {/* Text */}
                 <div className="block bg-[#f2fff8] w-[280px] md:w-[500px] lg:w-[650px] p-[30px] lg:p-[50px] rounded-l-[30px] shadow-xl">
-                    <p className="text-[16px] text-[#18CE67] mb-2">Welcome to Ruhunu Hospital</p>
-                    <h1 className="text-[34px] lg:text-[46px] text-[#003163] font-extrabold leading-tight mb-4 --font-opensans-extrabold">
+                    <p className="text-[16px] text-[#00ff00] mb-2">Welcome to Ruhunu Hospital</p>
+                    <h1 className="text-[34px] lg:text-[50px] text-[#003163] font-extrabold leading-tight mb-4 --font-opensans-extrabold">
                         Exceptional Medical Specialty Healthcare
                     </h1>
 
                     <div className="flex flex-col md:flex-row gap-4">
-                        <a href="/" className="w-fit bg-[#18CE67] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
+                        <a href="/" className="w-fit bg-[#18CE67] text-white py-[15px] px-[20px] md:px-[50px] rounded-md font-bold hover:opacity-95">
                             Doctor Appointment
                         </a>
-                        <a href="/" className="w-fit bg-[#003163] text-white py-3 px-6 rounded-md font-semibold hover:opacity-95">
+                        <a href="/" className="w-fit bg-[#003163] text-white py-[15px] px-[20px] md:px-[50px] rounded-md font-bold hover:opacity-95">
                             View My Lab Reports
                         </a>
                     </div>
