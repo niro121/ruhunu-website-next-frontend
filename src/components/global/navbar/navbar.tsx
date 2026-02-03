@@ -169,36 +169,50 @@ export default function Navbar({ items }: NavbarProps) {
             Doctor Appointment
           </Link>
         </nav>
+        <div className="md:hidden flex gap-5">
+          <Link
+            href="/appointment"
+            className="ml-4 bg-[#18CE67] border border-[#18CE67] text-white text-[15px] font-bold px-[12px] py-[10px] rounded-[6px] hover:bg-[#122739] hover:border-[#122739] transition-all duration-200 block md:hidden"
+          >
+            <i className="fa-solid fa-user-doctor"></i>
+          </Link>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden block text-black text-2xl"
-          onClick={() => setOpenDropdown(openDropdown === -1 ? null : -1)}
-        >
-          ☰
-        </button>
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden block text-black text-2xl"
+            onClick={() => setOpenDropdown(openDropdown === -1 ? null : -1)}
+          >
+            <i className="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
       {openDropdown === -1 && (
         <div className="md:hidden fixed left-1/2 top-[30px] -translate-x-1/2 w-[95vw] h-[90vh] bg-white z-[9999] flex flex-col rounded-[10px] shadow-lg">
           {/* Header */}
-          <div className="flex justify-between items-center px-5 py-4">
-            <h2 className="text-[18px] font-semibold text-gray-800">Menu</h2>
+          <div className="flex justify-end px-5 py-4">
             <button
               onClick={() => setOpenDropdown(null)}
               className="text-gray-500 hover:text-[#18CE67] transition-colors duration-200"
               aria-label="Close menu"
             >
-              ✕
+              <i className="fa-solid fa-x"></i>
             </button>
+          </div>
+          <div className="relative h-[70px] w-full md:w-[110px]">
+            <div className="flex justify-center">
+              <Link href="/">
+                <Image src="/logo.png" alt="logo image" fill className="object-contain" />
+              </Link>
+            </div>
           </div>
 
           {/* Scrollable Menu */}
           <div className="flex-1 overflow-y-auto py-4 px-5">
-            {items.map((menu) => (
+            {items.map((menu,idx) => (
               <div key={menu.id} className="mb-3 last:border-b-0 pb-3">
-                {menu.children ? (
+                {menu.children && menu.children.length > 0 ? (
                   <details className="group">
                     <summary className="flex justify-between items-center cursor-pointer text-[16px] text-gray-800 mb-1 transition-colors duration-200 hover:text-[#18CE67]">
                       {menu.title}
