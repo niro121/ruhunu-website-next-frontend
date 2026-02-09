@@ -13,7 +13,6 @@ interface Consultant {
   image: StaticImageData;
 }
 
-
 const Consultants: Consultant[] = [
   {
     id: '1',
@@ -46,11 +45,11 @@ export default function ConsultantSection(){
         </h2>
 
         {/* Consultant Cards Grid */}
-        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-8">
           {Consultants.map((consultant) => (
             <div
               key={consultant.id}
-              className="bg-white shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl"
+              className="bg-white shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl max-w-md mx-auto md:max-w-none md:mx-0 w-full"
             >
               {/* Image Container */}
               <div className="relative w-full h-80 bg-gray-100">
