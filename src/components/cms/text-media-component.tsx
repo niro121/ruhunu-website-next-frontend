@@ -40,12 +40,12 @@ export default function TextMedia({ data, layout }: TextMediaProps) {
         <div className="flex flex-col justify-center">
           <p className="text-[#18CE67] mb-[16px] text-[16px]">{data.title}</p>
           {data.subTitle && (
-            <h1 className="text-[40px] font-bold text-[#122739]">
+            <h1 className="text-[20px] md:text-[40px] font-bold text-[#122739]">
               {data.subTitle}
             </h1>
           )}
           <div
-            className="text-black text-[16px] mt-[48px] mb-[16px] custom-content"
+            className="text-black text-[16px] mt-[16px] md:mt-[48px] mb-[16px] custom-content"
             dangerouslySetInnerHTML={{ __html: data.content }}
           />
           {

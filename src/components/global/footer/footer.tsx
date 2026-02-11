@@ -53,7 +53,7 @@ export default function Footer({ items }: FooterProps) {
             {/* ================= Newsletter Section ================= */}
             <div className="bg-[#f4f9fd] px-[10px] md:px-[20px] lg:px-[50px] py-[70px] grid grid-cols-1 md:grid-cols-5">
                 <div className="col-span-3">
-                    <h1 className="text-[40px] text-[#122739] mb-[8px] font-bold">
+                    <h1 className="text-[20px] md:text-[40px] text-[#122739] mb-[8px] font-bold">
                         Stay Informed: Ruhunu Hospital's Latest Health News & Updates
                     </h1>
                     <p className="text-[16px] text-black mb-[16px]">

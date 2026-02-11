@@ -31,7 +31,7 @@ export default function Services({ data,services }: OurServicesProps) {
         >
             <div className="text-center">
                 <p className="text-[16px] mb-[16px] text-[#18CE67]">Our Services</p>
-                <h1 className="text-[40px] text-[#122739] font-bold">
+                <h1 className="text-[20px] md:text-[40px] text-[#122739] font-bold">
                     Our Healthcare <span className="text-[#18CE67]">Services</span>
                 </h1>
             </div>
@@ -67,7 +67,7 @@ export default function Services({ data,services }: OurServicesProps) {
             </div>
 
             {visibleCount < services.length && (
-                <div className="flex justify-center">
+                <div className="flex justify-center sm:w-full">
                     <button
                         onClick={() => {
                             if (data?.link) {
@@ -76,7 +76,7 @@ export default function Services({ data,services }: OurServicesProps) {
                                 handleLoadMore();
                             }
                         }}
-                        className="bg-[#18CE67] border border-[#18CE67] hover:bg-[#122739] hover:border-[#122739] text-white text-[15px] px-[50px] py-[15px] mt-[80px] rounded-[6px] font-bold transition-all duration-300"
+                        className="bg-[#18CE67] border border-[#18CE67] hover:bg-[#122739] hover:border-[#122739] text-white text-[15px] px-[50px] py-[15px] mt-[80px] rounded-[6px] font-bold transition-all duration-300 w-full md:w-fit"
                     >
                         More Services
                     </button>

@@ -12,11 +12,11 @@ export default async function OurTestimonials() {
         <div className="bg-[#f4f9fd] py-[70px] px-[10px] md:px-[20px] lg:px-[50px]">
             <div className="text-center">
                 <p className="text-[16px] mb-[16px] text-[#18CE67]">
-                Our Testimonials
+                    Our Testimonials
                 </p>
-                <h1 className="text-[40px] text-[#122739] font-bold">
-                Over <span className="text-[#18CE67]">1,000+ </span>
-                People Patients Trust Us
+                <h1 className="text-[20px] md:text-[40px] text-[#122739] font-bold">
+                    Over <span className="text-[#18CE67]">1,000+ </span>
+                    People Patients Trust Us
                 </h1>
             </div>
 

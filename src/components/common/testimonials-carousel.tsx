@@ -59,7 +59,7 @@ export default function TestimonialsCarousel({ testimonials }: any) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="p-[16px]">
+                                <div className="text-[12px] md:text-[13px] p-[16px]">
                                     <p>{item.testimonial}</p>
                                 </div>
 
