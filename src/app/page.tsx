@@ -1,7 +1,7 @@
 // app/page.tsx
 import { fetchPage } from "@/actions/page.action";
 import OurServices from "@/components/common/services-section";
-import OurTestimonials from "@/components/home/testimonials-section";
+import OurTestimonials from "@/components/cms/testimonials-section";
 import SectionRenderer from "@/components/sections/SectionRenderer";
 import { notFound } from "next/navigation";
 import "@fortawesome/fontawesome-free/css/all.min.css";

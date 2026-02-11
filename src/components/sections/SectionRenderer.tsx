@@ -2,7 +2,7 @@ import BannerSection from "../common/Banner";
 import Hero from "../common/hero";
 import Popup from "../global/popup";
 import AboutUs from "../home/about-us-section";
-import OurTestimonials from "../home/testimonials-section";
+import OurTestimonials from "../cms/testimonials-section";
 import ServicesWrapper from "../common/services-wrapper";
 import TextMedia from "../cms/text-media-component";
 import TextOnly from "../cms/text-only-section";
