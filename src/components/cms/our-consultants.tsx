@@ -2,39 +2,19 @@
 
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
-import image1 from "@/../public/images/doctorlist/doctor2.jpg";
-import image2 from "@/../public/images/doctorlist/doctor3.jpg";
-import image3 from "@/../public/images/doctorlist/doctor4.jpg";
 
 interface Consultant {
   id: string;
   name: string;
   specialty: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
 }
 
-const Consultants: Consultant[] = [
-  {
-    id: '1',
-    name: 'PROF. GAYA BANDARA',
-    specialty: 'Microbiologist',
-    image: image1,
-  },
-  {
-    id: '2',
-    name: 'PROF. CHANDANA WICKRAMARATHNA',
-    specialty: 'Hematologist',
-    image: image2,
-  },
-  {
-    id: '3',
-    name: 'DR.(MRS) Harshani Thabrew',
-    specialty: 'Consultant Mycologist',
-    image: image3,
-  },
-];
+interface ConsultantSectionProps {
+  consultants: Consultant[];
+}
 
-export default function ConsultantSection(){
+export default function ConsultantSection({ consultants }: ConsultantSectionProps){
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -46,7 +26,7 @@ export default function ConsultantSection(){
 
         {/* Consultant Cards Grid */}
         <div className="flex flex-col md:grid md:grid-cols-3 gap-8">
-          {Consultants.map((consultant) => (
+          {consultants.map((consultant) => (
             <div
               key={consultant.id}
               className="bg-white shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl max-w-md mx-auto md:max-w-none md:mx-0 w-full"
