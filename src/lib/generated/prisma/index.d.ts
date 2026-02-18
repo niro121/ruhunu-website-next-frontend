@@ -9210,7 +9210,6 @@ export namespace Prisma {
     title: string | null
     name: string | null
     speciality: string | null
-    branch: string | null
     image: string | null
     code: string | null
     order: number | null
@@ -9238,7 +9237,6 @@ export namespace Prisma {
     title: string | null
     name: string | null
     speciality: string | null
-    branch: string | null
     image: string | null
     code: string | null
     order: number | null
@@ -9306,7 +9304,6 @@ export namespace Prisma {
     title?: true
     name?: true
     speciality?: true
-    branch?: true
     image?: true
     code?: true
     order?: true
@@ -9334,7 +9331,6 @@ export namespace Prisma {
     title?: true
     name?: true
     speciality?: true
-    branch?: true
     image?: true
     code?: true
     order?: true
@@ -9477,7 +9473,7 @@ export namespace Prisma {
     title: string
     name: string
     speciality: string
-    branch: string
+    branch: string[]
     image: string
     code: string
     order: number
@@ -9587,7 +9583,7 @@ export namespace Prisma {
       title: string
       name: string
       speciality: string
-      branch: string
+      branch: string[]
       image: string
       code: string
       order: number
@@ -10004,7 +10000,7 @@ export namespace Prisma {
     readonly title: FieldRef<"Docter", 'String'>
     readonly name: FieldRef<"Docter", 'String'>
     readonly speciality: FieldRef<"Docter", 'String'>
-    readonly branch: FieldRef<"Docter", 'String'>
+    readonly branch: FieldRef<"Docter", 'String[]'>
     readonly image: FieldRef<"Docter", 'String'>
     readonly code: FieldRef<"Docter", 'String'>
     readonly order: FieldRef<"Docter", 'Int'>
@@ -13285,7 +13281,7 @@ export namespace Prisma {
     title?: StringFilter<"Docter"> | string
     name?: StringFilter<"Docter"> | string
     speciality?: StringFilter<"Docter"> | string
-    branch?: StringFilter<"Docter"> | string
+    branch?: StringNullableListFilter<"Docter">
     image?: StringFilter<"Docter"> | string
     code?: StringFilter<"Docter"> | string
     order?: IntFilter<"Docter"> | number
@@ -13344,7 +13340,7 @@ export namespace Prisma {
     title?: StringFilter<"Docter"> | string
     name?: StringFilter<"Docter"> | string
     speciality?: StringFilter<"Docter"> | string
-    branch?: StringFilter<"Docter"> | string
+    branch?: StringNullableListFilter<"Docter">
     image?: StringFilter<"Docter"> | string
     code?: StringFilter<"Docter"> | string
     order?: IntFilter<"Docter"> | number
@@ -13408,7 +13404,7 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Docter"> | string
     name?: StringWithAggregatesFilter<"Docter"> | string
     speciality?: StringWithAggregatesFilter<"Docter"> | string
-    branch?: StringWithAggregatesFilter<"Docter"> | string
+    branch?: StringNullableListFilter<"Docter">
     image?: StringWithAggregatesFilter<"Docter"> | string
     code?: StringWithAggregatesFilter<"Docter"> | string
     order?: IntWithAggregatesFilter<"Docter"> | number
@@ -14282,7 +14278,7 @@ export namespace Prisma {
     title: string
     name: string
     speciality: string
-    branch: string
+    branch?: DocterCreatebranchInput | string[]
     image: string
     code: string
     order?: number
@@ -14310,7 +14306,7 @@ export namespace Prisma {
     title: string
     name: string
     speciality: string
-    branch: string
+    branch?: DocterCreatebranchInput | string[]
     image: string
     code: string
     order?: number
@@ -14337,7 +14333,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     speciality?: StringFieldUpdateOperationsInput | string
-    branch?: StringFieldUpdateOperationsInput | string
+    branch?: DocterUpdatebranchInput | string[]
     image?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
@@ -14364,7 +14360,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     speciality?: StringFieldUpdateOperationsInput | string
-    branch?: StringFieldUpdateOperationsInput | string
+    branch?: DocterUpdatebranchInput | string[]
     image?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
@@ -14392,7 +14388,7 @@ export namespace Prisma {
     title: string
     name: string
     speciality: string
-    branch: string
+    branch?: DocterCreatebranchInput | string[]
     image: string
     code: string
     order?: number
@@ -14419,7 +14415,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     speciality?: StringFieldUpdateOperationsInput | string
-    branch?: StringFieldUpdateOperationsInput | string
+    branch?: DocterUpdatebranchInput | string[]
     image?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
@@ -14446,7 +14442,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     speciality?: StringFieldUpdateOperationsInput | string
-    branch?: StringFieldUpdateOperationsInput | string
+    branch?: DocterUpdatebranchInput | string[]
     image?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
@@ -15205,7 +15201,6 @@ export namespace Prisma {
     title?: SortOrder
     name?: SortOrder
     speciality?: SortOrder
-    branch?: SortOrder
     image?: SortOrder
     code?: SortOrder
     order?: SortOrder
@@ -15233,7 +15228,6 @@ export namespace Prisma {
     title?: SortOrder
     name?: SortOrder
     speciality?: SortOrder
-    branch?: SortOrder
     image?: SortOrder
     code?: SortOrder
     order?: SortOrder
@@ -15575,6 +15569,15 @@ export namespace Prisma {
   }
 
   export type ServiceUpdateemailInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type DocterCreatebranchInput = {
+    set: string[]
+  }
+
+  export type DocterUpdatebranchInput = {
     set?: string[]
     push?: string | string[]
   }
