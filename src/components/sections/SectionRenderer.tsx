@@ -15,6 +15,7 @@ import ContactForm from "../contact-us/contactform";
 import NTSApplicationForm from "../nts/ntsapplicationform";
 import RmaSection from "../cms/laboratory-rhd";
 import VacancyTable from "../vacancies/VacancyTable";
+import VacancyTableWrapper from "../vacancies/VacancyTable-wrapper";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -115,7 +116,7 @@ export default function SectionRenderer({ section }: any) {
             return <NTSApplicationForm />;
 
         case "VacancyTable":
-            return <VacancyTable data={data}/>;
+            return <VacancyTableWrapper/>
             break;
 
         default:

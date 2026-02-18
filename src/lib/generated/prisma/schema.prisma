@@ -190,3 +190,13 @@ model NtsApplication {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Vacancy {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  role        String
+  location    String
+  closingDate String
+  slug        String   @unique
+  visibility  Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}

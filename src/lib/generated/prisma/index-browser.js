@@ -268,6 +268,16 @@ exports.Prisma.NtsApplicationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.VacancyScalarFieldEnum = {
+  id: 'id',
+  role: 'role',
+  location: 'location',
+  closingDate: 'closingDate',
+  slug: 'slug',
+  visibility: 'visibility',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -289,7 +299,8 @@ exports.Prisma.ModelName = {
   Service: 'Service',
   Docter: 'Docter',
   NewsLetter: 'NewsLetter',
-  NtsApplication: 'NtsApplication'
+  NtsApplication: 'NtsApplication',
+  Vacancy: 'Vacancy'
 };
 
 /**

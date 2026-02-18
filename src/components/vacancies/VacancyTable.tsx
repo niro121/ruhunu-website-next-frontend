@@ -46,6 +46,15 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
             </thead>
             <tbody>
               {currentData.map((job, index) => {
+
+                if (!data || data.length === 0) {
+                  return (
+                    <div className="w-full text-center py-20 text-gray-500 text-lg font-medium">
+                      No vacancies available
+                    </div>
+                  );
+                }
+
                 const jobLink = createLink(job.role);
                 return (
                   <tr

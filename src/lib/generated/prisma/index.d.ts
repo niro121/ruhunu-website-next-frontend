@@ -63,6 +63,11 @@ export type NewsLetter = $Result.DefaultSelection<Prisma.$NewsLetterPayload>
  * 
  */
 export type NtsApplication = $Result.DefaultSelection<Prisma.$NtsApplicationPayload>
+/**
+ * Model Vacancy
+ * 
+ */
+export type Vacancy = $Result.DefaultSelection<Prisma.$VacancyPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -248,6 +253,16 @@ export class PrismaClient<
     * ```
     */
   get ntsApplication(): Prisma.NtsApplicationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.vacancy`: Exposes CRUD operations for the **Vacancy** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Vacancies
+    * const vacancies = await prisma.vacancy.findMany()
+    * ```
+    */
+  get vacancy(): Prisma.VacancyDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -697,7 +712,8 @@ export namespace Prisma {
     Service: 'Service',
     Docter: 'Docter',
     NewsLetter: 'NewsLetter',
-    NtsApplication: 'NtsApplication'
+    NtsApplication: 'NtsApplication',
+    Vacancy: 'Vacancy'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -716,7 +732,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "menu" | "menuItem" | "page" | "section" | "testimonial" | "branche" | "service" | "docter" | "newsLetter" | "ntsApplication"
+      modelProps: "menu" | "menuItem" | "page" | "section" | "testimonial" | "branche" | "service" | "docter" | "newsLetter" | "ntsApplication" | "vacancy"
       txIsolationLevel: never
     }
     model: {
@@ -1460,6 +1476,80 @@ export namespace Prisma {
           }
         }
       }
+      Vacancy: {
+        payload: Prisma.$VacancyPayload<ExtArgs>
+        fields: Prisma.VacancyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VacancyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VacancyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>
+          }
+          findFirst: {
+            args: Prisma.VacancyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VacancyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>
+          }
+          findMany: {
+            args: Prisma.VacancyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>[]
+          }
+          create: {
+            args: Prisma.VacancyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>
+          }
+          createMany: {
+            args: Prisma.VacancyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.VacancyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>
+          }
+          update: {
+            args: Prisma.VacancyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>
+          }
+          deleteMany: {
+            args: Prisma.VacancyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VacancyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.VacancyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VacancyPayload>
+          }
+          aggregate: {
+            args: Prisma.VacancyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVacancy>
+          }
+          groupBy: {
+            args: Prisma.VacancyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VacancyGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.VacancyFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.VacancyAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.VacancyCountArgs<ExtArgs>
+            result: $Utils.Optional<VacancyCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1549,6 +1639,7 @@ export namespace Prisma {
     docter?: DocterOmit
     newsLetter?: NewsLetterOmit
     ntsApplication?: NtsApplicationOmit
+    vacancy?: VacancyOmit
   }
 
   /* Types for Logging */
@@ -12371,6 +12462,960 @@ export namespace Prisma {
 
 
   /**
+   * Model Vacancy
+   */
+
+  export type AggregateVacancy = {
+    _count: VacancyCountAggregateOutputType | null
+    _min: VacancyMinAggregateOutputType | null
+    _max: VacancyMaxAggregateOutputType | null
+  }
+
+  export type VacancyMinAggregateOutputType = {
+    id: string | null
+    role: string | null
+    location: string | null
+    closingDate: string | null
+    slug: string | null
+    visibility: boolean | null
+    createdAt: Date | null
+  }
+
+  export type VacancyMaxAggregateOutputType = {
+    id: string | null
+    role: string | null
+    location: string | null
+    closingDate: string | null
+    slug: string | null
+    visibility: boolean | null
+    createdAt: Date | null
+  }
+
+  export type VacancyCountAggregateOutputType = {
+    id: number
+    role: number
+    location: number
+    closingDate: number
+    slug: number
+    visibility: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type VacancyMinAggregateInputType = {
+    id?: true
+    role?: true
+    location?: true
+    closingDate?: true
+    slug?: true
+    visibility?: true
+    createdAt?: true
+  }
+
+  export type VacancyMaxAggregateInputType = {
+    id?: true
+    role?: true
+    location?: true
+    closingDate?: true
+    slug?: true
+    visibility?: true
+    createdAt?: true
+  }
+
+  export type VacancyCountAggregateInputType = {
+    id?: true
+    role?: true
+    location?: true
+    closingDate?: true
+    slug?: true
+    visibility?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type VacancyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vacancy to aggregate.
+     */
+    where?: VacancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vacancies to fetch.
+     */
+    orderBy?: VacancyOrderByWithRelationInput | VacancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VacancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vacancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vacancies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Vacancies
+    **/
+    _count?: true | VacancyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VacancyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VacancyMaxAggregateInputType
+  }
+
+  export type GetVacancyAggregateType<T extends VacancyAggregateArgs> = {
+        [P in keyof T & keyof AggregateVacancy]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVacancy[P]>
+      : GetScalarType<T[P], AggregateVacancy[P]>
+  }
+
+
+
+
+  export type VacancyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VacancyWhereInput
+    orderBy?: VacancyOrderByWithAggregationInput | VacancyOrderByWithAggregationInput[]
+    by: VacancyScalarFieldEnum[] | VacancyScalarFieldEnum
+    having?: VacancyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VacancyCountAggregateInputType | true
+    _min?: VacancyMinAggregateInputType
+    _max?: VacancyMaxAggregateInputType
+  }
+
+  export type VacancyGroupByOutputType = {
+    id: string
+    role: string
+    location: string
+    closingDate: string
+    slug: string
+    visibility: boolean
+    createdAt: Date
+    _count: VacancyCountAggregateOutputType | null
+    _min: VacancyMinAggregateOutputType | null
+    _max: VacancyMaxAggregateOutputType | null
+  }
+
+  type GetVacancyGroupByPayload<T extends VacancyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VacancyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VacancyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VacancyGroupByOutputType[P]>
+            : GetScalarType<T[P], VacancyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VacancySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    role?: boolean
+    location?: boolean
+    closingDate?: boolean
+    slug?: boolean
+    visibility?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["vacancy"]>
+
+
+
+  export type VacancySelectScalar = {
+    id?: boolean
+    role?: boolean
+    location?: boolean
+    closingDate?: boolean
+    slug?: boolean
+    visibility?: boolean
+    createdAt?: boolean
+  }
+
+  export type VacancyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "role" | "location" | "closingDate" | "slug" | "visibility" | "createdAt", ExtArgs["result"]["vacancy"]>
+
+  export type $VacancyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Vacancy"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      role: string
+      location: string
+      closingDate: string
+      slug: string
+      visibility: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["vacancy"]>
+    composites: {}
+  }
+
+  type VacancyGetPayload<S extends boolean | null | undefined | VacancyDefaultArgs> = $Result.GetResult<Prisma.$VacancyPayload, S>
+
+  type VacancyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VacancyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VacancyCountAggregateInputType | true
+    }
+
+  export interface VacancyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Vacancy'], meta: { name: 'Vacancy' } }
+    /**
+     * Find zero or one Vacancy that matches the filter.
+     * @param {VacancyFindUniqueArgs} args - Arguments to find a Vacancy
+     * @example
+     * // Get one Vacancy
+     * const vacancy = await prisma.vacancy.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VacancyFindUniqueArgs>(args: SelectSubset<T, VacancyFindUniqueArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Vacancy that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VacancyFindUniqueOrThrowArgs} args - Arguments to find a Vacancy
+     * @example
+     * // Get one Vacancy
+     * const vacancy = await prisma.vacancy.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VacancyFindUniqueOrThrowArgs>(args: SelectSubset<T, VacancyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vacancy that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyFindFirstArgs} args - Arguments to find a Vacancy
+     * @example
+     * // Get one Vacancy
+     * const vacancy = await prisma.vacancy.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VacancyFindFirstArgs>(args?: SelectSubset<T, VacancyFindFirstArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vacancy that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyFindFirstOrThrowArgs} args - Arguments to find a Vacancy
+     * @example
+     * // Get one Vacancy
+     * const vacancy = await prisma.vacancy.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VacancyFindFirstOrThrowArgs>(args?: SelectSubset<T, VacancyFindFirstOrThrowArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Vacancies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Vacancies
+     * const vacancies = await prisma.vacancy.findMany()
+     * 
+     * // Get first 10 Vacancies
+     * const vacancies = await prisma.vacancy.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const vacancyWithIdOnly = await prisma.vacancy.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VacancyFindManyArgs>(args?: SelectSubset<T, VacancyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Vacancy.
+     * @param {VacancyCreateArgs} args - Arguments to create a Vacancy.
+     * @example
+     * // Create one Vacancy
+     * const Vacancy = await prisma.vacancy.create({
+     *   data: {
+     *     // ... data to create a Vacancy
+     *   }
+     * })
+     * 
+     */
+    create<T extends VacancyCreateArgs>(args: SelectSubset<T, VacancyCreateArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Vacancies.
+     * @param {VacancyCreateManyArgs} args - Arguments to create many Vacancies.
+     * @example
+     * // Create many Vacancies
+     * const vacancy = await prisma.vacancy.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VacancyCreateManyArgs>(args?: SelectSubset<T, VacancyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Vacancy.
+     * @param {VacancyDeleteArgs} args - Arguments to delete one Vacancy.
+     * @example
+     * // Delete one Vacancy
+     * const Vacancy = await prisma.vacancy.delete({
+     *   where: {
+     *     // ... filter to delete one Vacancy
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VacancyDeleteArgs>(args: SelectSubset<T, VacancyDeleteArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Vacancy.
+     * @param {VacancyUpdateArgs} args - Arguments to update one Vacancy.
+     * @example
+     * // Update one Vacancy
+     * const vacancy = await prisma.vacancy.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VacancyUpdateArgs>(args: SelectSubset<T, VacancyUpdateArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Vacancies.
+     * @param {VacancyDeleteManyArgs} args - Arguments to filter Vacancies to delete.
+     * @example
+     * // Delete a few Vacancies
+     * const { count } = await prisma.vacancy.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VacancyDeleteManyArgs>(args?: SelectSubset<T, VacancyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Vacancies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Vacancies
+     * const vacancy = await prisma.vacancy.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VacancyUpdateManyArgs>(args: SelectSubset<T, VacancyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Vacancy.
+     * @param {VacancyUpsertArgs} args - Arguments to update or create a Vacancy.
+     * @example
+     * // Update or create a Vacancy
+     * const vacancy = await prisma.vacancy.upsert({
+     *   create: {
+     *     // ... data to create a Vacancy
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Vacancy we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VacancyUpsertArgs>(args: SelectSubset<T, VacancyUpsertArgs<ExtArgs>>): Prisma__VacancyClient<$Result.GetResult<Prisma.$VacancyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Vacancies that matches the filter.
+     * @param {VacancyFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const vacancy = await prisma.vacancy.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: VacancyFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a Vacancy.
+     * @param {VacancyAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const vacancy = await prisma.vacancy.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: VacancyAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of Vacancies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyCountArgs} args - Arguments to filter Vacancies to count.
+     * @example
+     * // Count the number of Vacancies
+     * const count = await prisma.vacancy.count({
+     *   where: {
+     *     // ... the filter for the Vacancies we want to count
+     *   }
+     * })
+    **/
+    count<T extends VacancyCountArgs>(
+      args?: Subset<T, VacancyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VacancyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Vacancy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VacancyAggregateArgs>(args: Subset<T, VacancyAggregateArgs>): Prisma.PrismaPromise<GetVacancyAggregateType<T>>
+
+    /**
+     * Group by Vacancy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VacancyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VacancyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VacancyGroupByArgs['orderBy'] }
+        : { orderBy?: VacancyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VacancyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVacancyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Vacancy model
+   */
+  readonly fields: VacancyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Vacancy.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VacancyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Vacancy model
+   */
+  interface VacancyFieldRefs {
+    readonly id: FieldRef<"Vacancy", 'String'>
+    readonly role: FieldRef<"Vacancy", 'String'>
+    readonly location: FieldRef<"Vacancy", 'String'>
+    readonly closingDate: FieldRef<"Vacancy", 'String'>
+    readonly slug: FieldRef<"Vacancy", 'String'>
+    readonly visibility: FieldRef<"Vacancy", 'Boolean'>
+    readonly createdAt: FieldRef<"Vacancy", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Vacancy findUnique
+   */
+  export type VacancyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * Filter, which Vacancy to fetch.
+     */
+    where: VacancyWhereUniqueInput
+  }
+
+  /**
+   * Vacancy findUniqueOrThrow
+   */
+  export type VacancyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * Filter, which Vacancy to fetch.
+     */
+    where: VacancyWhereUniqueInput
+  }
+
+  /**
+   * Vacancy findFirst
+   */
+  export type VacancyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * Filter, which Vacancy to fetch.
+     */
+    where?: VacancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vacancies to fetch.
+     */
+    orderBy?: VacancyOrderByWithRelationInput | VacancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vacancies.
+     */
+    cursor?: VacancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vacancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vacancies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vacancies.
+     */
+    distinct?: VacancyScalarFieldEnum | VacancyScalarFieldEnum[]
+  }
+
+  /**
+   * Vacancy findFirstOrThrow
+   */
+  export type VacancyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * Filter, which Vacancy to fetch.
+     */
+    where?: VacancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vacancies to fetch.
+     */
+    orderBy?: VacancyOrderByWithRelationInput | VacancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vacancies.
+     */
+    cursor?: VacancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vacancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vacancies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vacancies.
+     */
+    distinct?: VacancyScalarFieldEnum | VacancyScalarFieldEnum[]
+  }
+
+  /**
+   * Vacancy findMany
+   */
+  export type VacancyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * Filter, which Vacancies to fetch.
+     */
+    where?: VacancyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vacancies to fetch.
+     */
+    orderBy?: VacancyOrderByWithRelationInput | VacancyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Vacancies.
+     */
+    cursor?: VacancyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vacancies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vacancies.
+     */
+    skip?: number
+    distinct?: VacancyScalarFieldEnum | VacancyScalarFieldEnum[]
+  }
+
+  /**
+   * Vacancy create
+   */
+  export type VacancyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Vacancy.
+     */
+    data: XOR<VacancyCreateInput, VacancyUncheckedCreateInput>
+  }
+
+  /**
+   * Vacancy createMany
+   */
+  export type VacancyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Vacancies.
+     */
+    data: VacancyCreateManyInput | VacancyCreateManyInput[]
+  }
+
+  /**
+   * Vacancy update
+   */
+  export type VacancyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Vacancy.
+     */
+    data: XOR<VacancyUpdateInput, VacancyUncheckedUpdateInput>
+    /**
+     * Choose, which Vacancy to update.
+     */
+    where: VacancyWhereUniqueInput
+  }
+
+  /**
+   * Vacancy updateMany
+   */
+  export type VacancyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Vacancies.
+     */
+    data: XOR<VacancyUpdateManyMutationInput, VacancyUncheckedUpdateManyInput>
+    /**
+     * Filter which Vacancies to update
+     */
+    where?: VacancyWhereInput
+    /**
+     * Limit how many Vacancies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vacancy upsert
+   */
+  export type VacancyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Vacancy to update in case it exists.
+     */
+    where: VacancyWhereUniqueInput
+    /**
+     * In case the Vacancy found by the `where` argument doesn't exist, create a new Vacancy with this data.
+     */
+    create: XOR<VacancyCreateInput, VacancyUncheckedCreateInput>
+    /**
+     * In case the Vacancy was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VacancyUpdateInput, VacancyUncheckedUpdateInput>
+  }
+
+  /**
+   * Vacancy delete
+   */
+  export type VacancyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+    /**
+     * Filter which Vacancy to delete.
+     */
+    where: VacancyWhereUniqueInput
+  }
+
+  /**
+   * Vacancy deleteMany
+   */
+  export type VacancyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vacancies to delete
+     */
+    where?: VacancyWhereInput
+    /**
+     * Limit how many Vacancies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vacancy findRaw
+   */
+  export type VacancyFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Vacancy aggregateRaw
+   */
+  export type VacancyAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Vacancy without action
+   */
+  export type VacancyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vacancy
+     */
+    select?: VacancySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vacancy
+     */
+    omit?: VacancyOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -12557,6 +13602,19 @@ export namespace Prisma {
   };
 
   export type NtsApplicationScalarFieldEnum = (typeof NtsApplicationScalarFieldEnum)[keyof typeof NtsApplicationScalarFieldEnum]
+
+
+  export const VacancyScalarFieldEnum: {
+    id: 'id',
+    role: 'role',
+    location: 'location',
+    closingDate: 'closingDate',
+    slug: 'slug',
+    visibility: 'visibility',
+    createdAt: 'createdAt'
+  };
+
+  export type VacancyScalarFieldEnum = (typeof VacancyScalarFieldEnum)[keyof typeof VacancyScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -13576,6 +14634,68 @@ export namespace Prisma {
     status?: IntWithAggregatesFilter<"NtsApplication"> | number
     createdAt?: DateTimeWithAggregatesFilter<"NtsApplication"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"NtsApplication"> | Date | string
+  }
+
+  export type VacancyWhereInput = {
+    AND?: VacancyWhereInput | VacancyWhereInput[]
+    OR?: VacancyWhereInput[]
+    NOT?: VacancyWhereInput | VacancyWhereInput[]
+    id?: StringFilter<"Vacancy"> | string
+    role?: StringFilter<"Vacancy"> | string
+    location?: StringFilter<"Vacancy"> | string
+    closingDate?: StringFilter<"Vacancy"> | string
+    slug?: StringFilter<"Vacancy"> | string
+    visibility?: BoolFilter<"Vacancy"> | boolean
+    createdAt?: DateTimeFilter<"Vacancy"> | Date | string
+  }
+
+  export type VacancyOrderByWithRelationInput = {
+    id?: SortOrder
+    role?: SortOrder
+    location?: SortOrder
+    closingDate?: SortOrder
+    slug?: SortOrder
+    visibility?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VacancyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    slug?: string
+    AND?: VacancyWhereInput | VacancyWhereInput[]
+    OR?: VacancyWhereInput[]
+    NOT?: VacancyWhereInput | VacancyWhereInput[]
+    role?: StringFilter<"Vacancy"> | string
+    location?: StringFilter<"Vacancy"> | string
+    closingDate?: StringFilter<"Vacancy"> | string
+    visibility?: BoolFilter<"Vacancy"> | boolean
+    createdAt?: DateTimeFilter<"Vacancy"> | Date | string
+  }, "id" | "slug">
+
+  export type VacancyOrderByWithAggregationInput = {
+    id?: SortOrder
+    role?: SortOrder
+    location?: SortOrder
+    closingDate?: SortOrder
+    slug?: SortOrder
+    visibility?: SortOrder
+    createdAt?: SortOrder
+    _count?: VacancyCountOrderByAggregateInput
+    _max?: VacancyMaxOrderByAggregateInput
+    _min?: VacancyMinOrderByAggregateInput
+  }
+
+  export type VacancyScalarWhereWithAggregatesInput = {
+    AND?: VacancyScalarWhereWithAggregatesInput | VacancyScalarWhereWithAggregatesInput[]
+    OR?: VacancyScalarWhereWithAggregatesInput[]
+    NOT?: VacancyScalarWhereWithAggregatesInput | VacancyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Vacancy"> | string
+    role?: StringWithAggregatesFilter<"Vacancy"> | string
+    location?: StringWithAggregatesFilter<"Vacancy"> | string
+    closingDate?: StringWithAggregatesFilter<"Vacancy"> | string
+    slug?: StringWithAggregatesFilter<"Vacancy"> | string
+    visibility?: BoolWithAggregatesFilter<"Vacancy"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Vacancy"> | Date | string
   }
 
   export type MenuCreateInput = {
@@ -14632,6 +15752,72 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type VacancyCreateInput = {
+    id?: string
+    role: string
+    location: string
+    closingDate: string
+    slug: string
+    visibility?: boolean
+    createdAt?: Date | string
+  }
+
+  export type VacancyUncheckedCreateInput = {
+    id?: string
+    role: string
+    location: string
+    closingDate: string
+    slug: string
+    visibility?: boolean
+    createdAt?: Date | string
+  }
+
+  export type VacancyUpdateInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    location?: StringFieldUpdateOperationsInput | string
+    closingDate?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VacancyUncheckedUpdateInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    location?: StringFieldUpdateOperationsInput | string
+    closingDate?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VacancyCreateManyInput = {
+    id?: string
+    role: string
+    location: string
+    closingDate: string
+    slug: string
+    visibility?: boolean
+    createdAt?: Date | string
+  }
+
+  export type VacancyUpdateManyMutationInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    location?: StringFieldUpdateOperationsInput | string
+    closingDate?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VacancyUncheckedUpdateManyInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    location?: StringFieldUpdateOperationsInput | string
+    closingDate?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
+    visibility?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -15338,6 +16524,36 @@ export namespace Prisma {
   export type NtsApplicationSumOrderByAggregateInput = {
     age?: SortOrder
     status?: SortOrder
+  }
+
+  export type VacancyCountOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+    location?: SortOrder
+    closingDate?: SortOrder
+    slug?: SortOrder
+    visibility?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VacancyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+    location?: SortOrder
+    closingDate?: SortOrder
+    slug?: SortOrder
+    visibility?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VacancyMinOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+    location?: SortOrder
+    closingDate?: SortOrder
+    slug?: SortOrder
+    visibility?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type MenuItemCreateNestedManyWithoutMenuInput = {
