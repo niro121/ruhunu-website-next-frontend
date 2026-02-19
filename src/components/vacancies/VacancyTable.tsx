@@ -18,9 +18,11 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
+  // Generate clean URL from role name
   const createLink = (role: string) =>
     `/vacancies/${role.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "")}`;
 
+  // Pagination
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentData = data.slice(startIndex, startIndex + itemsPerPage);
