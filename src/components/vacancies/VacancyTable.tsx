@@ -22,7 +22,7 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
   const createLink = (role: string) =>
     `/vacancies/${role.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "")}`;
 
-  // Pagination 
+  // Pagination
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentData = data.slice(startIndex, startIndex + itemsPerPage);
@@ -30,6 +30,9 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) setCurrentPage(page);
   };
+
+  {/* To make table disappear if no data*/}
+  if (!data || data.length === 0) return null;
 
   return (
     <div className="w-full flex flex-col items-center text-center">
@@ -48,12 +51,7 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
               {currentData.map((job, index) => {
                 const jobLink = createLink(job.role);
                 return (
-                  <tr
-                    key={index}
-                    className={`text-black ${
-                      index % 2 === 0 ? "bg-white" : "bg-[#F4F9FD]"
-                    }`}
-                  >
+                  <tr key={index} className={`text-black ${ index % 2 === 0 ? "bg-white" : "bg-[#F4F9FD]" }`}>
                     <td className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm">
                       <Link href={jobLink}>
                         <p className="transition-transform duration-200 hover:scale-105 font-medium hover:font-bold">
@@ -79,34 +77,18 @@ const VacancyTable: React.FC<VacancyTableProps> = ({ data }) => {
       </div>
 
       <div className="flex items-center justify-center gap-1 sm:gap-2 mb-8 text-sm sm:text-base">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="text-lg sm:text-xl px-2 disabled:opacity-40"
-        >
+        <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="text-lg sm:text-xl px-2 disabled:opacity-40">
           ‹
         </button>
 
         {/* Page Indicators */}
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <button
-            key={page}
-            onClick={() => handlePageChange(page)}
-            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-md text-white font-medium transition-all ${
-              currentPage === page
-                ? "bg-[#1DCE69]"
-                : "bg-[#122739] hover:bg-[#1DCE69]/80"
-            }`}
-          >
+          <button key={page} onClick={() => handlePageChange(page)} className={`w-6 h-6 sm:w-8 sm:h-8 rounded-md text-white font-medium transition-all ${ currentPage === page ? "bg-[#1DCE69]" : "bg-[#122739] hover:bg-[#1DCE69]/80" }`}>
             {page}
           </button>
         ))}
 
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="text-lg sm:text-xl px-2 disabled:opacity-40"
-        >
+        <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="text-lg sm:text-xl px-2 disabled:opacity-40">
           ›
         </button>
       </div>
