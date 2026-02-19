@@ -16,6 +16,7 @@ import NTSApplicationForm from "../nts/ntsapplicationform";
 import RmaSection from "../cms/laboratory-rhd";
 import VacancyTable from "../vacancies/VacancyTable";
 import VacancyTableWrapper from "../vacancies/VacancyTable-wrapper";
+import ConsultantSection from "../cms/our-consultants";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -114,9 +115,14 @@ export default function SectionRenderer({ section }: any) {
 
         case "NtsApplication":
             return <NTSApplicationForm />;
+            break;
 
         case "VacancyTable":
             return <VacancyTableWrapper/>
+            break;
+
+        case "Our Consultants":
+            return <ConsultantSection consultants={data}/>;
             break;
 
         default:
