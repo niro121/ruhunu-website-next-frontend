@@ -17,6 +17,8 @@ import RmaSection from "../cms/laboratory-rhd";
 import VacancyTable from "../vacancies/VacancyTable";
 import VacancyTableWrapper from "../vacancies/VacancyTable-wrapper";
 import ConsultantSection from "../cms/our-consultants";
+import LabVisionMissionValues from "../laboratory/labavisionmissionvalues";
+import RhdApplication from "../laboratory/rhdapplication";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -123,6 +125,14 @@ export default function SectionRenderer({ section }: any) {
 
         case "Our Consultants":
             return <ConsultantSection consultants={data}/>;
+            break;
+
+        case "LabVisionMission":
+            return <LabVisionMissionValues/>;
+            break;
+
+        case "LabRHDApplication":
+            return <RhdApplication/>;
             break;
 
         default:
