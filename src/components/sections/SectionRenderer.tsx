@@ -19,6 +19,7 @@ import VacancyTableWrapper from "../vacancies/VacancyTable-wrapper";
 import ConsultantSection from "../cms/our-consultants";
 import LabVisionMissionValues from "../laboratory/labavisionmissionvalues";
 import RhdApplication from "../laboratory/rhdapplication";
+import LabOptions from "../laboratory/laboptions";
 
 export default function SectionRenderer({ section }: any) {
     const { type, layout, data } = section;
@@ -133,6 +134,10 @@ export default function SectionRenderer({ section }: any) {
 
         case "LabRHDApplication":
             return <RhdApplication/>;
+            break;
+
+        case "LabOptions":
+            return <LabOptions/>;
             break;
 
         default:
