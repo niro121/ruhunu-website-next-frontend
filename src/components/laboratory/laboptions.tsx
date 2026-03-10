@@ -19,6 +19,7 @@ export default function LabOptions() {
           <CustomButton
             className="xl:w-[204.91px] xl:h-[54.10px] w-[168.70px] h-[45.60px] xl:text-[16px] font-bold"
             label="View OPD Lab"
+            href="/opd-lab"
           />
         </div>
 
@@ -38,7 +39,7 @@ export default function LabOptions() {
             borderColor="border border-[#18CE67]"
             hoverBgColor="hover:bg-[#18CE67]"
             hoverTextColor="hover:text-white"
-            onClick={() => alert("Appointment button clicked!")}
+            href="/lab-home"
           />
         </div>
       </div>
