@@ -5,6 +5,7 @@ interface CustomButtonProps {
   label: string;
   className?: string;
   type?: "button" | "submit" | "reset";
+  href?: string;
 }
 
 export default function CustomButton({

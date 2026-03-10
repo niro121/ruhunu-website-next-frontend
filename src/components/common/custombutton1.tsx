@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
 interface CustomButton1Props {
   label: string;
-  onClick?: () => void;
   width?: string;
   height?: string;
   textColor?: string;
@@ -12,11 +12,12 @@ interface CustomButton1Props {
   hoverTextColor?: string;
   fontSize?: string;
   className?: string;
+  href?: string;
 }
 
 const CustomButton1: React.FC<CustomButton1Props> = ({
   label,
-  onClick,
+  href,
   width = "xl:w-[230px]",
   height = "xl:h-[46.6px]",
   textColor = "text-[#18CE67]",
@@ -26,14 +27,15 @@ const CustomButton1: React.FC<CustomButton1Props> = ({
   fontSize = "xl:text-[16px] text-[14px]",
   className = "",
 }) => {
-  return (
-    <button
-      onClick={onClick}
-      className={`border ${borderColor} ${textColor} ${hoverBgColor} ${hoverTextColor} ${width} ${height} ${fontSize} font-semibold px-6 py-3 rounded-sm transition-all duration-300 ${className}`}
-    >
-      {label}
-    </button>
-  );
+  const baseStyles = `border ${borderColor} ${textColor} ${hoverBgColor} ${hoverTextColor} ${width} ${height} ${fontSize} font-semibold px-6 py-3 rounded-sm transition-all duration-300 ${className}`;
+
+  if (href) {
+    return (
+      <Link href={href} className={baseStyles}>
+        {label}
+      </Link>
+    );
+  }
 };
 
 export default CustomButton1;
